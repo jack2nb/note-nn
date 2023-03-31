@@ -1,0 +1,2159 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>工作文档</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="电脑工具.html"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li><li class="chapter-item expanded "><a href="网络/管理路由器.html"><strong aria-hidden="true">1.3.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="网络/管理主交换机.html"><strong aria-hidden="true">1.4.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="网络/交换机2锐捷.html"><strong aria-hidden="true">1.5.</strong> 交换机2锐捷</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="管理内部.html"><strong aria-hidden="true">2.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="管理外网.html"><strong aria-hidden="true">2.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="网络/监控主控.html"><strong aria-hidden="true">2.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="特殊设备.html"><strong aria-hidden="true">2.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><a href="网络/mac列表.html"><strong aria-hidden="true">3.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="网络/arp列表.html"><strong aria-hidden="true">4.</strong> arp列表</a></li><li class="chapter-item expanded "><a href="网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><a href="服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="服务器/数据库mssql.html"><strong aria-hidden="true">8.</strong> 数据库mssql备份</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="工作说明内部"><a class="header" href="#工作说明内部">工作说明（内部）</a></h1>
+<h2 id="整理网络结构"><a class="header" href="#整理网络结构">整理网络结构</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>接入</th><th>网段</th><th>网关</th><th>备注</th></tr></thead><tbody>
+<tr><td>苏小云（wifi）</td><td>192.168.10.1/24</td><td>192.168.6.1</td><td>TL-WDR5620 （一楼办公室可用）</td></tr>
+<tr><td>left2lou</td><td>192.168.1.1/24</td><td>192.168.0.1</td><td>TL-WDR5620 （楼会议室可用）</td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><a href="file:///D:/%E6%AC%A7%E7%90%A6/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84/%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C.htm">网络扫描报告</a></p>
+<h2 id="整理服务器"><a class="header" href="#整理服务器">整理服务器</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>名称</th><th>地址</th><th>管理账号</th><th>备注</th></tr></thead><tbody>
+<tr><td>企业路由器</td><td>10.0.0.1</td><td>admin</td><td><a href="http://10.0.0.1/">tp-link(tl-er6520g)</a><br /><strong>四核多WAN口千兆企业VPN路由器</strong></td></tr>
+<tr><td>企业核心交换机</td><td>10.0.0.2</td><td>admin</td><td><code>华为S3700-28TP</code> telnet管理</td></tr>
+<tr><td>OA</td><td>192.168.0.107</td><td></td><td>dell R740 dx（可公网访问） 8081</td></tr>
+<tr><td>k3ERP</td><td>192.168.0.45</td><td></td><td>dell R740  <br/>（建议文件共享移到他服务器）</td></tr>
+<tr><td>K3Cloud</td><td>192.168.0.252</td><td></td><td>端口8091</td></tr>
+<tr><td>瑞友虚拟桌面</td><td>192.168.0.99</td><td></td><td>塔式电脑   <a href="http://erp.ouqiyj.com:8005">远程k3</a></td></tr>
+<tr><td>新金蝶</td><td>192.168.0.252</td><td></td><td>dell R440</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="网络工具"><a class="header" href="#网络工具">网络工具</a></h1>
+<h2 id="网络拓扑"><a class="header" href="#网络拓扑">网络拓扑</a></h2>
+<h3 id="网络扫描zenmap"><a class="header" href="#网络扫描zenmap">网络扫描zenmap</a></h3>
+<p>(没有mac地址)（xml用ie打开或用xsltproc转换成html）</p>
+<pre><code class="language-cmd">nmap -O -T5 -F 192.168.254.1/24 --host-timeout 5000 
+
+
+nmap  -P0 -T5 -Pn -sV -n -v   -p 80,3389,445 --host-timeout 5000 
+</code></pre>
+<h4 id="导出html扫描结果"><a class="header" href="#导出html扫描结果">导出html扫描结果</a></h4>
+<pre><code class="language-cmd"> 
+
+cd /d D:\欧琦\网络结构\
+
+
+&quot;D:\欧琦\tools\xslt\bin\xsltproc.exe&quot;  -o &quot;D:\欧琦\网络结构\r1.htm&quot;  &quot;D:\欧琦\tools\nmap-bootstrap.xsl&quot; &quot;D:\欧琦\网络结构\202302100934 Ping scan on 192.168.6.1_24.xml&quot;
+ 
+
+</code></pre>
+<h3 id="快速网段扫描"><a class="header" href="#快速网段扫描">快速网段扫描</a></h3>
+<pre><code class="language-cmd">cd /d D:\欧琦\tools
+#单ip
+masscan64.exe  -p 1-65535  --rate=500    192.168.0.45
+#udp扫描（意义不大）
+masscan64.exe  -p U:1-61000 --rate=500    192.168.6.9 
+
+#单网段
+masscan64.exe  -p 80  192.168.1.0/24 --rate=500  
+
+#全网段
+masscan64.exe  -p80,22 192.168.0.0-192.168.255.255 --rate=500   
+
+#简单存活检查
+masscan64.exe  -p 139,445,22,23,80,8000   --rate=500    192.168.6.0-192.168.6.255
+
+#ping存活检查
+masscan64.exe  --ping --rate=500    192.168.6.0-192.168.6.255
+
+
+</code></pre>
+<h3 id="单机端口扫描"><a class="header" href="#单机端口扫描">单机端口扫描</a></h3>
+<pre><code class="language-cmd">cd /d D:\欧琦\tools
+masscan64.exe  -p 1-65535 --rate 200 --open-only  192.168.6.250
+
+
+
+
+
+</code></pre>
+<h4 id="整理出整个网段"><a class="header" href="#整理出整个网段">整理出整个网段</a></h4>
+<pre><code class="language-cmd">masscan   -p22,23,25,80,443,445,3389,8000,8080 192.168.0.0-192.168.255.255 --rate 500  -oG mas-port-grep.txt
+awk '/Host/ {print $4}' mas-port-grep.txt | sort -u  &gt; live-port.txt  # 转换成ip列表++++
+
+masscan    --ping --rate=100 192.168.0.0-192.168.255.255   -oG mas-ping-grep.txt
+awk '/Host/ {print $4}' mas-ping-grep.txt | sort -u  &gt; live-ping.txt  # 转换成ip列表++++
+
+
+cat live-port.txt  live-ping.txt &gt; live-port-ping.txt
+sort live-port-ping.txt | uniq &gt; live-host.txt
+
+</code></pre>
+<h2 id="拓扑结构"><a class="header" href="#拓扑结构">拓扑结构</a></h2>
+<h4 id="路由跟踪"><a class="header" href="#路由跟踪">路由跟踪</a></h4>
+<pre><code class="language-cmd">tracert -d  8.8.8.8     
+
+tracert -d  10.0.01
+</code></pre>
+<h4 id="网络wifi苏小云-19216810124"><a class="header" href="#网络wifi苏小云-19216810124">网络wifi（苏小云 ）192.168.10.1/24</a></h4>
+<p>本机ip  192.168.10.106</p>
+<pre><code class="language-cmd">tracert -d  112.16.172.14
+
+通过最多 30 个跃点跟踪到 112.16.172.14 的路由
+
+  1     2 ms     2 ms     1 ms  192.168.10.1
+  2    12 ms    11 ms    17 ms  192.168.6.1
+  3     6 ms     7 ms     5 ms  112.16.172.14
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="电脑工具"><a class="header" href="#电脑工具">电脑工具</a></h1>
+<h3 id="通过curl上报电脑信息shell脚本"><a class="header" href="#通过curl上报电脑信息shell脚本">通过curl上报电脑信息(shell脚本)</a></h3>
+<pre><code class="language-cmd">
+net config workstation | find &quot;计算机全名&quot;  | curl -X POST http://httpbin.org/post  -d @-
+
+</code></pre>
+<h3 id="win10安装snmp"><a class="header" href="#win10安装snmp">win10安装snmp</a></h3>
+<pre><code>管理员打开 PowerShell 
+
+Add-WindowsCapability -Online -Name &quot;SNMP.Client~~~~0.0.1.0&quot;
+
+Add-WindowsCapability -Online -Name &quot;WMI-SNMP-Provider.Client~~~~0.0.1.0&quot;
+
+
+</code></pre>
+<p>win7</p>
+<pre><code>dism /online /enable-feature /featurename:SNMP   #//安装snmp
+
+</code></pre>
+<h3 id="修复win10系文件"><a class="header" href="#修复win10系文件">修复win10系文件</a></h3>
+<p>扫描和修复系统文件</p>
+<pre><code>Dism /Online /Cleanup-Image /ScanHealth （扫描全部系统文件并与官方系统文件对比）
+Dism /Online /Cleanup-Image /CheckHealth
+DISM /Online /Cleanup-image /RestoreHealth （将与官方系统源文件不同的进行还原）
+</code></pre>
+<p>系统文件保护</p>
+<pre><code>sfc /scannow   #//-- 扫描丢失的文件
+</code></pre>
+<p>重装win10 默认app</p>
+<pre><code>
+Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register        &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}
+</code></pre>
+<h2 id="命令行共享文件"><a class="header" href="#命令行共享文件">命令行共享文件</a></h2>
+<h3 id="查看本地共享"><a class="header" href="#查看本地共享">查看本地共享</a></h3>
+<pre><code>net view \\127.0.0.1
+</code></pre>
+<h3 id="查看当前的连接"><a class="header" href="#查看当前的连接">查看当前的连接</a></h3>
+<pre><code>net use 
+
+net use * /delete
+</code></pre>
+<h4 id="快速共享文件"><a class="header" href="#快速共享文件">快速共享文件</a></h4>
+<p>格式</p>
+<pre><code class="language-cmd">net share &lt;name&gt;=&lt;device name&gt; [/users=&lt;number&gt; or /unlimited] [/remark:&quot;text&quot;]
+</code></pre>
+<p>例子</p>
+<pre><code class="language-cmd">mkdir d:\tmpShare
+
+net share &quot;临时 共享&quot;=&quot;d:\tmpShare&quot; /grant:everyone,FULL /users:5 /remark:&quot;测试&quot;
+
+net share print=&quot;print&quot;  /grant:everyone,FULL /users:5 /remark:&quot;测试&quot;
+
+</code></pre>
+<h4 id="打印机访问"><a class="header" href="#打印机访问">打印机访问</a></h4>
+<p>本地账户的共享  - 仅来宾</p>
+<p>gpedit.msc 下设置：</p>
+<p>计算机配置/windows设置/安全设置/本地策略/安全选项/网络访问:本地账户的共享==仅来宾</p>
+<p>计算机配置/windows设置/安全设置/本地策略/安全选项/账户:来宾账户状态==启用</p>
+<p>计算机配置/windows设置/安全设置/本地策略/安全选项/账户:使用空密码==禁用</p>
+<p><a href="https://haodiyw.com/i/147036.html">参考</a></p>
+<p>策略设置强制更新</p>
+<pre><code>gpupdate /force
+
+</code></pre>
+<p>还要重启打印服务,在管理员cmd下执行</p>
+<pre><code>net stop &quot;Print Spooler&quot;
+net start &quot;Print Spooler&quot;
+</code></pre>
+<p>重新关闭共享（控制面板\所有控制面板项\网络和共享中心\高级共享设置）再开启 </p>
+<p>[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print]</p>
+<p>分支在其下新建32位DWORD值RpcAuthnLevelPrivacyEnabled 赋值为0即可</p>
+<p>重启计算机</p>
+<p>用ip无法访问用主机名可以 建议关闭防火墙 </p>
+<h2 id="常用软件"><a class="header" href="#常用软件">常用软件</a></h2>
+<h4 id="杀毒软件"><a class="header" href="#杀毒软件">杀毒软件</a></h4>
+<p>推荐使用 火绒</p>
+<h4 id="浏览器"><a class="header" href="#浏览器">浏览器</a></h4>
+<p>win7 使用chrom 109版本</p>
+<p>win10 使用chrome 最新版</p>
+<h4 id="pdf-查看工具"><a class="header" href="#pdf-查看工具">pdf 查看工具</a></h4>
+<p>极速pdf</p>
+<h4 id="pdf虚拟打印"><a class="header" href="#pdf虚拟打印">pdf虚拟打印</a></h4>
+<p>wps 打印 to pdf</p>
+<p>金山打印 to pdf</p>
+<h4 id="办公电脑配置"><a class="header" href="#办公电脑配置">办公电脑配置</a></h4>
+<p>英特尔</p>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>intel 酷睿i3-12100 4核8线程</td><td>900</td></tr>
+<tr><td>散热器</td><td>intel原装散热器</td><td>0</td></tr>
+<tr><td>主板</td><td>华硕  TUF GAMING B460M-PRO</td><td>769</td></tr>
+<tr><td>内存</td><td>金士顿骇客8G 3200 DDR4</td><td>319</td></tr>
+<tr><td>显卡</td><td>集成显卡</td><td>0</td></tr>
+<tr><td>存储</td><td>金士顿A400 240G 固态硬盘</td><td>249</td></tr>
+<tr><td>机箱</td><td>鑫谷图灵N5</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷战斧500 PLUS</td><td>219</td></tr>
+<tr><td>合计</td><td>办公常用高效</td><td>2784</td></tr>
+</tbody></table>
+</div>
+<p>amd方案</p>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>AMD 锐龙5 5600G 6核12线程</td><td>900</td></tr>
+<tr><td>散热器</td><td>鑫谷（Segotep）S4 ARGB风冷</td><td>139</td></tr>
+<tr><td>主板</td><td>华硕（ASUS） TUF GAMING</td><td>799</td></tr>
+<tr><td>内存</td><td>金士顿骇客8G*2 3200 DDR4</td><td>319</td></tr>
+<tr><td>显卡</td><td>集成显卡</td><td>0</td></tr>
+<tr><td>存储</td><td>金士顿A400 240G 固态硬盘</td><td>249</td></tr>
+<tr><td>机箱</td><td>鑫谷图灵N5</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷战斧500 PLUS</td><td>219</td></tr>
+<tr><td>合计</td><td>高性能高稳定通用</td><td>3053</td></tr>
+</tbody></table>
+</div>
+<p>ok</p>
+<h3 id="数据库"><a class="header" href="#数据库">数据库</a></h3>
+<p>中间层错误重启45上的服务 SQL Server (MSSQLSERVER)  重启即可</p>
+<h2 id="服务器虚拟化"><a class="header" href="#服务器虚拟化">服务器虚拟化</a></h2>
+<p>删除微软的虚拟化power shell下执行</p>
+<pre><code>UnInstall-WindowsFeature -Name Hyper-V -Restart
+</code></pre>
+<h2 id="服务器内存"><a class="header" href="#服务器内存">服务器内存</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>服务器</th><th>内存型号</th><th>价格</th><th>备注</th></tr></thead><tbody>
+<tr><td>252</td><td><strong>三星M393A4G43AB3-CWE 32G DDR4 3200 RECC</strong></td><td>￥550</td><td><a href="https://memory.net/product/m393a4g43ab3-cwe-samsung-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x8-module/">参考</a></td></tr>
+<tr><td>107</td><td><strong>海力士HMAA8GR7AJR4N-XN, SK Hynix 64GB 2RX4</strong></td><td>￥1200</td><td><a href="https://memory.net/product/hmaa8gr7ajr4n-xn-sk-hynix-1x-64gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
+<tr><td>45</td><td><strong>海力士HMA84GR7DJR4N-XN - SK Hynix 1x 32GB DDR4-3200</strong></td><td>￥550</td><td><a href="https://memory.net/product/hma84gr7djr4n-xn-sk-hynix-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
+</tbody></table>
+</div>
+<h3 id="虚拟打印"><a class="header" href="#虚拟打印">虚拟打印</a></h3>
+<hr />
+<p>文件转pdf，pdf转换图片，全能虚拟打印机 ，pdf打印机 。支持win7 到 win11 购买后永久免费。不存在破解盗版问题。下单后自动化发货。</p>
+<p>==</p>
+<p>下面发的内容是你购买的订单号： 3194204727779019230 的全部内容哦~</p>
+<h2>虚拟打印机Doro PDF中文版h2.16
+蓝奏云地址https://wwd.lanzoul.com/idO520e6uz9a 密码:1234</h2>
+<h2 id="微云地址httpsshareweiyuncommuvsjcf0-密码123456"><a class="header" href="#微云地址httpsshareweiyuncommuvsjcf0-密码123456">微云地址https://share.weiyun.com/MuVSjcf0 密码：123456</a></h2>
+<h2 id="百度网盘地址httpspanbaiducoms19ojjjlyhm7mulqpejaxv_g-提取码1234"><a class="header" href="#百度网盘地址httpspanbaiducoms19ojjjlyhm7mulqpejaxv_g-提取码1234">百度网盘地址https://pan.baidu.com/s/19OJjjlyHm7mUlqPEJAxV_g 提取码：1234</a></h2>
+<p>以上地址内容是一样的，任选一个地址即可。地址有效期30天，请尽快下到电脑使用。
+不会下载？请看宝贝描述有介绍下载步骤哦。
+十字五星好评，在1年内找不到了免费发送1次服务！
+祝你每天都有好心情哦~</p>
+<p>==</p>
+<hr />
+<p>==
+亲，久等了，请使用摆渡网盤自行下载分享文件
+你的订单号是3193685929340019230</p>
+<p>.链.接：https://pan.baidu.com/s/1CktEwK2SntFD_TzGvwFW4A 
+.提.取.马：w840</p>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h2 id="管理企业路由器"><a class="header" href="#管理企业路由器">管理企业路由器</a></h2>
+<p>web-&gt;安全管理-arp防御</p>
+<p>C类内部配置ip 192.168.5.1</p>
+<p>A类地址 10.0.0.1</p>
+<p>公网ip 112.16.172.14</p>
+<p>系统工具-》浏览统计</p>
+<p>记得保存配置（在web界面上）</p>
+<h3 id="端口映射"><a class="header" href="#端口映射">端口映射</a></h3>
+<p><img src="%E7%BD%91%E7%BB%9C/../imgs/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84.png" alt="" /></p>
+<h3 id="端口映射-1"><a class="header" href="#端口映射-1">端口映射</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>选择</th><th>序号</th><th>服务名称</th><th>接口</th><th>服务协议</th><th>外部端口</th><th>内部端口</th><th>内部服务器IP</th><th>状态</th></tr></thead><tbody>
+<tr><td></td><td>1</td><td>瑞友8800</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8890</td><td>8890</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>2</td><td>瑞友</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8005</td><td>8005</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>3</td><td>瑞友5872</td><td>wan1_eth1</td><td>TCP/UDP</td><td>5872</td><td>5872</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>4</td><td>考勤107</td><td>wan1_eth1</td><td>TCP/UDP</td><td>5699</td><td>1433</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>5</td><td>OA服务器web</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8081</td><td>8080</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>6</td><td>OA服务器分销1</td><td>wan1_eth1</td><td>TCP/UDP</td><td>6868</td><td>9898</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>7</td><td>OA服务器分销2</td><td>wan1_eth1</td><td>TCP/UDP</td><td>6869</td><td>9899</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>8</td><td>远程</td><td>wan1_eth1</td><td>TCP/UDP</td><td>3389</td><td>3389</td><td>192.168.0.107</td><td>已禁用</td></tr>
+<tr><td></td><td>9</td><td>web2</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8089</td><td>8089</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>10</td><td>JK1</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7666</td><td>80</td><td>192.168.17.249</td><td>已启用</td></tr>
+<tr><td></td><td>11</td><td>jk002</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8000</td><td>80</td><td>192.168.17.150</td><td>已启用</td></tr>
+<tr><td></td><td>12</td><td>远程桌面</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8999</td><td>3389</td><td>192.168.0.252</td><td>已禁用</td></tr>
+<tr><td></td><td>13</td><td>瑞友5873</td><td>wan1_eth1</td><td>TCP/UDP</td><td>15872</td><td>15872</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>14</td><td>瑞友25872</td><td>wan1_eth1</td><td>TCP/UDP</td><td>25872</td><td>15872</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>15</td><td>mstsc</td><td>wan1_eth1</td><td>TCP/UDP</td><td>13389</td><td>3389</td><td>192.168.0.121</td><td>已启用</td></tr>
+<tr><td></td><td>16</td><td>K3Cloud</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8091</td><td>8091</td><td>192.168.0.252</td><td>已启用</td></tr>
+<tr><td></td><td>17</td><td>7000</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7000</td><td>7000</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>18</td><td>7100</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7100</td><td>7100</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>19</td><td>7200</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7200</td><td>7200</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>20</td><td>webmir</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8090</td><td>80</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>21</td><td>45</td><td>wan1_eth1</td><td>TCP/UDP</td><td>5999</td><td>3389</td><td>192.168.0.45</td><td>已禁用</td></tr>
+<tr><td></td><td>22</td><td>99</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7999</td><td>3389</td><td>192.168.0.99</td><td>已禁用</td></tr>
+</tbody></table>
+</div>
+<h5 id="arp列表"><a class="header" href="#arp列表">ARP列表</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>选择</th><th>序号</th><th>IP地址</th><th>MAC地址</th><th>接口</th><th>状态</th></tr></thead><tbody>
+<tr><td></td><td>1</td><td>10.0.0.2</td><td>80-FB-06-C9-6D-B9</td><td>eth0</td><td>已生效</td></tr>
+<tr><td></td><td>2</td><td>112.16.172.1</td><td>A0-F3-E4-98-20-D3</td><td>wan1_eth1</td><td>未绑定</td></tr>
+<tr><td></td><td>3</td><td>112.16.172.28</td><td>A0-F3-E4-98-20-D3</td><td>wan1_eth1</td><td>未绑定</td></tr>
+<tr><td></td><td>4</td><td>112.16.172.118</td><td>A0-F3-E4-98-20-D3</td><td>wan1_eth1</td><td>未绑定</td></tr>
+<tr><td></td><td>5</td><td>192.168.5.21</td><td>F4-6D-2F-19-83-F8</td><td>dmz_eth1</td><td>未绑定</td></tr>
+</tbody></table>
+</div>
+<h5 id="arp-绑定表"><a class="header" href="#arp-绑定表">arp 绑定表</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>IP地址</th><th>MAC地址</th><th>出接口</th><th>备注</th><th>状态</th></tr></thead><tbody>
+<tr><td>1</td><td>192.168.0.2</td><td>38-83-45-F3-A9-CD</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>2</td><td>192.168.0.7</td><td>00-1D-0F-99-F5-AD</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>3</td><td>192.168.0.12</td><td>E0-05-C5-54-A7-75</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>4</td><td>192.168.0.14</td><td>14-E6-E4-87-F5-E1</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>5</td><td>192.168.0.17</td><td>EC-88-8F-D6-AF-4F</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>6</td><td>192.168.0.18</td><td>00-23-CD-70-E5-0B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>7</td><td>192.168.0.22</td><td>00-30-18-AD-06-B9</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>8</td><td>192.168.0.26</td><td>90-94-E4-AD-3D-83</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>9</td><td>192.168.0.85</td><td>00-E0-4C-36-04-AD</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>10</td><td>192.168.0.39</td><td>00-30-67-1A-84-47</td><td>eth0</td><td>厉国勇</td><td>已启用</td></tr>
+<tr><td>11</td><td>192.168.0.92</td><td>54-04-A6-A0-24-16</td><td>eth0</td><td>彭敏芳</td><td>已启用</td></tr>
+<tr><td>12</td><td>192.168.0.121</td><td>00-24-8C-E8-AF-88</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>13</td><td>192.168.0.51</td><td>14-DA-E9-F0-07-E3</td><td>eth0</td><td>陈挺</td><td>已启用</td></tr>
+<tr><td>14</td><td>192.168.0.53</td><td>00-23-54-D6-45-18</td><td>eth0</td><td>采购部</td><td>已启用</td></tr>
+<tr><td>15</td><td>192.168.0.54</td><td>14-CF-92-E3-78-0B</td><td>eth0</td><td>陈红波</td><td>已启用</td></tr>
+<tr><td>16</td><td>192.168.0.57</td><td>BC-AE-C5-6F-ED-FB</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>17</td><td>192.168.0.61</td><td>BC-5F-F4-93-A6-6D</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>18</td><td>192.168.0.62</td><td>00-1F-C6-03-1F-1A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>19</td><td>192.168.0.63</td><td>00-22-15-C4-C2-39</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>20</td><td>192.168.0.65</td><td>00-E0-4D-7E-5F-62</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>21</td><td>192.168.0.67</td><td>90-E6-BA-DF-8E-96</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>22</td><td>192.168.0.68</td><td>E0-CB-4E-EA-4B-C8</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>23</td><td>192.168.0.69</td><td>90-2B-34-2A-5C-2D</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>24</td><td>192.168.0.70</td><td>20-CF-30-80-B5-09</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>25</td><td>192.168.0.232</td><td>E0-3F-49-A4-C6-CF</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>26</td><td>192.168.0.76</td><td>BC-AE-C5-AD-F5-DF</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>27</td><td>192.168.0.79</td><td>00-24-8C-BB-04-61</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>28</td><td>192.168.0.84</td><td>90-2B-34-9E-55-3D</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>29</td><td>192.168.0.86</td><td>48-5B-39-53-DF-6B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>30</td><td>192.168.0.89</td><td>00-30-18-AD-8B-B4</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>31</td><td>192.168.0.90</td><td>00-30-18-AC-F9-5C</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>32</td><td>192.168.0.93</td><td>00-30-18-AD-8B-B6</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>33</td><td>192.168.0.94</td><td>00-30-18-AC-F8-6A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>34</td><td>192.168.0.95</td><td>00-30-18-AC-F7-FA</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>35</td><td>192.168.0.96</td><td>74-D4-35-6C-8A-6B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>36</td><td>192.168.0.99</td><td>90-E6-BA-94-D3-93</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>37</td><td>192.168.0.102</td><td>00-1F-D0-C3-CE-83</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>38</td><td>192.168.0.104</td><td>00-24-1D-07-20-0C</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>39</td><td>192.168.0.105</td><td>00-24-1D-07-EF-ED</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>40</td><td>192.168.0.106</td><td>74-EA-3A-6B-D4-4A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>41</td><td>192.168.0.107</td><td>00-1A-64-B2-60-D0</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>42</td><td>192.168.0.110</td><td>00-22-4D-4B-9B-96</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>43</td><td>192.168.0.112</td><td>14-CF-92-E3-63-AE</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>44</td><td>192.168.0.113</td><td>BC-AE-C5-AD-0C-84</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>45</td><td>192.168.0.114</td><td>90-E6-BA-9A-A3-87</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>46</td><td>192.168.0.115</td><td>90-E6-BA-9A-A3-FA</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>47</td><td>192.168.0.116</td><td>00-E0-4C-36-24-32</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>48</td><td>192.168.0.120</td><td>14-DA-E9-43-F1-09</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>49</td><td>192.168.0.122</td><td>54-04-A6-A0-23-3F</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>50</td><td>192.168.0.123</td><td>00-26-18-C9-7A-5C</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>51</td><td>192.168.0.56</td><td>5C-63-BF-88-CE-7B</td><td>eth0</td><td>翁瑞挺</td><td>已启用</td></tr>
+<tr><td>52</td><td>192.168.0.126</td><td>90-2B-34-E2-EF-BF</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>53</td><td>192.168.0.128</td><td>C8-60-00-DE-3C-78</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>54</td><td>192.168.0.130</td><td>C8-3A-35-3C-FA-08</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>55</td><td>192.168.0.131</td><td>B8-AC-6F-5B-31-02</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>56</td><td>192.168.0.139</td><td>94-DE-80-4F-73-50</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>57</td><td>192.168.0.140</td><td>00-1F-16-29-D2-36</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>58</td><td>192.168.0.144</td><td>40-16-7E-23-51-CA</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>59</td><td>192.168.0.154</td><td>00-E0-4D-2D-10-E5</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>60</td><td>192.168.0.156</td><td>F4-6D-04-3D-DD-50</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>61</td><td>192.168.0.162</td><td>6C-F0-49-AF-0D-0E</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>62</td><td>192.168.0.163</td><td>00-19-21-35-91-38</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>63</td><td>192.168.0.164</td><td>00-E0-4D-49-72-72</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>64</td><td>192.168.0.169</td><td>00-1F-C6-03-1F-09</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>65</td><td>192.168.0.170</td><td>00-1E-8C-B1-62-BE</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>66</td><td>192.168.0.171</td><td>00-E0-4C-02-47-F5</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>67</td><td>192.168.0.172</td><td>BC-5F-F4-93-F6-1A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>68</td><td>192.168.0.173</td><td>00-E0-4C-16-61-31</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>69</td><td>192.168.0.175</td><td>BC-5F-F4-93-F6-26</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>70</td><td>192.168.0.179</td><td>BC-5F-F4-93-F6-2B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>71</td><td>192.168.0.180</td><td>08-60-6E-C2-55-D3</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>72</td><td>192.168.0.181</td><td>08-60-6E-C2-57-5E</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>73</td><td>192.168.0.182</td><td>08-60-6E-C2-57-3B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>74</td><td>192.168.0.185</td><td>BC-5F-F4-95-11-27</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>75</td><td>192.168.0.192</td><td>94-DE-80-A7-9D-4B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>76</td><td>192.168.0.193</td><td>00-E0-66-97-66-DC</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>77</td><td>192.168.0.194</td><td>74-D4-35-21-C6-25</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>78</td><td>192.168.0.251</td><td>00-12-12-10-51-E0</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>79</td><td>192.168.0.158</td><td>00-1F-C6-4E-B0-B0</td><td>eth0</td><td>历青</td><td>已启用</td></tr>
+<tr><td>80</td><td>192.168.0.41</td><td>AC-16-2D-0F-B8-0B</td><td>eth0</td><td>1楼测私房南</td><td>已启用</td></tr>
+<tr><td>81</td><td>192.168.0.32</td><td>5C-FF-35-04-8C-7F</td><td>eth0</td><td>吸塑车间笔记本</td><td>已启用</td></tr>
+<tr><td>82</td><td>192.168.0.31</td><td>00-E0-66-0B-54-FD</td><td>eth0</td><td>吸塑厂台机</td><td>已启用</td></tr>
+<tr><td>83</td><td>192.168.0.35</td><td>D4-C9-EF-80-57-2D</td><td>eth0</td><td>伊莱克斯</td><td>已启用</td></tr>
+<tr><td>84</td><td>192.168.0.34</td><td>00-26-22-B5-29-81</td><td>eth0</td><td>新飞oem</td><td>已启用</td></tr>
+<tr><td>85</td><td>192.168.0.33</td><td>A8-15-4D-D1-19-C1</td><td>eth0</td><td>原采购部出租路由</td><td>已启用</td></tr>
+<tr><td>86</td><td>192.168.0.36</td><td>14-CF-92-E3-78-8B</td><td>eth0</td><td>老板娘</td><td>已启用</td></tr>
+<tr><td>87</td><td>192.168.0.37</td><td>C8-2A-14-35-39-2E</td><td>eth0</td><td>包建宏</td><td>已启用</td></tr>
+<tr><td>88</td><td>192.168.0.52</td><td>00-1F-D0-C3-84-03</td><td>eth0</td><td>虞自力</td><td>已启用</td></tr>
+<tr><td>89</td><td>192.168.0.81</td><td>00-E0-4C-EE-80-3B</td><td>eth0</td><td>gy3</td><td>已启用</td></tr>
+<tr><td>90</td><td>192.168.0.97</td><td>00-1D-92-21-83-18</td><td>eth0</td><td>工艺</td><td>已启用</td></tr>
+<tr><td>91</td><td>192.168.0.98</td><td>00-E0-4D-1C-F9-65</td><td>eth0</td><td>设备科</td><td>已启用</td></tr>
+<tr><td>92</td><td>192.168.0.133</td><td>10-BF-48-7A-F0-01</td><td>eth0</td><td>finance1</td><td>已启用</td></tr>
+<tr><td>93</td><td>192.168.0.143</td><td>00-16-96-05-A6-6C</td><td>eth0</td><td>柴晓霞</td><td>已启用</td></tr>
+<tr><td>94</td><td>192.168.0.38</td><td>00-13-8F-EA-CE-DF</td><td>eth0</td><td>司机</td><td>已启用</td></tr>
+<tr><td>95</td><td>192.168.0.55</td><td>3C-97-0E-8D-36-A9</td><td>eth0</td><td>李红英</td><td>已启用</td></tr>
+<tr><td>96</td><td>192.168.0.124</td><td>D8-5D-4C-70-B6-4F</td><td>eth0</td><td>陈萍</td><td>已启用</td></tr>
+<tr><td>97</td><td>192.168.0.91</td><td>00-24-8C-E8-AF-82</td><td>eth0</td><td>陈备庆</td><td>已启用</td></tr>
+<tr><td>98</td><td>192.168.0.119</td><td>00-01-2E-37-7C-C5</td><td>eth0</td><td>陈双露</td><td>已启用</td></tr>
+<tr><td>99</td><td>192.168.0.77</td><td>00-30-18-AC-F8-F1</td><td>eth0</td><td>童旭文</td><td>已启用</td></tr>
+<tr><td>100</td><td>192.168.0.141</td><td>00-15-58-EA-05-51</td><td>eth0</td><td>叶戎亚</td><td>已启用</td></tr>
+<tr><td>101</td><td>192.168.0.40</td><td>28-2C-B2-CA-D5-ED</td><td>eth0</td><td>艾丽格</td><td>已启用</td></tr>
+<tr><td>102</td><td>192.168.0.4</td><td>00-14-78-63-E8-A5</td><td>eth0</td><td>4148</td><td>已启用</td></tr>
+<tr><td>103</td><td>192.168.0.117</td><td>F4-6D-04-93-DB-ED</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>104</td><td>192.168.0.101</td><td>00-1F-D0-C3-CE-A2</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>105</td><td>192.168.0.195</td><td>74-27-EA-E8-FE-F9</td><td>eth0</td><td>财务开票</td><td>已启用</td></tr>
+<tr><td>106</td><td>192.168.0.153</td><td>00-16-96-07-C0-EB</td><td>eth0</td><td>财务</td><td>已启用</td></tr>
+<tr><td>107</td><td>192.168.0.21</td><td>D8-42-AC-8B-F4-62</td><td>eth0</td><td>售后无线</td><td>已启用</td></tr>
+<tr><td>108</td><td>192.168.0.88</td><td>00-1D-7D-46-F5-04</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>109</td><td>192.168.0.129</td><td>D8-50-E6-51-63-D3</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>110</td><td>192.168.0.60</td><td>00-26-18-4A-8F-9F</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>111</td><td>192.168.0.196</td><td>00-E0-4C-7D-00-11</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>112</td><td>192.168.0.138</td><td>C0-3F-D5-07-32-84</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>113</td><td>192.168.0.161</td><td>44-33-4C-4F-69-04</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>114</td><td>192.168.0.236</td><td>D8-15-0D-E4-EF-C7</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>115</td><td>192.168.0.74</td><td>74-D4-35-6C-A0-3B</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>116</td><td>192.168.0.231</td><td>BC-AE-C5-13-BA-DD</td><td>eth0</td><td>oem</td><td>已启用</td></tr>
+<tr><td>117</td><td>192.168.0.3</td><td>E0-05-C5-C3-D7-4F</td><td>eth0</td><td>4148</td><td>已启用</td></tr>
+<tr><td>118</td><td>192.168.0.11</td><td>00-21-27-B0-B4-4B</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>119</td><td>192.168.0.45</td><td>40-F2-E9-D2-66-C8</td><td>eth0</td><td>k3</td><td>已启用</td></tr>
+<tr><td>120</td><td>192.168.0.100</td><td>00-E0-4C-EE-84-2D</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>121</td><td>192.168.0.241</td><td>8C-E7-48-0F-E0-12</td><td>eth0</td><td>241</td><td>已启用</td></tr>
+<tr><td>122</td><td>192.168.0.242</td><td>00-40-48-3A-C2-94</td><td>eth0</td><td>242</td><td>已启用</td></tr>
+<tr><td>123</td><td>192.168.0.243</td><td>00-40-48-37-EC-E8</td><td>eth0</td><td>243</td><td>已启用</td></tr>
+<tr><td>124</td><td>192.168.0.244</td><td>00-0C-41-4E-01-62</td><td>eth0</td><td>244</td><td>已启用</td></tr>
+<tr><td>125</td><td>192.168.0.245</td><td>8C-E7-48-6A-54-EE</td><td>eth0</td><td>245</td><td>已启用</td></tr>
+<tr><td>126</td><td>192.168.0.246</td><td>8C-E7-48-6A-52-90</td><td>eth0</td><td>246</td><td>已启用</td></tr>
+<tr><td>127</td><td>192.168.0.247</td><td>8C-E7-48-6A-54-05</td><td>eth0</td><td>247</td><td>已启用</td></tr>
+<tr><td>128</td><td>192.168.0.248</td><td>8C-E7-48-6A-54-FD</td><td>eth0</td><td>248</td><td>已启用</td></tr>
+<tr><td>129</td><td>192.168.0.249</td><td>00-40-48-3E-AF-2E</td><td>eth0</td><td>249</td><td>已启用</td></tr>
+<tr><td>130</td><td>192.168.0.252</td><td>8C-E7-48-6E-BF-80</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>131</td><td>192.168.0.64</td><td>00-1F-C6-4E-AF-6F</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>132</td><td>192.168.0.10</td><td>EC-17-2F-9D-64-9B</td><td>eth0</td><td>5110</td><td>已启用</td></tr>
+<tr><td>133</td><td>192.168.5.20</td><td>D0-76-E7-ED-46-67</td><td>eth0</td><td>3LOU</td><td>已启用</td></tr>
+<tr><td>134</td><td>10.0.0.2</td><td>80-FB-06-C9-6D-B9</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>135</td><td>192.168.5.20</td><td>D0-76-E7-ED-46-68</td><td>dmz_eth1</td><td>import</td><td>已启用</td></tr>
+</tbody></table>
+</div>
+<h3 id="访问策略-"><a class="header" href="#访问策略-">访问策略-</a></h3>
+<h4 id="url规则列表"><a class="header" href="#url规则列表">url规则列表</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>名称</th><th>受控地址</th><th>URL地址/关键字</th><th>过滤方式</th><th>设置</th></tr></thead><tbody>
+<tr><td>1</td><td>taobao</td><td>阿里旺旺阻止</td><td>taobao</td><td>关键字</td><td></td></tr>
+<tr><td>2</td><td>天猫</td><td>阿里旺旺阻止</td><td>tmall</td><td>关键字</td><td></td></tr>
+<tr><td>3</td><td>京东</td><td>阿里旺旺阻止</td><td>360buy</td><td>关键字</td><td></td></tr>
+<tr><td>4</td><td>当当</td><td>阿里旺旺阻止</td><td>dangdang</td><td>关键字</td><td></td></tr>
+<tr><td>5</td><td>拍拍</td><td>阿里旺旺阻止</td><td>paipai</td><td>关键字</td><td></td></tr>
+<tr><td>6</td><td>乐淘</td><td>阿里旺旺阻止</td><td>retao</td><td>关键字</td><td></td></tr>
+<tr><td>7</td><td>苏宁</td><td>阿里旺旺阻止</td><td>suning</td><td>关键字</td><td></td></tr>
+<tr><td>8</td><td>国美</td><td>阿里旺旺阻止</td><td>gome</td><td>关键字</td><td></td></tr>
+<tr><td>9</td><td>易迅</td><td>阿里旺旺阻止</td><td>51buy</td><td>关键字</td><td></td></tr>
+<tr><td>10</td><td>阿里巴巴</td><td>阿里旺旺阻止</td><td>alibaba</td><td>关键字</td><td></td></tr>
+<tr><td>11</td><td>财付通</td><td>阿里旺旺阻止</td><td>tenpay</td><td>关键字</td><td></td></tr>
+<tr><td>12</td><td>银联支付</td><td>阿里旺旺阻止</td><td>chinapay</td><td>关键字</td><td></td></tr>
+<tr><td>13</td><td>快钱</td><td>阿里旺旺阻止</td><td>99bill</td><td>关键字</td><td></td></tr>
+<tr><td>14</td><td>YOUKU</td><td>金融游戏视频音乐代理P2P</td><td>YOUKU</td><td>关键字</td><td></td></tr>
+<tr><td>15</td><td>iqiyi</td><td>金融游戏视频音乐代理P2P</td><td>iqiyi</td><td>关键字</td><td></td></tr>
+<tr><td>16</td><td>letv</td><td>金融游戏视频音乐代理P2P</td><td>letv</td><td>关键字</td><td></td></tr>
+<tr><td>17</td><td>game</td><td>金融游戏视频音乐代理P2P</td><td>game</td><td>关键字</td><td></td></tr>
+<tr><td>18</td><td>qq视频</td><td>金融游戏视频音乐代理P2P</td><td>v.qq.com</td><td>完整URL</td><td></td></tr>
+<tr><td>19</td><td>kankan</td><td>金融游戏视频音乐代理P2P</td><td>vod.kankan.com</td><td>完整URL</td><td></td></tr>
+<tr><td>20</td><td>暴风音影</td><td>金融游戏视频音乐代理P2P</td><td>baofeng</td><td>关键字</td><td></td></tr>
+<tr><td>21</td><td>风行网</td><td>金融游戏视频音乐代理P2P</td><td>funshion</td><td>关键字</td><td></td></tr>
+<tr><td>22</td><td>芒果TV</td><td>金融游戏视频音乐代理P2P</td><td>imgo</td><td>关键字</td><td></td></tr>
+<tr><td>23</td><td>芒果TV1</td><td>金融游戏视频音乐代理P2P</td><td>hunantv</td><td>关键字</td><td></td></tr>
+<tr><td>24</td><td>土豆</td><td>金融游戏视频音乐代理P2P</td><td>tudou.com</td><td>关键字</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="内网访问规则"><a class="header" href="#内网访问规则">内网访问规则</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>名称</th><th>策略类型</th><th>服务类型</th><th>生效区段</th><th>源地址范围</th><th>目的地址范围</th><th>生效时间</th><th>设置</th></tr></thead><tbody>
+<tr><td>1</td><td>1</td><td>允许</td><td>传奇</td><td>dmz</td><td>IPGROUP_ANY</td><td>IPGROUP_ANY</td><td>Any</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="mac过滤"><a class="header" href="#mac过滤">MAC过滤</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>名称</th><th>MAC地址</th><th>设置</th></tr></thead><tbody>
+<tr><td>1</td><td>10号楼上-188</td><td>bc-5f-f4-93-f6-40</td><td></td></tr>
+<tr><td>2</td><td>11号楼上 187</td><td>bc-5f-f4-93-f7-5e</td><td></td></tr>
+<tr><td>3</td><td>11号楼下 186</td><td>bc-5f-f4-93-f6-2a</td><td></td></tr>
+<tr><td>4</td><td>1号楼下 167</td><td>bc-5f-f4-93-f6-12</td><td></td></tr>
+<tr><td>5</td><td>4号楼上 172</td><td>bc-5f-f4-93-f6-1a</td><td></td></tr>
+<tr><td>6</td><td>4号楼下-1 179</td><td>bc-5f-f4-93-f6-2b</td><td></td></tr>
+<tr><td>7</td><td>4号楼下2 159</td><td>00-e0-4d-0e-07-4f</td><td></td></tr>
+<tr><td>8</td><td>4号楼下3 160</td><td>00-e0-4d-0e-24-7e</td><td></td></tr>
+<tr><td>9</td><td>5号楼-1 166</td><td>00-27-19-93-7b-84</td><td></td></tr>
+<tr><td>10</td><td>5号楼-计件-1 183</td><td>48-5b-39-e9-f9-d4</td><td></td></tr>
+<tr><td>11</td><td>5号楼-计件-2 184</td><td>c8-60-00-de-3c-7b</td><td></td></tr>
+<tr><td>12</td><td>5号楼上一 152</td><td>bc-5f-f4-93-f6-33</td><td></td></tr>
+<tr><td>13</td><td>9号楼下 189</td><td>bc-5f-f4-93-f6-1e</td><td></td></tr>
+<tr><td>14</td><td>注塑车间168</td><td>00-1f-c6-4e-ad-43</td><td></td></tr>
+<tr><td>15</td><td>裘波萍 171</td><td>00-e0-4c-02-47-f5</td><td></td></tr>
+<tr><td>16</td><td>沈瑞国路由器</td><td>78-a1-06-6a-85-69</td><td></td></tr>
+<tr><td>17</td><td>1楼测试房</td><td>ac-16-2d-0f-b8-0b</td><td></td></tr>
+<tr><td>18</td><td>5号楼上100</td><td>00-e0-4c-ee-84-2d</td><td></td></tr>
+<tr><td>19</td><td>hj21-火机4号楼上-165</td><td>00-e0-4d-7e-5f-62</td><td></td></tr>
+<tr><td>20</td><td>hj22-火机四号楼上-175</td><td>bc-5f-f4-93-f6-26</td><td></td></tr>
+<tr><td>21</td><td>hj19-火机11号楼上-067</td><td>90-e6-ba-df-8e-96</td><td></td></tr>
+<tr><td>22</td><td>个人电脑</td><td>bc-85-56-de-2e-1d</td><td></td></tr>
+<tr><td>23</td><td>笔记本</td><td>00-40-d0-9d-f2-fb</td><td></td></tr>
+<tr><td>24</td><td>E0-3F-49-A4-C6-CF</td><td>e0-3f-49-a4-c6-cf</td><td></td></tr>
+<tr><td>25</td><td>45服务器</td><td>2c-ea-7f-eb-b1-18</td><td></td></tr>
+<tr><td>26</td><td>11</td><td>54-e1-ad-b4-10-ce</td><td></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="管理交换机命令-100mb交换机"><a class="header" href="#管理交换机命令-100mb交换机">管理交换机命令 （100MB交换机)</a></h2>
+<p>Huawei 交换机的mac   80fb-06c9-6db9</p>
+<pre><code class="language-cmd">ping  192.168.6.1
+
+
+ping  -c 10000   192.168.0.45
+
+</code></pre>
+<h4 id="查ip和mac"><a class="header" href="#查ip和mac">查ip和mac</a></h4>
+<pre><code class="language-cmd">dis arp | in 5CDD-709D-FAFD
+
+dis arp | in 192.168.6.199
+
+dis arp | in 94d9-b36c-2a8f
+ 
+dis arp | in  f4b5-203b-1eec
+
+//----只查mac
+dis mac-add  f4b5-203b-1eec
+
+</code></pre>
+<p>等价dis arp all </p>
+<h4 id="查看mac地址"><a class="header" href="#查看mac地址">查看mac地址</a></h4>
+<pre><code class="language-cmd">dis mac-add  #//识别到的mac地址
+dis mac-add | in Eth0/0/16  #//检索
+
+</code></pre>
+<h4 id="ping-mac-在指定vlan"><a class="header" href="#ping-mac-在指定vlan">ping mac 在指定vlan</a></h4>
+<pre><code class="language-cmd">ping mac enable
+ping mac 0001-0300-0204 vlan 10
+</code></pre>
+<h4 id="查看路由表"><a class="header" href="#查看路由表">查看路由表</a></h4>
+<pre><code class="language-cmd">dis vlan   #//vlan
+dis ip routing-table  #//路由表
+</code></pre>
+<h4 id="交换机管理命令"><a class="header" href="#交换机管理命令">交换机管理(命令)</a></h4>
+<pre><code class="language-cmd">telnet 10.0.0.2
+sys  #进入管理 system-view
+dis vlan
+
+
+dis current-configuration  #//所以配置  dis cu
+
+</code></pre>
+<h4 id="配置文件导入导出"><a class="header" href="#配置文件导入导出">配置文件导入导出</a></h4>
+<pre><code class="language-cmd">ftp server enable	
+aaa	
+</code></pre>
+<p>远程登入下载</p>
+<h2 id="常用查看"><a class="header" href="#常用查看">常用查看</a></h2>
+<h5 id="启动自动使用配置"><a class="header" href="#启动自动使用配置">启动自动使用配置</a></h5>
+<pre><code class="language-cmd">dis startup   #//显示启动配置和下一次启动的配置
+
+startup saved-configuration vrpcfg.zip
+</code></pre>
+<h4 id="查看网口链接简要"><a class="header" href="#查看网口链接简要">查看网口/链接（简要）</a></h4>
+<pre><code class="language-cmd">dis int desc #//接口注解描述  进入端口 设置描述 desc Lin To OA
+
+dis int eth brief #//网口简要/概述 dis int br  是否插入网线
+dis int brief #//端口/vlan简要  
+dis ip int br  #//交换机ip简要 
+
+
+</code></pre>
+<h4 id="查看某个端口"><a class="header" href="#查看某个端口">查看某个端口</a></h4>
+<pre><code class="language-cmd">dis cu int eth 0/0/2  # dis cu int gi 0/0/2 # 同 dis this
+</code></pre>
+<h4 id="端口属于那个vlan"><a class="header" href="#端口属于那个vlan">端口属于那个vlan</a></h4>
+<pre><code class="language-cmd">display port vlan
+</code></pre>
+<h4 id="查看某个vlan"><a class="header" href="#查看某个vlan">查看某个vlan</a></h4>
+<pre><code class="language-cmd">dis vlan 
+
+dis vlan 100 verbose 
+</code></pre>
+<h4 id="查看某个虚拟网卡"><a class="header" href="#查看某个虚拟网卡">查看某个虚拟网卡</a></h4>
+<pre><code class="language-cmd">dis int vlanif  
+dis int Vlanif201
+</code></pre>
+<h4 id="查看mac属于那个vlan"><a class="header" href="#查看mac属于那个vlan">查看mac属于那个vlan</a></h4>
+<pre><code class="language-cmd">display mac-vlan mac-address all
+</code></pre>
+<h4 id="查看设备使用情况"><a class="header" href="#查看设备使用情况">查看设备/使用情况</a></h4>
+<pre><code class="language-cmd">dis version 
+dis cpu-usage
+dis memory-usage 
+
+
+dis clock
+dis alarm urgent #//查看告警
+ 
+dis device 
+</code></pre>
+<h3 id="开启链路发现"><a class="header" href="#开启链路发现">开启链路发现</a></h3>
+<pre><code>lldp enable
+</code></pre>
+<h3 id="发现其他设备"><a class="header" href="#发现其他设备">发现其他设备</a></h3>
+<pre><code>display lldp neighbor brief  #发现其他交换机等
+</code></pre>
+<h2 id="管理设置命令"><a class="header" href="#管理设置命令">管理设置命令</a></h2>
+<pre><code class="language-cmd">sys #先进入管理模式
+</code></pre>
+<h4 id="保存配置文件"><a class="header" href="#保存配置文件">保存配置文件</a></h4>
+<pre><code>quit
+save
+</code></pre>
+<h3 id="查看当前端口"><a class="header" href="#查看当前端口">查看当前端口</a></h3>
+<pre><code class="language-cmd">int Ethernet 0/0/1 
+dis this    #vlan配置在接口内
+</code></pre>
+<pre><code class="language-cmd">vlan 3  #//进入某个vlna
+
+int Ethernet  0/0/8 #//进入某端口
+ 
+</code></pre>
+<h3 id="批量-port-group"><a class="header" href="#批量-port-group">批量 port-group</a></h3>
+<pre><code class="language-cmd">
+port-group 2  #//没有自动创建
+group-member gi 0/0/5 to 0/0/10
+</code></pre>
+<h2 id="1创建vlan--用数字表示"><a class="header" href="#1创建vlan--用数字表示">1.创建vlan  用数字表示</a></h2>
+<pre><code>vlan batch 9 to 11 #//批量创建
+vlan 89  
+</code></pre>
+<h3 id="2vlanif-虚拟局域网接口"><a class="header" href="#2vlanif-虚拟局域网接口">2.vlanif (虚拟局域网接口)</a></h3>
+<p>无需添加到vlan</p>
+<pre><code class="language-cmd">
+[Quidway] interface vlanif 10
+[Quidway-Vlanif10] ip address 10.1.1.1 255.255.255.128
+[Quidway-Vlanif10] dhcp select global
+[Quidway-Vlanif10] quit
+</code></pre>
+<h3 id="修改端口模式-trunkaccesshybrid"><a class="header" href="#修改端口模式-trunkaccesshybrid">修改端口模式 trunk/access/hybrid</a></h3>
+<p>access普通可访问只属于一个vlan ， hybrid 可多个vlan可以交换机和电脑 ，trunk端口只允许缺省vlan的报文不打标签（不建议）</p>
+<pre><code class="language-cmd">port link-type ?
+port link-type  access
+</code></pre>
+<h4 id="加入到vlan"><a class="header" href="#加入到vlan">加入到vlan</a></h4>
+<h5 id="数据包打上vlan-id"><a class="header" href="#数据包打上vlan-id">数据包打上vlan id</a></h5>
+<pre><code>port hybrid pvid vlan 200   
+</code></pre>
+<h5 id="与那些vlan相通广播"><a class="header" href="#与那些vlan相通广播">与那些vlan相通广播</a></h5>
+<pre><code class="language-cmd">port hybrid untagged vlan 6 to 200
+</code></pre>
+<h4 id="移除vlan"><a class="header" href="#移除vlan">移除vlan</a></h4>
+<pre><code class="language-cmd">undo port hybrid pvid vlan
+</code></pre>
+<h4 id="移除加入的vlan"><a class="header" href="#移除加入的vlan">移除加入的vlan</a></h4>
+<pre><code class="language-cmd">undo port hybrid vlan   6 to 100
+</code></pre>
+<h3 id="基于mac划分vlan"><a class="header" href="#基于mac划分vlan">基于mac划分vlan</a></h3>
+<p>这样可以实现 同一端口服务于不同vlan</p>
+<pre><code>vlan 123
+  mac-vlan mac-address 001d-0f99-f5ad priority 0
+</code></pre>
+<h3 id="路由"><a class="header" href="#路由">路由</a></h3>
+<pre><code class="language-cmd"> ip route-static 0.0.0.0 0.0.0.0 10.0.0.1
+ ip route-static 192.168.2.0 255.255.255.0 192.168.24.10
+ ip route-static 192.168.4.0 255.255.255.0 192.168.24.10
+</code></pre>
+<h3 id="交换机dhcp"><a class="header" href="#交换机dhcp">交换机dhcp</a></h3>
+<pre><code class="language-cmd">[Quidway] ip pool 1
+[Quidway-ip-pool-1] network 192.68.99.0 mask 255.255.255.128
+[Quidway-ip-pool-1] dns-list 8.4.4.8
+[Quidway-ip-pool-1] gateway-list 192.68.99.245
+[Quidway-ip-pool-1] excluded-ip-address 192.68.99.1
+[Quidway-ip-pool-1] excluded-ip-address 192.68.99.10
+[Quidway-ip-pool-1] lease day 1
+[Quidway-ip-pool-1] quit
+</code></pre>
+<h2 id="删除undo"><a class="header" href="#删除undo">删除undo</a></h2>
+<h4 id="删除一个虚拟网卡三层"><a class="header" href="#删除一个虚拟网卡三层">删除一个虚拟网卡（三层）</a></h4>
+<pre><code class="language-cmd">undo interface vlanif 1234
+
+undo vlan 12345   
+
+
+</code></pre>
+<h3 id="snmp管理-建议v2c"><a class="header" href="#snmp管理-建议v2c">snmp管理 (建议v2c)</a></h3>
+<pre><code>display snmp-agent sys-info 
+
+snmp-agent mib-view included alliso iso   #配置开放的内容
+snmp-agent sys-info version v2c 
+snmp-agent community read ruser mib-view alliso  
+snmp-agent community write wuser mib-view alliso 
+
+
+#-------删除
+undo snmp-agent sys-info version all 
+undo snmp-agent community ruser
+undo snmp-agent community wuser
+undo snmp-agent mib-view alliso
+undo snmp-agent     #关闭服务
+</code></pre>
+<pre><code>#开启sn
+snmp-agent mib-view included iso iso
+#配置用户
+snmp-agent usm-user v3 nmser authentication-mode     #//-- md5 wsf2010a
+snmp-agent usm-user v3 nmser privacy-mode            #//-- aes128 wsf2010p
+#配置组
+snmp-agent group v3 nmsgroup privacy read-view iso notify-view iso  
+snmp-agent usm-user v3 nmser group groupnms
+
+</code></pre>
+<h5 id="删除部分snmp"><a class="header" href="#删除部分snmp">删除部分snmp</a></h5>
+<pre><code>undo snmp-agent usm-user v3 
+undo snmp-agent mib-view isoview01
+
+undo snmp-agent usm-user v3 nmser authentication-mode engineid 000007DB7F000001000022E6
+undo snmp-agent usm-user v3 nmser authentication-mode engineid 000007DB7F00000100004DF1
+
+
+</code></pre>
+<h3 id="开启web管理"><a class="header" href="#开启web管理">开启web管理</a></h3>
+<pre><code>http server load  S3700_28TP-V100R005C01SPC100.web.zip
+
+http server enable
+
+undo http server 
+
+display ssh server status
+
+</code></pre>
+<h5 id="创建web用户"><a class="header" href="#创建web用户">创建web用户</a></h5>
+<pre><code>aaa
+
+local-user wsf password simple wsf2010
+local-user wsf service-type http
+
+
+
+</code></pre>
+<h2 id="启用sshstelnet"><a class="header" href="#启用sshstelnet">启用ssh/stelnet</a></h2>
+<p>v1.x版本 非常的老</p>
+<pre><code>display ssh server status
+
+rsa local-key-pair create   #生成指定长度2048
+
+user-interface vty 0 4
+    authentication-mode aaa                 
+    protocol inbound all     #//指定VTY用户界面所支持的协议 
+
+
+ssh  server port  22
+stelnet server enable
+ssh server compatible-ssh1x enable    #兼容v1以前的版本
+ssh user admin authentication-type all 
+
+
+</code></pre>
+<h4 id="查看ssh状况"><a class="header" href="#查看ssh状况">查看ssh状况</a></h4>
+<pre><code>
+display ssh user-informati
+display ssh server session
+</code></pre>
+<h4 id="加入连接参数"><a class="header" href="#加入连接参数">加入连接参数</a></h4>
+<p>由于版本过老</p>
+<pre><code>ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -c 3des-cbc admin@192.168.11.1
+
+
+ 
+</code></pre>
+<h3 id="字符终端宽度"><a class="header" href="#字符终端宽度">字符终端宽度</a></h3>
+<pre><code>
+screen-width 200 
+
+screen-length 200 temporary #一次显示行数
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="锐捷交换机"><a class="header" href="#锐捷交换机">锐捷交换机</a></h2>
+<p>RuiJie nbs5552xg</p>
+<p>查看 <strong>二层转发表信息</strong> </p>
+<h4 id="远程管理-telnet"><a class="header" href="#远程管理-telnet">远程管理 telnet</a></h4>
+<p>(需要去web端设置密码) 不然会收到提示 password required, but none set</p>
+<pre><code class="language-cmd">configure terminal 
+line vty0 
+password xxx
+</code></pre>
+<p><a href="https://kerwin.gitbook.io/ruijie/jiao-huan-chan-pin/path2/2.-pei-zhi-kou-ling/2.2-pei-zhi-yuan-cheng-deng-lu-kou-ling">参考</a></p>
+<pre><code class="language-cmd">telnet 192.168.11.200
+
+</code></pre>
+<h4 id="查看接口状况"><a class="header" href="#查看接口状况">查看接口状况</a></h4>
+<pre><code class="language-cmd">show interfaces status
+</code></pre>
+<h4 id="查看启动文件"><a class="header" href="#查看启动文件">查看启动文件</a></h4>
+<pre><code class="language-cmd">shwo boot
+</code></pre>
+<h4 id="查ip和mac-1"><a class="header" href="#查ip和mac-1">查ip和mac</a></h4>
+<pre><code class="language-cmd">show arp 
+shwo mac-addr
+</code></pre>
+<h4 id="查看mac某个地址"><a class="header" href="#查看mac某个地址">查看mac某个地址</a></h4>
+<pre><code class="language-cmd">
+show arp | in 192.168.11.200      #//检索
+
+</code></pre>
+<h2 id="进入管理模式"><a class="header" href="#进入管理模式">进入管理模式</a></h2>
+<p>（需要先web端设置密码） ERROR: No passwords set.</p>
+<pre><code class="language-cmd">enable password 0 xxxx
+</code></pre>
+<h4 id="查看配置"><a class="header" href="#查看配置">查看配置</a></h4>
+<pre><code class="language-cmd">enable  
+
+show running-config
+</code></pre>
+<h3 id="开启链路发现-1"><a class="header" href="#开启链路发现-1">开启链路发现</a></h3>
+<p>这样就知道接在那个口</p>
+<pre><code>configure terminal
+lldp run
+end
+show lldp
+</code></pre>
+<pre><code>show lldp neighbors   interface  GigabitEthernet 0/35  #发现结果
+
+
+show lldp neighbors interface GigabitEthernet 0/1-0/48
+</code></pre>
+<h4 id="清除过期数据"><a class="header" href="#清除过期数据">清除过期数据</a></h4>
+<pre><code>clear lldp table all
+</code></pre>
+<h4 id="保存配置"><a class="header" href="#保存配置">保存配置</a></h4>
+<pre><code class="language-cmd">enable  
+
+write memory
+
+</code></pre>
+<p>离开管理模式</p>
+<pre><code class="language-cmd">disable
+</code></pre>
+<h4 id="查看路由表-1"><a class="header" href="#查看路由表-1">查看路由表</a></h4>
+<pre><code class="language-cmd">show vlan   #//vlan
+show ip route #//路由表
+</code></pre>
+<h4 id="交换机管理文件"><a class="header" href="#交换机管理文件">交换机管理(文件)</a></h4>
+<pre><code class="language-cmd">pwd
+dir flash:/
+file config.text
+
+rename flash:/fstab flash:/new-fstab
+
+
+
+
+copy oob_tftp://192.168.1.1/RGOS.bin flash:RGOS.bin
+</code></pre>
+<h5 id="ftp"><a class="header" href="#ftp">ftp</a></h5>
+<pre><code>show file systems
+
+
+
+configure terminal
+show ftp-server
+
+
+ftp-server topdir /
+ftp-server enable
+ftp-server username user password pass
+
+tftp-server enable
+</code></pre>
+<h2 id="进入配置模式"><a class="header" href="#进入配置模式">进入配置模式</a></h2>
+<pre><code class="language-CMD">configure terminal
+
+</code></pre>
+<h4 id="离开管理模式"><a class="header" href="#离开管理模式">离开管理模式</a></h4>
+<pre><code class="language-cmd">exit
+</code></pre>
+<h3 id="重置密码"><a class="header" href="#重置密码">重置密码</a></h3>
+<p>连接串口 ，启动输入ctrl+c 进入启动菜单</p>
+<pre><code class="language-cmd">Unlocking L2 Cache ...Done
+arm_clk=1000MHz, axi_clk=400MHz, apb_clk=100MHz, arm_periph_clk=500MHz
+SETMAC: Setmac operation was performed at 2015-12-20 20:23:56 (version: 11.0)
+Press Ctrl+C to enter Boot Menu
+Net:   eth-0
+Entering simple UI....
+
+====== BootLoader Menu(&quot;Ctrl+Z&quot; to upper level) ======
+    TOP menu items.
+************************************************
+    0. Tftp utilities.
+    1. XModem utilities.
+    2. Run main.
+    3. SetMac utilities.
+    4. Scattered utilities.
+    5. Set Module Serial
+************************************************
+Press a key to run the command:
+
+</code></pre>
+<h5 id="按ctrlq-进入启动器命令行"><a class="header" href="#按ctrlq-进入启动器命令行">按ctrl+q 进入启动器命令行</a></h5>
+<pre><code class="language-cmd">Press a key to run the command:
+bootloader# main_config_password_clear
+</code></pre>
+<p>更具提示输入 1</p>
+<pre><code class="language-cmd">
+Enter runlevel: 1
+~ # pwd
+/
+~ # ls
+bin         data        etc         linuxrc     rg_cfg      rootfs      tmp
+boot        data2       home        mnt         rgos        sbin        usr
+bootloader  dev         lib         proc        root        sys         var
+~ # uname -a
+Linux (none) 3.10.18-Broadcom Linux+ #1 SMP Thu Oct 29 22:59:28 CST 2015 armv7l GNU/Linux
+
+</code></pre>
+<h4 id="移除配置文件"><a class="header" href="#移除配置文件">移除配置文件</a></h4>
+<pre><code class="language-cmd">
+~ # cd data
+/data # mv config.text config.bak
+/data # sync
+/data # reboot
+
+</code></pre>
+<p>移动回来配置文件</p>
+<pre><code class="language-cmd">Ruijie&gt; enable
+Ruijie# copy flash:config.bak flash:config.text
+Ruijie# copy startup-config running-config
+
+
+</code></pre>
+<p><a href="https://www.ruijie.com.cn/fw/wd/88857/">参考</a></p>
+<h2 id="配置web管理-三层"><a class="header" href="#配置web管理-三层">配置web管理 三层</a></h2>
+<pre><code class="language-cmd">configure terminal
+hostname 5750p48 
+vlan 1
+interface vlan 1
+ip address 192.168.11.201 255.255.255.0
+show ip route
+exit
+
+
+</code></pre>
+<h4 id="telnet-登入密码"><a class="header" href="#telnet-登入密码">telnet 登入密码</a></h4>
+<pre><code class="language-cmd">line vty 0 4
+login
+password xxxxx
+exit 
+
+</code></pre>
+<pre><code>enable service web-server  
+
+</code></pre>
+<p>默认是admin/admin</p>
+<h5 id="默认路由-三层"><a class="header" href="#默认路由-三层">默认路由 (三层)</a></h5>
+<pre><code>
+
+ip route 0.0.0.0 0.0.0.0 VLAN 1 192.168.11.1
+
+
+
+ip route 0.0.0.0 0.0.0.0 192.168.1.0
+</code></pre>
+<p>二层</p>
+<pre><code>ip default-gateway 192.168.1.1  
+</code></pre>
+<h2 id="snmp配置"><a class="header" href="#snmp配置">snmp配置</a></h2>
+<pre><code>show snmp-server
+
+snmp-server
+
+snmp-server community wuser rw 
+snmp-server community ruser ro 
+
+no snmp-server enable traps
+
+</code></pre>
+<h4 id="字符终端宽度-1"><a class="header" href="#字符终端宽度-1">字符终端宽度</a></h4>
+<pre><code>terminal width 10
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="内部管理"><a class="header" href="#内部管理">内部管理</a></h1>
+<h3 id="金蝶k3"><a class="header" href="#金蝶k3">金蝶k3</a></h3>
+<p>连接端 192.168.0.45:4002</p>
+<h3 id="数据库-1"><a class="header" href="#数据库-1">数据库</a></h3>
+<h4 id="sql-server"><a class="header" href="#sql-server">sql server</a></h4>
+<p>192.168.0.45:1433</p>
+<div class="table-wrapper"><table><thead><tr><th>位置</th><th>ip地址</th><th>备注</th></tr></thead><tbody>
+<tr><td>门卫</td><td>192.168.1.1</td><td>有2台海康硬盘设备</td></tr>
+<tr><td>办公室/会议室</td><td>192.168.6.1</td><td>到机房华为8口小交换机</td></tr>
+<tr><td>苏小云</td><td>192.18.10.1</td><td>无线上级路由192.168.6.1</td></tr>
+</tbody></table>
+</div>
+<h3 id="共享盘"><a class="header" href="#共享盘">共享盘</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>描述</th><th>地址</th><th>管理人</th></tr></thead><tbody>
+<tr><td>销售生产文件</td><td>\192.168.0.45\打火机共享</td><td></td></tr>
+<tr><td>行政文件</td><td>\192.168.0.107\全备份</td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="远程管理监控--80端口可访问"><a class="header" href="#远程管理监控--80端口可访问">远程管理监控  80端口可访问</a></h3>
+<p>192.168.6.128   192.168.6.153   <code>老监控</code></p>
+<h4 id="045开放端口"><a class="header" href="#045开放端口">0.45开放端口</a></h4>
+<pre><code class="language-cmd">192.168.0.45
+
+Discovered open port 4002/tcp on 192.168.0.45
+Discovered open port 10269/tcp on 192.168.0.45
+Discovered open port 80/tcp on 192.168.0.45
+Discovered open port 4009/tcp on 192.168.0.45
+Discovered open port 4022/tcp on 192.168.0.45
+Discovered open port 5504/tcp on 192.168.0.45
+Discovered open port 4010/tcp on 192.168.0.45
+Discovered open port 16452/tcp on 192.168.0.45
+Discovered open port 4035/tcp on 192.168.0.45
+Discovered open port 445/tcp on 192.168.0.45
+Discovered open port 593/tcp on 192.168.0.45
+Discovered open port 4021/tcp on 192.168.0.45
+Discovered open port 16453/tcp on 192.168.0.45
+Discovered open port 5201/tcp on 192.168.0.45
+Discovered open port 4032/tcp on 192.168.0.45
+Discovered open port 3389/tcp on 192.168.0.45
+Discovered open port 5159/tcp on 192.168.0.45
+Discovered open port 16450/tcp on 192.168.0.45
+Discovered open port 3388/tcp on 192.168.0.45
+Discovered open port 2383/tcp on 192.168.0.45
+Discovered open port 135/tcp on 192.168.0.45
+Discovered open port 4050/tcp on 192.168.0.45
+Discovered open port 4020/tcp on 192.168.0.45
+Discovered open port 10268/tcp on 192.168.0.45
+Discovered open port 4051/tcp on 192.168.0.45
+Discovered open port 139/tcp on 192.168.0.45
+Discovered open port 5985/tcp on 192.168.0.45
+Discovered open port 47001/tcp on 192.168.0.45
+Discovered open port 4004/tcp on 192.168.0.45
+Discovered open port 4003/tcp on 192.168.0.45
+Discovered open port 4005/tcp on 192.168.0.45
+Discovered open port 2179/tcp on 192.168.0.45
+Discovered open port 4014/tcp on 192.168.0.45
+Discovered open port 4000/tcp on 192.168.0.45
+Discovered open port 443/tcp on 192.168.0.45
+Discovered open port 8090/tcp on 192.168.0.45
+Discovered open port 17001/tcp on 192.168.0.45
+Discovered open port 4001/tcp on 192.168.0.45
+Discovered open port 3773/tcp on 192.168.0.45
+Discovered open port 4025/tcp on 192.168.0.45
+Discovered open port 4006/tcp on 192.168.0.45
+Discovered open port 4015/tcp on 192.168.0.45
+Discovered open port 4016/tcp on 192.168.0.45
+Discovered open port 16451/tcp on 192.168.0.45
+Discovered open port 3320/tcp on 192.168.0.45
+Discovered open port 4008/tcp on 192.168.0.45
+Discovered open port 4013/tcp on 192.168.0.45
+Discovered open port 1433/tcp on 192.168.0.45
+Discovered open port 4018/tcp on 192.168.0.45
+Discovered open port 4007/tcp on 192.168.0.45
+Discovered open port 5160/tcp on 192.168.0.45
+Discovered open port 7887/tcp on 192.168.0.45
+</code></pre>
+<h2 id="数据库查询"><a class="header" href="#数据库查询">数据库查询</a></h2>
+<p><a href="https://developer.aliyun.com/article/868429">参考</a></p>
+<p>SQL Server 2016 (RTM) - 13.0.1601.5 (X64)    版本</p>
+<pre><code class="language-sql">
+-- Creates the login AbolrousHazem with password '340$Uuxwp7Mcxo7Khy'.  
+CREATE LOGIN dbjack   
+    WITH PASSWORD = 'pwd2jack';  
+GO  
+
+-- Creates a database user for the login created above.  
+CREATE USER dbjack FOR LOGIN wsf2023;  
+GO
+
+</code></pre>
+<h4 id="查询版本"><a class="header" href="#查询版本">查询版本</a></h4>
+<pre><code class="language-sql">-- Select @@version
+
+-- SELECT SERVERPROPERTY('productversion'), SERVERPROPERTY ('productlevel'),SERVERPROPERTY ('edition')
+
+SELECT 
+SERVERPROPERTY('servername')  AS  实例名,  
+SERVERPROPERTY('ProductVersion')  AS  实例版本,  
+SERVERPROPERTY('Edition')  AS  产品版本,  
+SERVERPROPERTY('ProductLevel')  AS  版本级别,  
+@@VERSION  AS  版本信息   
+</code></pre>
+<h4 id="查询当前连接"><a class="header" href="#查询当前连接">查询当前连接</a></h4>
+<pre><code class="language-sql">select loginame,count(0) ct from sys.sysprocesses
+group by loginame
+order by ct desc
+</code></pre>
+<h4 id="连接执行"><a class="header" href="#连接执行">连接执行</a></h4>
+<pre><code class="language-sql">Select * From sys.dm_exec_connections
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="外网管理"><a class="header" href="#外网管理">外网管理</a></h1>
+<p>管理地址</p>
+<div class="table-wrapper"><table><thead><tr><th>名称</th><th>地址</th><th>备注</th></tr></thead><tbody>
+<tr><td>公司公网ip</td><td>112.16.172.14 （中国移动）</td><td>OA部署在着ip上面 （OA内网部署）</td></tr>
+<tr><td>公司网站</td><td><a href="https://www.ouqiyj.com/">网站</a>  <a href="www.ouqilighter.com">英文站</a></td><td>属于香港43.224.155.16/英文站104.21.56.218</td></tr>
+<tr><td>OA</td><td><a href="http://ouqioa.nb-hengyou.com:8081/ouqi/">oa登入</a> / <a href="http://ouqioa.nb-hengyou.com:8081/ouqi/admin/">oa管理后台</a></td><td>用了别人的域名<code>恒有</code> 但是指向公司的ip</td></tr>
+</tbody></table>
+</div>
+<h3 id="微信第三方应用跳转oauth"><a class="header" href="#微信第三方应用跳转oauth">微信第三方应用跳转(OAuth)</a></h3>
+<p>工作台 跳转到欧奇烟具   ouqioa.nb-hengyou.com/112.16.172.14  ,提示redirect_uri需使用应用可信域名</p>
+<p>https://open.work.weixin.qq.com/wwopen/uriconfirm?err_type=domain_err&amp;uri=http%3A%2F%2Fouqioa.nb-hengyou.com%3A8081%2Fouqi%2Fportal%2Fphone%2Fmain.jsp%3Fapplication%3D11e8-b82b-b7056a2c-b266-7907d3bcd381%26action%3Dnull%26returnUrl%3D&amp;retry_time=1676351344233&amp;retry_count=1</p>
+<p>跳转到</p>
+<p>http://ouqioa.nb-hengyou.com:8081/ouqi/portal/phone/main.jsp?application=11e8-b82b-b7056a2c-b266-7907d3bcd381&amp;action=null&amp;returnUrl=</p>
+<h4 id="回调模板"><a class="header" href="#回调模板">回调模板</a></h4>
+<p>https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;agentid=AGENTID#wechat_redirect</p>
+<h4 id="设置方法"><a class="header" href="#设置方法">设置方法</a></h4>
+<p><img src="./imgs/%E8%AE%BE%E7%BD%AE%E5%8F%AF%E4%BF%A1%E5%9F%9F%E5%90%8D.png" alt="" /></p>
+<h5 id="企业微信登入入口"><a class="header" href="#企业微信登入入口">企业微信登入入口</a></h5>
+<p>https://work.weixin.qq.com/wework_admin/loginpage_wx</p>
+<h3 id="icp-备案"><a class="header" href="#icp-备案">icp 备案</a></h3>
+<p>工信部网站   https://beian.miit.gov.cn/#/Integrated/index</p>
+<p><img src="https://file.service.qq.com/user-files/uploads/201801/3908f9183fb531c2daf7e8f9d4bfeec1.jpg" alt="流程" /></p>
+<h4 id="所需资料"><a class="header" href="#所需资料"><a href="https://www.alibabacloud.com/help/zh/icp-filing/latest/icp-filing-regulations-for-zhejiang#concept-ycv-bgm-zdb">所需资料</a></a></h4>
+<div class="table-wrapper"><table><thead><tr><th>需要材料</th><th>份数</th><th>要求</th></tr></thead><tbody>
+<tr><td>营业执照</td><td>1</td><td>原件电子版彩色照片</td></tr>
+<tr><td>备案主体负责人必须为法定代表人</td><td>1</td><td>原件电子版彩色照片</td></tr>
+<tr><td>网站LOGO</td><td>1</td><td></td></tr>
+<tr><td>网站标题</td><td>1</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="要求"><a class="header" href="#要求">要求</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>要求</th><th></th><th></th></tr></thead><tbody>
+<tr><td>域名有效期需大于或等于3个月</td><td></td><td></td></tr>
+<tr><td>域名持有者需与主办单位名称或法定代表人姓名一致</td><td></td><td></td></tr>
+<tr><td>身份证有效期大于3个月</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p>OA公司自建 需要联系移动公司帮忙备案</p>
+<h3 id="外网开放端口"><a class="header" href="#外网开放端口">外网开放端口</a></h3>
+<p>http://112.16.172.14:8081/ouqi/portal/share/security/login.jsp</p>
+<p>http://112.16.172.14/     直接是路由器</p>
+<pre><code class="language-cmd">112.16.172.14  
+
+
+Scanning 1 hosts [65535 ports/host]
+Discovered open port 1723/tcp on 112.16.172.14
+Discovered open port 8080/tcp on 112.16.172.14
+Discovered open port 25872/tcp on 112.16.172.14
+Discovered open port 5699/tcp on 112.16.172.14
+Discovered open port 8081/tcp on 112.16.172.14
+Discovered open port 8999/tcp on 112.16.172.14
+Discovered open port 1900/tcp on 112.16.172.14
+Discovered open port 5999/tcp on 112.16.172.14
+Discovered open port 8890/tcp on 112.16.172.14
+Discovered open port 23/tcp on 112.16.172.14
+Discovered open port 7666/tcp on 112.16.172.14
+Discovered open port 80/tcp on 112.16.172.14
+Discovered open port 7999/tcp on 112.16.172.14
+Discovered open port 9999/tcp on 112.16.172.14
+Discovered open port 3389/tcp on 112.16.172.14
+Discovered open port 15872/tcp on 112.16.172.14
+Discovered open port 8000/tcp on 112.16.172.14
+Discovered open port 8091/tcp on 112.16.172.14
+
+</code></pre>
+<h3 id="oa-理想访问地址"><a class="header" href="#oa-理想访问地址">OA 理想访问地址</a></h3>
+<p>http://ouqioa.ouqiyj.com:8081/ouqi/</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="摄像头"><a class="header" href="#摄像头">摄像头</a></h1>
+<p>主菜单-&gt;配置-&gt;网络-&gt;高级配置-平台接入， 取消勾选码流加密</p>
+<p>主菜单-&gt;配置-&gt;图像-&gt;OSD设置 修改通道名称</p>
+<h2 id="海康威视主机"><a class="header" href="#海康威视主机">海康威视(主机)</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>名称</th><th>地址</th><th>管理账号</th><th>位置</th><th>备注</th></tr></thead><tbody>
+<tr><td>门卫监控主机</td><td>192.168.88.251</td><td>admin</td><td>门卫</td><td><a href="http://192.168.88.251/doc/page/login.asp?_1676007437416">海康监控</a></td></tr>
+<tr><td>大厅，办公室楼监控主机</td><td>192.168.88.250</td><td>admin</td><td></td><td></td></tr>
+<tr><td>电商监控主机</td><td>192.168.34.244</td><td>admin</td><td>电商办公室</td><td></td></tr>
+<tr><td>1-2楼外围监控</td><td>192.168.88.250</td><td>admin</td><td>1号楼</td><td>含部分电商</td></tr>
+<tr><td>3-5号楼通道</td><td>192.168.88.251</td><td>admin</td><td></td><td></td></tr>
+<tr><td>9，11号楼</td><td>192.168.88.253</td><td>admin</td><td></td><td>DS-7816N-K2</td></tr>
+<tr><td>5，7号楼</td><td>192.168.88.254</td><td>admin</td><td></td><td>DS-7832N-K2</td></tr>
+<tr><td>各个办公室</td><td>192.168.17.249</td><td>admin</td><td>1楼办公室</td><td><a href="http://192.168.17.249/doc/page/preview.asp">预 览</a> （）</td></tr>
+<tr><td>室外过道</td><td>192.168.6.247</td><td>admin</td><td></td><td><a href="http://192.168.6.247/doc/page/preview.asp">预 览</a></td></tr>
+<tr><td>注塑车间</td><td>192.168.87.250</td><td>admin</td><td></td><td><a href="http://192.168.87.250/doc/page/preview.asp">预 览</a> DS-8632N-E8</td></tr>
+<tr><td>充调，焊接</td><td>192.168.6.250</td><td>admin</td><td></td><td>DS-7932-R4</td></tr>
+<tr><td>充调</td><td>192.168.6.100</td><td>admin</td><td></td><td><a href="http://192.168.6.100/doc/page/preview.asp">预 览</a></td></tr>
+<tr><td></td><td>192.168.6.9</td><td>admin</td><td></td><td><a href="http://192.168.6.9/doc/page/login.asp?_1677204535599">登录</a> （不知道密码）</td></tr>
+</tbody></table>
+</div>
+<h3 id="web远程管理-老监控"><a class="header" href="#web远程管理-老监控">web远程管理 老监控</a></h3>
+<pre><code class="language-cmd">192.168.6.128  (同ip地址2台)
+
+Discovered open port 37777/tcp on 192.168.6.128
+Discovered open port 8000/tcp on 192.168.6.128
+Discovered open port 8127/tcp on 192.168.6.128
+Discovered open port 5544/tcp on 192.168.6.128
+Discovered open port 80/tcp on 192.168.6.128
+Discovered open port 34567/tcp on 192.168.6.128
+Discovered open port 8099/tcp on 192.168.6.128
+Discovered open port 9101/tcp on 192.168.6.128
+Discovered open port 23/tcp on 192.168.6.128
+</code></pre>
+<h3 id="配置和管理通道"><a class="header" href="#配置和管理通道">配置和管理通道</a></h3>
+<p><img src="%E7%BD%91%E7%BB%9C/./imgs/%E7%9B%91%E6%8E%A7%E9%80%9A%E9%81%93%E7%AE%A1%E7%90%86.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="特殊设备"><a class="header" href="#特殊设备">特殊设备</a></h2>
+<h3 id="打印复印一体机"><a class="header" href="#打印复印一体机">打印复印一体机</a></h3>
+<p>http://192.168.20.200/wcd/abbr.xml</p>
+<h3 id="打卡机"><a class="header" href="#打卡机">打卡机</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>名称</th><th>ip</th><th>位置</th></tr></thead><tbody>
+<tr><td>人事部</td><td>192.168.0.11</td><td>iface702</td></tr>
+<tr><td>门卫</td><td>192.168.6.168</td><td></td></tr>
+<tr><td>11号楼</td><td>192.168.34.211</td><td></td></tr>
+<tr><td>5号楼</td><td>192.168.34.202</td><td></td></tr>
+<tr><td>1号楼</td><td>192.168.34.203</td><td></td></tr>
+<tr><td>7号楼</td><td>192.168.34.205</td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="热迁移"><a class="header" href="#热迁移">热迁移</a></h3>
+<p>p2v</p>
+<p>命令 clonezilla</p>
+<p>DISKGENIUS挂载vmdk文件 ，通过克隆分区来做镜像</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mac地址清单"><a class="header" href="#mac地址清单">mac地址清单</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>MAC</th><th>Address</th><th>CEVLAN</th><th>Port</th></tr></thead><tbody>
+<tr><td>00e0-4c37-ace4</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>00e0-4cff-2c14</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>7427-eae8-fef9</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>e0d5-5e56-7edb</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>5cde-3414-a887</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>e447-9054-4484</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>f4b5-203b-2404</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>70b5-e874-5844</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>b42e-9904-6dda</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>f4b5-2024-f44c</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-006c-8155</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-006c-8167</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>b42e-99e6-3c49</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>e062-9087-a15a</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>00e0-4f03-2e24</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-83af</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>6045-cb7f-c902</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>e247-1f2c-0f6d</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>b42e-999d-1f99</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>8469-9386-4585</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>2cea-7feb-b118</td><td>100</td><td>Eth0/0/20</td><td>dynamic</td></tr>
+<tr><td>e062-9082-2258</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>408d-5c1d-9e3e</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f90-71a7</td><td>88</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>0c9d-92cc-8c94</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>b42e-9968-3f8c</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f90-719c</td><td>88</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f90-7198</td><td>88</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fba-d022</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>b42e-9944-2e6e</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>b42e-9979-de61</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>309c-23b9-101a</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fba-d012</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>18c0-4d1b-c69e</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fcc-9024</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>e0d5-5efc-0d5f</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>309c-2365-209e</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>e0d5-5e6d-bd23</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fcc-90b8</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fcc-90b6</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc9a-c39e</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>0017-6112-b286</td><td>100</td><td>Eth0/0/22</td><td>dynamic</td></tr>
+<tr><td>c06d-ed2c-d964</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-3471</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>f4b5-2018-50e7</td><td>100</td><td>Eth0/0/21</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-344e</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>e062-90eb-0492</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8609</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-343e</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8619</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-3421</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>e0d5-5e51-ea27</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003f-64a8</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-86fc</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-86fd</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>0492-265b-262c</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>f4b5-2024-f19b</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>e0d5-5efa-1b79</td><td>100</td><td>Eth0/0/24</td><td>dynamic</td></tr>
+<tr><td>f000-006c-4574</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>5475-959c-548b</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8709</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-870a</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-870f</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8705</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8706</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8718</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-871c</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8714</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8716</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8717</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-87da</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4419-b649-87f4</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-3677</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>e062-90f6-66b9</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-366e</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>020f-ed77-7960</td><td>14</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>acb9-2f46-05f5</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f2c-9597</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>0c82-6858-7222</td><td>200</td><td>GE0/0/3</td><td>dynamic</td></tr>
+<tr><td>f000-006c-6648</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>d258-42b8-7696</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>b83a-080e-f650</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>2cea-7fed-051c</td><td>100</td><td>Eth0/0/18</td><td>dynamic</td></tr>
+<tr><td>849a-4059-b273</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>44a6-42b6-c0a3</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>f000-003f-669d</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>0017-6112-279e</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>0017-6112-27a1</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-36b4</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>408d-5c8f-2aca</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8498</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>a85e-45a0-0b0e</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cf5-dc97-3695</td><td>17</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>0020-6ba3-4d7c</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>f000-003f-669c</td><td>87</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f2c-957c</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f2c-9572</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>a85e-45a0-0ace</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>4419-b649-8575</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>c051-7ea4-099f</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>a85e-45a0-0ab7</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>2428-fddc-be9d</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>e062-90c9-1712</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-006c-67ee</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>d45d-6439-a7a3</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>f4b5-2024-f365</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4419-b649-85b6</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>b42e-997a-2570</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4ced-fb6c-ef9f</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>e86a-642e-0446</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>0017-6112-a93b</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>b42e-997a-2550</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003b-485d</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-db1e</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1b84</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003b-487f</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1b80</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-006c-6811</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>6461-4046-fc4d</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>f000-003b-4854</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>f000-003b-489a</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>74d4-356d-891e</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1b76</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1b7a</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-dbd4</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>e062-90dd-0803</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>8ca6-df43-6b43</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1b53</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003b-48a1</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003f-589e</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>40b0-765f-6e47</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1b2a</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003f-58bf</td><td>87</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>00e0-4c75-1451</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>0c9d-920f-c668</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-da70</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-da71</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>f000-003b-4931</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>e062-9032-a966</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-da6e</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003b-4935</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003b-494a</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>e062-908d-9995</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>8269-c0e2-cbe1</td><td>14</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>e062-902f-e906</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>081f-7130-405c</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>0030-1bba-02db</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>e062-90bb-c9b5</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>081f-7150-30de</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f4ee-0823-956a</td><td>100</td><td>Eth0/0/24</td><td>dynamic</td></tr>
+<tr><td>e0d5-5ed5-47ee</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>7297-ae6a-3527</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>b42e-99ea-043c</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-da95</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd3-2aa9</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-da85</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-dab2</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8fd5-dab0</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>8ca6-dfc4-490d</td><td>100</td><td>Eth0/0/24</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-19ca</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>00e0-4f03-c582</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-19ac</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>686d-bcf6-0e91</td><td>88</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>5850-ed6d-2f7b</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>0017-6112-ab50</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-006b-da3e</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>f4b5-203b-1eec</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>5850-ed6d-2f60</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f79-1968</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>e062-90bb-da7a</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-7333</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>807c-6202-b8a1</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>7405-a563-fba3</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>f4b5-203b-1e44</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>8ce7-486e-bf80</td><td>87</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>e062-90b0-4b6a</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>fcaa-1422-a331</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>0840-f360-a0d8</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>74d4-356c-8a6b</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>f4b5-2024-ef6b</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>0017-6111-1ad0</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4ced-fb41-fba5</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+<tr><td>00e0-4c3c-a0db</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>7486-e218-0a99</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>7486-e218-1afe</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>e0d5-5efc-0288</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>00d8-610c-3d58</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>807c-62bb-4e1e</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>408d-5ce7-408c</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>5404-a6a1-7fb1</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>e062-908a-bdc9</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>00e0-66ff-1b5f</td><td>100</td><td>Eth0/0/19</td><td>dynamic</td></tr>
+<tr><td>1012-fb7a-2656</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>94d9-b36c-2a90</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>00e0-4c57-9160</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>b42e-9968-4090</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>24cf-24a4-2da8</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>4ced-fb61-b9ae</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>00e0-4c85-826d</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>70b5-e874-56e5</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>4cbd-8f90-6d54</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>00e0-4d95-1326</td><td>34</td><td>Eth0/0/2</td><td>dynamic</td></tr>
+<tr><td>f000-003a-beab</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>f000-003a-beb3</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>f000-003a-beaf</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>9ca6-15d8-f7a1</td><td>100</td><td>Eth0/0/24</td><td>dynamic</td></tr>
+<tr><td>00e0-7070-de71</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>f000-003a-bec5</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>8630-12f1-da35</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>f000-003a-bec0</td><td>24</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>f000-003a-bee5</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>b42e-991d-4210</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-76a4</td><td>88</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-76e4</td><td>20</td><td>Eth0/0/9</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-76d0</td><td>34</td><td>Eth0/0/14</td><td>dynamic</td></tr>
+<tr><td>f4b5-2024-ebaf</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-76c7</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-76cc</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-7699</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>2428-fdc1-7698</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>b42e-99e6-329b</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>00e0-4c52-032d</td><td>17</td><td>Eth0/0/7</td><td>dynamic</td></tr>
+<tr><td>b42e-99e6-3279</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>309c-237d-6c73</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
+<tr><td>accb-51de-42e4</td><td>26</td><td>Eth0/0/16</td><td>dynamic</td></tr>
+<tr><td>70b5-e874-5732</td><td>15</td><td>Eth0/0/5</td><td>dynamic</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="arp清单"><a class="header" href="#arp清单">arp清单</a></h1>
+<h3 id="来自核心交换机"><a class="header" href="#来自核心交换机">来自核心交换机</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ip</th><th>mac</th><th>port</th><th>vlan</th></tr></thead><tbody>
+<tr><td>192.168.254.6</td><td>80fb-06c9-6db9</td><td>Vlanif1</td><td></td></tr>
+<tr><td>192.168.254.5</td><td>Incomplete</td><td>Eth0/0/2</td><td>1</td></tr>
+<tr><td>192.168.11.1</td><td>80fb-06c9-6db9</td><td>Vlanif11</td><td></td></tr>
+<tr><td>192.168.12.1</td><td>80fb-06c9-6db9</td><td>Vlanif12</td><td></td></tr>
+<tr><td>192.168.13.1</td><td>80fb-06c9-6db9</td><td>Vlanif13</td><td></td></tr>
+<tr><td>192.168.14.1</td><td>80fb-06c9-6db9</td><td>Vlanif14</td><td></td></tr>
+<tr><td>192.168.14.14</td><td>020f-ed77-7960</td><td>Eth0/0/11</td><td>14</td></tr>
+<tr><td>192.168.14.13</td><td>8269-c0e2-cbe1</td><td>Eth0/0/11</td><td>14</td></tr>
+<tr><td>192.168.15.1</td><td>80fb-06c9-6db9</td><td>Vlanif15</td><td></td></tr>
+<tr><td>192.168.15.254</td><td>8ca6-df43-6b43</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.163</td><td>0492-265b-262c</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.63</td><td>4ced-fb41-fba5</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.88</td><td>b42e-99e6-3c49</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.200</td><td>408d-5c8f-2aca</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.178</td><td>18c0-4d1b-c69e</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.21</td><td>74d4-356c-8a6b</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.15.177</td><td>4ced-fb6c-ef9f</td><td>Eth0/0/5</td><td>15</td></tr>
+<tr><td>192.168.16.1</td><td>80fb-06c9-6db9</td><td>Vlanif16</td><td></td></tr>
+<tr><td>192.168.17.1</td><td>80fb-06c9-6db9</td><td>Vlanif17</td><td></td></tr>
+<tr><td>192.168.17.152</td><td>acb9-2f46-05f5</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.4</td><td>4cf5-dc97-36b4</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.150</td><td>44a6-42b6-c0a3</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.249</td><td>849a-4059-b273</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.11</td><td>4cf5-dc97-3677</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.172</td><td>4cf5-dc97-3421</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.23</td><td>4cf5-dc97-3695</td><td>Eth0/0/14</td><td>17</td></tr>
+<tr><td>192.168.17.55</td><td>b42e-9979-de61</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.17.54</td><td>00e0-4c52-032d</td><td>Eth0/0/7</td><td>17</td></tr>
+<tr><td>192.168.18.1</td><td>80fb-06c9-6db9</td><td>Vlanif18</td><td></td></tr>
+<tr><td>192.168.19.1</td><td>80fb-06c9-6db9</td><td>Vlanif19</td><td></td></tr>
+<tr><td>192.168.20.1</td><td>80fb-06c9-6db9</td><td>Vlanif20</td><td></td></tr>
+<tr><td>192.168.20.2</td><td>4cf5-dc97-3471</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.3</td><td>4cf5-dc9a-c39e</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.200</td><td>0020-6ba3-4d7c</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.188</td><td>807c-62bb-4e1e</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.64</td><td>2428-fdc1-76e4</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.85</td><td>f46d-2fcf-c3ed</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.142</td><td>309c-2365-209e</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.65</td><td>40b0-765f-6e47</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.74</td><td>d45d-6439-a7a3</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.182</td><td>408d-5c1d-9e3e</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.134</td><td>e86a-642e-0446</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.116</td><td>00e0-4c57-9160</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.198</td><td>309c-23b9-101a</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.66</td><td>0c9d-920f-c668</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.131</td><td>e0d5-5ef6-fdd6</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.101</td><td>a85e-45a0-0ace</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.20.187</td><td>5404-a6a1-7fb1</td><td>Eth0/0/9</td><td>20</td></tr>
+<tr><td>192.168.21.1</td><td>80fb-06c9-6db9</td><td>Vlanif21</td><td></td></tr>
+<tr><td>192.168.22.1</td><td>80fb-06c9-6db9</td><td>Vlanif22</td><td></td></tr>
+<tr><td>192.168.24.1</td><td>80fb-06c9-6db9</td><td>Vlanif24</td><td></td></tr>
+<tr><td>192.168.24.10</td><td>Incomplete</td><td>Eth0/0/2</td><td>24</td></tr>
+<tr><td>192.168.25.1</td><td>80fb-06c9-6db9</td><td>Vlanif25</td><td></td></tr>
+<tr><td>192.168.6.1</td><td>80fb-06c9-6db9</td><td>Vlanif26</td><td></td></tr>
+<tr><td>192.168.6.59</td><td>2428-fdc1-7698</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.5</td><td>2428-fddc-be9d</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.16</td><td>2428-fdc1-7333</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.216</td><td>5cde-3414-a887</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.3</td><td>1012-fb7a-2656</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.130</td><td>4cbd-8fcc-90b6</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.124</td><td>4cbd-8fd5-da71</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.215</td><td>6461-4046-fc4d</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.247</td><td>4cbd-8f90-6d54</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.168</td><td>0017-6112-27a1</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.250</td><td>807c-6202-b8a1</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.19</td><td>2428-fdc1-76cc</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.18</td><td>2428-fdc1-76c7</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.78</td><td>94d9-b36c-2a90</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.13</td><td>f000-006c-6648</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.7</td><td>f000-003f-669d</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.4</td><td>f000-003b-4931</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.9</td><td>4cf5-dc97-343e</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.100</td><td>accb-51de-42e4</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.164</td><td>2428-fdc1-7699</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.2</td><td>4cf5-dc97-344e</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.11</td><td>4cf5-dc97-366e</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.198</td><td>081f-7130-405c</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.14</td><td>f000-006c-6811</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.25</td><td>408d-5ce7-408c</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.184</td><td>b42e-99e6-3279</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.31</td><td>f4b5-203b-2404</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.21</td><td>b42e-9971-29cd</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.172</td><td>f4b5-203b-1eec</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.171</td><td>f4b5-2024-ef6b</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.102</td><td>e0d5-5efc-0d5f</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.45</td><td>0c9d-92cc-8c94</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.60</td><td>00e0-4c3c-a0db</td><td>Eth0/0/16</td><td>26</td></tr>
+<tr><td>192.168.6.128</td><td>Incomplete</td><td>Eth0/0/2</td><td>26</td></tr>
+<tr><td>192.168.28.1</td><td>80fb-06c9-6db9</td><td>Vlanif28</td><td></td></tr>
+<tr><td>192.168.34.1</td><td>80fb-06c9-6db9</td><td>Vlanif34</td><td></td></tr>
+<tr><td>192.168.34.174</td><td>081f-7150-30de</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.109</td><td>b42e-997a-2570</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.44</td><td>fcaa-1422-a331</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.4</td><td>b42e-99e6-329b</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.166</td><td>7405-a563-fba3</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.243</td><td>24cf-24a4-2da8</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.26</td><td>b42e-99ea-043c</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.7</td><td>00e0-4f03-2e24</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.78</td><td>e0d5-5efc-0288</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.211</td><td>0017-6111-1ad0</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.90</td><td>00e0-7070-de71</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.8</td><td>b42e-9968-3f8c</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.254</td><td>5475-959c-548b</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.64</td><td>2428-fdc1-76d0</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.39</td><td>c051-7ea4-099f</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.202</td><td>0017-6112-ab50</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.203</td><td>0017-6112-a93b</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.196</td><td>0840-f360-a0d8</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.99</td><td>e247-1f2c-0f6d</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.205</td><td>0017-6112-279e</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.111</td><td>f4b5-2024-f365</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.158</td><td>00e0-4f03-c582</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.180</td><td>f4b5-2024-f19b</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.227</td><td>b42e-9944-2e6e</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.75</td><td>f4b5-203b-1e44</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.176</td><td>00e0-4c85-826d</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.188</td><td>b42e-997a-2550</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.47</td><td>70b5-e874-5844</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.77</td><td>309c-237d-6c73</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.84</td><td>00e0-4c37-ace4</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.81</td><td>f4b5-2024-ebaf</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.147</td><td>a85e-45a0-0b0e</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.155</td><td>b42e-991d-4210</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.191</td><td>74d4-356d-891e</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.128</td><td>b42e-9904-6dda</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.125</td><td>e0d5-5e6d-bd23</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.244</td><td>c06d-ed2c-d964</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.56</td><td>00e0-4d95-1326</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.107</td><td>00e0-4cff-2c14</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.212</td><td>7486-e218-1afe</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.79</td><td>f4b5-2024-f44c</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.46</td><td>8469-9386-4585</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.148</td><td>a85e-45a0-0ab7</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.45</td><td>e0d5-5ed5-47ee</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.72</td><td>e0d5-5e51-ea27</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.150</td><td>6045-cb7f-c902</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.70</td><td>00e0-4c75-1451</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.74</td><td>e0d5-5ec3-191d</td><td>Eth0/0/11</td><td>34</td></tr>
+<tr><td>192.168.34.10</td><td>00d8-610c-3d58</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.34.153</td><td>f484-8df7-5db7</td><td>Eth0/0/2</td><td>34</td></tr>
+<tr><td>192.168.34.121</td><td>408d-5cfd-e739</td><td>Eth0/0/14</td><td>34</td></tr>
+<tr><td>192.168.87.1</td><td>80fb-06c9-6db9</td><td>Vlanif87</td><td></td></tr>
+<tr><td>192.168.87.97</td><td>f000-003f-58bf</td><td>Eth0/0/14</td><td>87</td></tr>
+<tr><td>192.168.87.25</td><td>f000-003f-669c</td><td>Eth0/0/14</td><td>87</td></tr>
+<tr><td>192.168.87.250</td><td>8ce7-486e-bf80</td><td>Eth0/0/14</td><td>87</td></tr>
+<tr><td>192.168.88.1</td><td>80fb-06c9-6db9</td><td>Vlanif88</td><td></td></tr>
+<tr><td>192.168.88.253</td><td>4cbd-8f90-7198</td><td>Eth0/0/14</td><td>88</td></tr>
+<tr><td>192.168.88.250</td><td>4cbd-8f90-719c</td><td>Eth0/0/11</td><td>88</td></tr>
+<tr><td>192.168.88.251</td><td>4cbd-8f90-71a7</td><td>Eth0/0/11</td><td>88</td></tr>
+<tr><td>192.168.88.131</td><td>2428-fdc1-76a4</td><td>Eth0/0/11</td><td>88</td></tr>
+<tr><td>192.168.88.254</td><td>686d-bcf6-0e91</td><td>Eth0/0/11</td><td>88</td></tr>
+<tr><td>192.168.88.160</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.88.5</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.88.161</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.88.25</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.88.31</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.88.59</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.88.7</td><td>Incomplete</td><td>Eth0/0/2</td><td>88</td></tr>
+<tr><td>192.168.0.1</td><td>80fb-06c9-6db9</td><td>Vlanif100</td><td></td></tr>
+<tr><td>192.168.0.107</td><td>2cea-7fed-051c</td><td>Eth0/0/18</td><td>100</td></tr>
+<tr><td>192.168.0.114</td><td>f4b5-2018-50e7</td><td>Eth0/0/21</td><td>100</td></tr>
+<tr><td>192.168.0.45</td><td>2cea-7feb-b118</td><td>Eth0/0/20</td><td>100</td></tr>
+<tr><td>192.168.0.11</td><td>0017-6112-b286</td><td>Eth0/0/22</td><td>100</td></tr>
+<tr><td>192.168.0.189</td><td>8ca6-dfc4-490d</td><td>Eth0/0/24</td><td>100</td></tr>
+<tr><td>192.168.0.252</td><td>f4ee-0823-956a</td><td>Eth0/0/24</td><td>100</td></tr>
+<tr><td>192.168.0.99</td><td>e0d5-5efa-1b79</td><td>Eth0/0/24</td><td>100</td></tr>
+<tr><td>192.168.0.120</td><td>00e0-66ff-1b5f</td><td>Eth0/0/19</td><td>100</td></tr>
+<tr><td>10.0.0.2</td><td>80fb-06c9-6db9</td><td>Vlanif200</td><td></td></tr>
+<tr><td>192.168.201.1</td><td>80fb-06c9-6db9</td><td>Vlanif201</td><td></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="监控设备列表"><a class="header" href="#监控设备列表">监控设备列表</a></h1>
+<p>海康设备</p>
+<div class="table-wrapper"><table><thead><tr><th>设备类型</th><th>IP地址</th><th>子网掩码</th><th>物理地址</th></tr></thead><tbody>
+<tr><td>DS-7832N-K2</td><td>192.168.17.249</td><td>255.255.255.0</td><td>84-9a-40-59-b2-73</td></tr>
+<tr><td>DS-8632N-E8</td><td>192.168.87.250</td><td>255.255.255.0</td><td>8c-e7-48-6e-bf-80</td></tr>
+<tr><td>DS-7832N-K2</td><td>192.168.88.254</td><td>255.255.255.0</td><td>68-6d-bc-f6-0e-91</td></tr>
+<tr><td>DS-7808N-K1/8P(D)</td><td>192.168.34.244</td><td>255.255.255.0</td><td>c0-6d-ed-2c-d9-64</td></tr>
+<tr><td>DS-7104N-F1(B)</td><td>192.168.6.100</td><td>255.255.255.0</td><td>ac-cb-51-de-42-e4</td></tr>
+<tr><td>DS-7932N-R4(B)</td><td>192.168.6.250</td><td>255.255.255.0</td><td>80-7c-62-02-b8-a1</td></tr>
+<tr><td>DS-7816N-K2</td><td>192.168.88.253</td><td>255.255.255.0</td><td>4c-bd-8f-90-71-98</td></tr>
+<tr><td>DS-7816N-K2</td><td>192.168.88.250</td><td>255.255.255.0</td><td>4c-bd-8f-90-71-9c</td></tr>
+<tr><td>DS-7816N-K2</td><td>192.168.88.251</td><td>255.255.255.0</td><td>4c-bd-8f-90-71-a7</td></tr>
+<tr><td>DS-7816N-K2</td><td>192.168.6.247</td><td>255.255.255.0</td><td>4c-bd-8f-90-6d-54</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.8</td><td>255.255.255.0</td><td>f0-00-00-3a-be-b3</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.12</td><td>255.255.255.0</td><td>f0-00-00-3a-be-e5</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.29</td><td>255.255.255.0</td><td>f0-00-00-3a-be-af</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.28</td><td>255.255.255.0</td><td>f0-00-00-3b-48-5d</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.24</td><td>255.255.255.0</td><td>f0-00-00-3a-be-ab</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.32</td><td>255.255.255.0</td><td>f0-00-00-3a-be-c0</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.6</td><td>255.255.255.0</td><td>f0-00-00-3a-be-c5</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.15</td><td>255.255.255.0</td><td>f0-00-00-3b-48-a1</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.22</td><td>255.255.255.0</td><td>f0-00-00-3b-48-54</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.20</td><td>255.255.255.0</td><td>f0-00-00-3b-48-7f</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.7</td><td>255.255.255.0</td><td>f0-00-00-3f-66-9d</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.17</td><td>255.255.255.0</td><td>f0-00-00-3b-49-35</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.14</td><td>255.255.255.0</td><td>f0-00-00-6c-68-11</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-82-22-58</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-2f-e9-06</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.87.58</td><td>255.255.255.0</td><td>f0-00-00-3f-64-a8</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-87-a1-5a</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-b0-4b-6a</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.13</td><td>255.255.255.0</td><td>f0-00-00-6c-66-48</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.88.109</td><td>255.255.255.0</td><td>f0-00-00-6c-81-67</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.87.245</td><td>255.255.255.0</td><td>f0-00-00-3f-58-9e</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.87.97</td><td>255.255.255.0</td><td>f0-00-00-3f-58-bf</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.6.128</td><td>255.255.255.0</td><td>e0-62-90-8d-99-95</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.88.105</td><td>255.255.255.0</td><td>f0-00-00-6c-81-55</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.4</td><td>255.255.255.0</td><td>f0-00-00-3b-49-31</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.88.2</td><td>255.255.255.0</td><td>f0-00-00-6b-da-3e</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.87.25</td><td>255.255.255.0</td><td>f0-00-00-3f-66-9c</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.52</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-6e</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-dd-08-03</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.74</td><td>255.255.255.0</td><td>4c-bd-8f-79-19-ac</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.63</td><td>255.255.255.0</td><td>4c-bd-8f-d5-db-d4</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.11</td><td>255.255.255.0</td><td>4c-f5-dc-97-36-77</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.88.3</td><td>255.255.255.0</td><td>f0-00-00-6c-45-74</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.71</td><td>255.255.255.0</td><td>4c-bd-8f-79-1b-80</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-f6-66-b9</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-eb-04-92</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.30</td><td>255.255.255.0</td><td>f0-00-00-3b-49-4a</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.20</td><td>255.255.255.0</td><td>4c-bd-8f-d3-2a-a9</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-32-a9-66</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.88.106</td><td>255.255.255.0</td><td>f0-00-00-6c-67-ee</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.16</td><td>255.255.255.0</td><td>4c-bd-8f-79-1b-53</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.12</td><td>255.255.255.0</td><td>44-19-b6-49-87-f4</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.4</td><td>255.255.255.0</td><td>4c-f5-dc-97-36-b4</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.152</td><td>255.255.255.0</td><td>ac-b9-2f-46-05-f5</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.3</td><td>255.255.255.0</td><td>44-19-b6-49-84-98</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.15</td><td>255.255.255.0</td><td>44-19-b6-49-83-af</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.20</td><td>255.255.255.0</td><td>44-19-b6-49-86-09</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.13</td><td>255.255.255.0</td><td>44-19-b6-49-87-1c</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.151</td><td>255.255.255.0</td><td>4c-f5-dc-97-35-a9</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.254.5</td><td>255.255.255.0</td><td>4c-bd-8f-79-1b-76</td></tr>
+<tr><td>DS-2CD3T25D-I3</td><td>192.168.88.5</td><td>255.255.255.0</td><td>4c-bd-8f-ba-d0-12</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.6.128</td><td>255.255.255.0</td><td>e0-62-90-bb-c9-b5</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.6.11</td><td>255.255.255.0</td><td>4c-f5-dc-97-36-6e</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.27</td><td>255.255.255.0</td><td>4c-bd-8f-79-19-ca</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.24</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-70</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.30</td><td>255.255.255.0</td><td>4c-bd-8f-2c-95-72</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.25</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-85</td></tr>
+<tr><td>HK-IPCAM-HI</td><td>192.168.6.27</td><td>255.255.255.0</td><td>f0-00-00-3b-48-9a</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.6.130</td><td>255.255.255.0</td><td>4c-bd-8f-cc-90-b6</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.254.5</td><td>255.255.255.0</td><td>4c-bd-8f-cc-90-b8</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.9</td><td>255.255.255.0</td><td>44-19-b6-49-87-14</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.26</td><td>255.255.255.0</td><td>4c-bd-8f-2c-95-97</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.23</td><td>255.255.255.0</td><td>4c-f5-dc-97-36-95</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.150</td><td>255.255.255.0</td><td>44-a6-42-b6-c0-a3</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.6.2</td><td>255.255.255.0</td><td>4c-f5-dc-97-34-4e</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.10</td><td>255.255.255.0</td><td>44-19-b6-49-87-da</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.6.23</td><td>255.255.255.0</td><td>44-19-b6-49-85-75</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.17.172</td><td>255.255.255.0</td><td>4c-f5-dc-97-34-21</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.21</td><td>255.255.255.0</td><td>44-19-b6-49-87-17</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.8</td><td>255.255.255.0</td><td>44-19-b6-49-87-16</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.7</td><td>255.255.255.0</td><td>44-19-b6-49-87-05</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.6</td><td>255.255.255.0</td><td>44-19-b6-49-87-09</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.59</td><td>255.255.255.0</td><td>4c-bd-8f-79-1b-84</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.28</td><td>255.255.255.0</td><td>4c-bd-8f-2c-95-7c</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.22</td><td>255.255.255.0</td><td>44-19-b6-49-86-fc</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.3</td><td>255.255.255.0</td><td>10-12-fb-7a-26-56</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.14</td><td>255.255.255.0</td><td>44-19-b6-49-86-19</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.164</td><td>255.255.255.0</td><td>24-28-fd-c1-76-99</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.11</td><td>255.255.255.0</td><td>44-19-b6-49-87-06</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.19</td><td>255.255.255.0</td><td>24-28-fd-c1-76-cc</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.4</td><td>255.255.255.0</td><td>44-19-b6-49-87-0f</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.5</td><td>255.255.255.0</td><td>44-19-b6-49-85-b6</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.19</td><td>255.255.255.0</td><td>4c-bd-8f-79-19-68</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>192.168.88.7</td><td>255.255.255.0</td><td>e0-62-90-8a-bd-c9</td></tr>
+<tr><td>DS-IPC-B12H2-I</td><td>192.168.88.161</td><td>255.255.255.0</td><td>58-50-ed-6d-2f-60</td></tr>
+<tr><td>DS-2SC3Q120MY-TE</td><td>192.168.6.9</td><td>255.255.255.0</td><td>4c-f5-dc-97-34-3e</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.17</td><td>255.255.255.0</td><td>44-19-b6-49-87-18</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.72</td><td>255.255.255.0</td><td>4c-bd-8f-79-1b-2a</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.5</td><td>255.255.255.0</td><td>24-28-fd-dc-be-9d</td></tr>
+<tr><td>DS-IPC-B12H2-I</td><td>192.168.88.160</td><td>255.255.255.0</td><td>58-50-ed-6d-2f-7b</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.34.64</td><td>255.255.255.0</td><td>24-28-fd-c1-76-d0</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.19</td><td>255.255.255.0</td><td>44-19-b6-49-86-fd</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.16</td><td>255.255.255.0</td><td>24-28-fd-c1-73-33</td></tr>
+<tr><td>DS-2CD3232D-I5</td><td>192.168.87.2</td><td>255.255.255.0</td><td>44-19-b6-49-87-0a</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.17</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-95</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.34.39</td><td>255.255.255.0</td><td>c0-51-7e-a4-09-9f</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.70</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-b0</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.59</td><td>255.255.255.0</td><td>24-28-fd-c1-76-98</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.55</td><td>255.255.255.0</td><td>4c-bd-8f-79-1b-7a</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.31</td><td>255.255.255.0</td><td>4c-bd-8f-cc-90-24</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.73</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-b2</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.88.64</td><td>255.255.255.0</td><td>4c-bd-8f-d5-db-1e</td></tr>
+<tr><td>DS-2CD3T10D-I3</td><td>192.168.6.124</td><td>255.255.255.0</td><td>4c-bd-8f-d5-da-71</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.88.131</td><td>255.255.255.0</td><td>24-28-fd-c1-76-a4</td></tr>
+<tr><td>DS-IPC-B12HV2-IA</td><td>192.168.6.18</td><td>255.255.255.0</td><td>24-28-fd-c1-76-c7</td></tr>
+<tr><td>DS-2CD3T25D-I3</td><td>192.168.88.2</td><td>255.255.255.0</td><td>4c-bd-8f-ba-d0-22</td></tr>
+<tr><td>DS-2CD1201D-I3</td><td>255.255.255.255</td><td>255.255.255.255</td><td>e0-62-90-c9-17-12</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="电脑清单"><a class="header" href="#电脑清单">电脑清单</a></h1>
+<p>主机名不能有中文</p>
+<h3 id="扫码生成-win主机名称表"><a class="header" href="#扫码生成-win主机名称表">扫码生成 win主机名称表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ip地址</th><th>状态</th><th>主机名</th><th>开放端口</th></tr></thead><tbody>
+<tr><td>192.168.0.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.0.107</td><td>up</td><td>未知</td><td>80,445,3389</td></tr>
+<tr><td>192.168.0.11</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.0.114</td><td>up</td><td>WINMICR-2KM0D6K</td><td>445</td></tr>
+<tr><td>192.168.0.120</td><td>up</td><td>WINMICR-4TLVS6U</td><td>445</td></tr>
+<tr><td>192.168.0.252</td><td>up</td><td>未知</td><td>80,445,3389</td></tr>
+<tr><td>192.168.0.45</td><td>up</td><td>未知</td><td>80,445,3389</td></tr>
+<tr><td>192.168.0.99</td><td>up</td><td>未知</td><td>445,3389</td></tr>
+<tr><td>192.168.100.10</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.15</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.17</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.18</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.23</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.25</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.26</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.3</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.31</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.35</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.37</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.38</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.41</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.42</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.47</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.5</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.53</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.54</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.55</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.6</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.100.9</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.11.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.110.23</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.110.3</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.110.5</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.12.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.13.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.130.3</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.130.5</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.14.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.14.13</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.14.14</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.15.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.15.163</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.15.177</td><td>up</td><td>LIZQ</td><td>445,3389</td></tr>
+<tr><td>192.168.15.178</td><td>up</td><td>USER-20210317MC</td><td>445</td></tr>
+<tr><td>192.168.15.200</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.15.21</td><td>up</td><td>E1NAHC7ZXWEICCD</td><td>445</td></tr>
+<tr><td>192.168.15.254</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.15.33</td><td>up</td><td>PC-20201012EOEA</td><td>445</td></tr>
+<tr><td>192.168.15.63</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.15.88</td><td>up</td><td>PC-20200425POEE</td><td>445</td></tr>
+<tr><td>192.168.16.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.17.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.17.11</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.150</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.151</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.17.152</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.172</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.23</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.249</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.38</td><td>up</td><td>PC-20180514SGIF</td><td>445</td></tr>
+<tr><td>192.168.17.4</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.17.55</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.18.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.19.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.20.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.20.101</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.20.116</td><td>up</td><td>SD-20181212VIAR</td><td>80,445</td></tr>
+<tr><td>192.168.20.131</td><td>up</td><td>DS-CK</td><td>445</td></tr>
+<tr><td>192.168.20.142</td><td>up</td><td>WIN-MH3P1A7QQ1B</td><td>445</td></tr>
+<tr><td>192.168.20.182</td><td>up</td><td>PC-20191226KYET</td><td>445</td></tr>
+<tr><td>192.168.20.187</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.20.188</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.20.198</td><td>up</td><td>XTZJ-2021GAIBZX</td><td>445</td></tr>
+<tr><td>192.168.20.2</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.20.200</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.20.3</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.20.64</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.20.66</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.20.85</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.200.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.21.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.22.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.24.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.25.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.254.6</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.28.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.10</td><td>up</td><td>PC-20190727BGML</td><td>445</td></tr>
+<tr><td>192.168.34.107</td><td>up</td><td>PC-202107241035</td><td>445</td></tr>
+<tr><td>192.168.34.109</td><td>up</td><td>未知</td><td>80,3389</td></tr>
+<tr><td>192.168.34.111</td><td>up</td><td>WINMICR-DG01OLL</td><td>445</td></tr>
+<tr><td>192.168.34.121</td><td>up</td><td>PC-20090101CCDG</td><td>445</td></tr>
+<tr><td>192.168.34.128</td><td>up</td><td>PC-20190315OGTK</td><td>445</td></tr>
+<tr><td>192.168.34.147</td><td>up</td><td>PC-202012291322</td><td>445</td></tr>
+<tr><td>192.168.34.150</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.34.155</td><td>up</td><td>PC-20190222LKYG</td><td>445,3389</td></tr>
+<tr><td>192.168.34.166</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.174</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.180</td><td>up</td><td>WINMICR-CFOHHA9</td><td>445</td></tr>
+<tr><td>192.168.34.182</td><td>up</td><td>PC-20221109KMBR</td><td>445</td></tr>
+<tr><td>192.168.34.195</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.202</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.203</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.205</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.211</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.243</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.244</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.34.254</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.34.26</td><td>up</td><td>PC-20200909AWQN</td><td>445</td></tr>
+<tr><td>192.168.34.39</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.34.4</td><td>up</td><td>BF-2020</td><td>445</td></tr>
+<tr><td>192.168.34.45</td><td>up</td><td>PC-202006</td><td>445</td></tr>
+<tr><td>192.168.34.47</td><td>up</td><td>未知</td><td>445,3389</td></tr>
+<tr><td>192.168.34.56</td><td>up</td><td>WIN-1B0R4DM46SR</td><td>445</td></tr>
+<tr><td>192.168.34.64</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.34.7</td><td>up</td><td>WIN-0PFFCOSNOCT</td><td>445</td></tr>
+<tr><td>192.168.34.70</td><td>up</td><td>PC-202107311215</td><td>445</td></tr>
+<tr><td>192.168.34.72</td><td>up</td><td>SD-20181023AMGC</td><td>445</td></tr>
+<tr><td>192.168.34.75</td><td>up</td><td>WINMICR-7T6957Q</td><td>445</td></tr>
+<tr><td>192.168.34.77</td><td>up</td><td>PCOS-1711171649</td><td>445</td></tr>
+<tr><td>192.168.34.78</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.34.79</td><td>up</td><td>WINMICR-8LBP21F</td><td>445</td></tr>
+<tr><td>192.168.34.8</td><td>up</td><td>XTZJ-20220706EJ</td><td>445</td></tr>
+<tr><td>192.168.34.81</td><td>up</td><td>WINMICR-QVR96SU</td><td>80,445</td></tr>
+<tr><td>192.168.34.84</td><td>up</td><td>PVRAXFQAPQODOUO</td><td>445</td></tr>
+<tr><td>192.168.34.90</td><td>up</td><td>LYZ</td><td>445</td></tr>
+<tr><td>192.168.34.99</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.5.1</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.50.21</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.50.29</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.6.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.6.100</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.102</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.6.11</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.12</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.124</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.128</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.13</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.130</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.14</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.15</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.153</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.16</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.164</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.168</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.6.169</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.6.17</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.171</td><td>up</td><td>JAQLNTGZIU7LIXF</td><td>445</td></tr>
+<tr><td>192.168.6.172</td><td>up</td><td>WINMICR-F7QTKR9</td><td>445</td></tr>
+<tr><td>192.168.6.18</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.19</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.198</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.6.199</td><td>up</td><td>未知</td><td>3389</td></tr>
+<tr><td>192.168.6.2</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.20</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.21</td><td>up</td><td>PC-20191203IRBJ</td><td>445</td></tr>
+<tr><td>192.168.6.216</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.6.22</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.23</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.232</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.6.24</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.247</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.25</td><td>up</td><td>USER-20200328AC</td><td>445</td></tr>
+<tr><td>192.168.6.250</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.27</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.28</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.29</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.3</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.30</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.31</td><td>up</td><td>WINMICR-H0BJJ1T</td><td>445</td></tr>
+<tr><td>192.168.6.32</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.4</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.45</td><td>up</td><td>未知</td><td>445</td></tr>
+<tr><td>192.168.6.5</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.59</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.6</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.60</td><td>up</td><td>PC-202002130345</td><td>445</td></tr>
+<tr><td>192.168.6.7</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.78</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.6.8</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.6.9</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.87.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.87.25</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.87.250</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.87.97</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.88.1</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.88.131</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.88.250</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.88.251</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.88.253</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.88.254</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.10.110</td><td>down</td><td>未知</td><td></td></tr>
+<tr><td>192.168.10.1</td><td>up</td><td>未知</td><td>80</td></tr>
+<tr><td>192.168.10.104</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.10.106</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.10.108</td><td>up</td><td>未知</td><td></td></tr>
+<tr><td>192.168.10.111</td><td>up</td><td>PC-202002132322</td><td>445</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="k3服务器问题处理"><a class="header" href="#k3服务器问题处理">K3服务器问题处理</a></h2>
+<p>连接到服务器并重启k3相关服务器完成问题处理</p>
+<h4 id="连接到服务器"><a class="header" href="#连接到服务器">连接到服务器</a></h4>
+<p>通过本地一个软件来连接服务器</p>
+<p>win7电脑使用快捷键 【win】键 和【r】 字母键同时按下出现运行输入框</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E8%BF%90%E8%A1%8C%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2.png" alt="" /></p>
+<p>win10电脑通过开始菜单</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/win10%E8%BF%9C%E7%A8%8B.png" alt="" /></p>
+<p>启动连接工具软件</p>
+<h4 id="输入连接到45地址"><a class="header" href="#输入连接到45地址">输入连接到45地址</a></h4>
+<p>先填入服务器ip地址</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E7%99%BB%E5%85%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="" /></p>
+<h4 id="填写用户名和密码"><a class="header" href="#填写用户名和密码">填写用户名和密码</a></h4>
+<p>需要提供服务器用户名和密码</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E8%BF%9B%E5%85%A5%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2.png" alt="" /></p>
+<h4 id="确认连接"><a class="header" href="#确认连接">确认连接</a></h4>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E7%99%BB%E5%85%A5%E6%9C%8D%E5%8A%A1%E5%99%A82.png" alt="" /></p>
+<h4 id="打开管理工具"><a class="header" href="#打开管理工具">打开管理工具</a></h4>
+<p>进入服务后要打开计算机管理</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.png" alt="" /></p>
+<h4 id="找到服务并重启"><a class="header" href="#找到服务并重启">找到服务并重启</a></h4>
+<p><strong>注意</strong> 服务名称是 <strong>SQL Server(MSSQLSERVER)</strong></p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1.png" alt="" /></p>
+<h4 id="重启服务确认"><a class="header" href="#重启服务确认">重启服务确认</a></h4>
+<p>重启时自动重启相关服务</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A12.png" alt="" /></p>
+<h2 id="k3服务器重启"><a class="header" href="#k3服务器重启">k3服务器重启</a></h2>
+<p>如果重新sql service 无法解决问题，就只能重启整个服务器</p>
+<p>也需要先连接到服务器</p>
+<h4 id="重启服务器"><a class="header" href="#重启服务器">重启服务器</a></h4>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E9%87%8D%E5%90%AF%E7%B3%BB%E7%BB%9F.png" alt="" /></p>
+<h4 id="确认重启"><a class="header" href="#确认重启">确认重启</a></h4>
+<p>需要填写重启服务器的理由</p>
+<p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E9%87%8D%E5%90%AF%E7%B3%BB%E7%BB%9F2.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="微软数据"><a class="header" href="#微软数据">微软数据</a></h1>
+<p>支持linux和docker部署</p>
+<p>远程连接到数据库</p>
+<pre><code>sqlcmd -S 192.168.0.121,1433 -U SA 
+</code></pre>
+<h4 id="简单查询"><a class="header" href="#简单查询">简单查询</a></h4>
+<pre><code class="language-sql">USE TestDB;
+SELECT * FROM Inventory WHERE quantity &gt; 152;
+
+go
+
+</code></pre>
+<p>必须使用go才执行</p>
+<h2 id="win端管理工具"><a class="header" href="#win端管理工具">win端管理工具</a></h2>
+<p>ssms（sql servier management studio）</p>
+<p>直接连接图形化</p>
+<h3 id="修改某用户的密码"><a class="header" href="#修改某用户的密码">修改某用户的密码</a></h3>
+<pre><code class="language-sql">alter login dbjack with password='wsf119900'
+</code></pre>
+<h3 id="备份数据库"><a class="header" href="#备份数据库">备份数据库</a></h3>
+<p>覆盖方式备份</p>
+<pre><code class="language-sql">backup database   database_name to disk='E:\backup\database_name.bak' with init
+</code></pre>
+<pre><code class="language-mssql">backup database   database_name to disk='E:\backup\database_name.bak' with init
+</code></pre>
+<h4 id="差异备份"><a class="header" href="#差异备份">差异备份</a></h4>
+<pre><code class="language-mssql">Backup Database *database_name* 
+To disk='E:\backup\database_name.bak'
+with Differential
+</code></pre>
+<h4 id="备份脚本"><a class="header" href="#备份脚本">备份脚本</a></h4>
+<p>也可以设置成脚本备份</p>
+<pre><code class="language-sql">sqlcmd -i &quot;f:\dbbak\bak.sql&quot;
+</code></pre>
+<h3 id="恢复数据库"><a class="header" href="#恢复数据库">恢复数据库</a></h3>
+<p>脚本可指定文件</p>
+<pre><code class="language-mssql">RESTORE DATABASE AbpFirst FROM DISK='D:\AbpFirst.bak' WITH MOVE 'AbpFirst' TO 'D:\MyData\AbpFirst_Data.mdf', Move 'AbpFirst_log' TO 'D:\MyData\AbpFirst_log.ldf'
+</code></pre>
+<h4 id="只恢复文件"><a class="header" href="#只恢复文件">只恢复文件</a></h4>
+<pre><code class="language-mssql">RESTORE FILELISTONLY FROM DISK='d:\AbpFirst.bak'	
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

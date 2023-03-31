@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>电脑工具 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="电脑工具.html" class="active"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li><li class="chapter-item expanded "><a href="网络/管理路由器.html"><strong aria-hidden="true">1.3.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="网络/管理主交换机.html"><strong aria-hidden="true">1.4.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="网络/交换机2锐捷.html"><strong aria-hidden="true">1.5.</strong> 交换机2锐捷</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="管理内部.html"><strong aria-hidden="true">2.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="管理外网.html"><strong aria-hidden="true">2.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="网络/监控主控.html"><strong aria-hidden="true">2.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="特殊设备.html"><strong aria-hidden="true">2.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><a href="网络/mac列表.html"><strong aria-hidden="true">3.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="网络/arp列表.html"><strong aria-hidden="true">4.</strong> arp列表</a></li><li class="chapter-item expanded "><a href="网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><a href="服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="服务器/数据库mssql.html"><strong aria-hidden="true">8.</strong> 数据库mssql备份</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="电脑工具"><a class="header" href="#电脑工具">电脑工具</a></h1>
+<h3 id="通过curl上报电脑信息shell脚本"><a class="header" href="#通过curl上报电脑信息shell脚本">通过curl上报电脑信息(shell脚本)</a></h3>
+<pre><code class="language-cmd">
+net config workstation | find &quot;计算机全名&quot;  | curl -X POST http://httpbin.org/post  -d @-
+
+</code></pre>
+<h3 id="win10安装snmp"><a class="header" href="#win10安装snmp">win10安装snmp</a></h3>
+<pre><code>管理员打开 PowerShell 
+
+Add-WindowsCapability -Online -Name &quot;SNMP.Client~~~~0.0.1.0&quot;
+
+Add-WindowsCapability -Online -Name &quot;WMI-SNMP-Provider.Client~~~~0.0.1.0&quot;
+
+
+</code></pre>
+<p>win7</p>
+<pre><code>dism /online /enable-feature /featurename:SNMP   #//安装snmp
+
+</code></pre>
+<h3 id="修复win10系文件"><a class="header" href="#修复win10系文件">修复win10系文件</a></h3>
+<p>扫描和修复系统文件</p>
+<pre><code>Dism /Online /Cleanup-Image /ScanHealth （扫描全部系统文件并与官方系统文件对比）
+Dism /Online /Cleanup-Image /CheckHealth
+DISM /Online /Cleanup-image /RestoreHealth （将与官方系统源文件不同的进行还原）
+</code></pre>
+<p>系统文件保护</p>
+<pre><code>sfc /scannow   #//-- 扫描丢失的文件
+</code></pre>
+<p>重装win10 默认app</p>
+<pre><code>
+Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register        &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}
+</code></pre>
+<h2 id="命令行共享文件"><a class="header" href="#命令行共享文件">命令行共享文件</a></h2>
+<h3 id="查看本地共享"><a class="header" href="#查看本地共享">查看本地共享</a></h3>
+<pre><code>net view \\127.0.0.1
+</code></pre>
+<h3 id="查看当前的连接"><a class="header" href="#查看当前的连接">查看当前的连接</a></h3>
+<pre><code>net use 
+
+net use * /delete
+</code></pre>
+<h4 id="快速共享文件"><a class="header" href="#快速共享文件">快速共享文件</a></h4>
+<p>格式</p>
+<pre><code class="language-cmd">net share &lt;name&gt;=&lt;device name&gt; [/users=&lt;number&gt; or /unlimited] [/remark:&quot;text&quot;]
+</code></pre>
+<p>例子</p>
+<pre><code class="language-cmd">mkdir d:\tmpShare
+
+net share &quot;临时 共享&quot;=&quot;d:\tmpShare&quot; /grant:everyone,FULL /users:5 /remark:&quot;测试&quot;
+
+net share print=&quot;print&quot;  /grant:everyone,FULL /users:5 /remark:&quot;测试&quot;
+
+</code></pre>
+<h4 id="打印机访问"><a class="header" href="#打印机访问">打印机访问</a></h4>
+<p>本地账户的共享  - 仅来宾</p>
+<p>gpedit.msc 下设置：</p>
+<p>计算机配置/windows设置/安全设置/本地策略/安全选项/网络访问:本地账户的共享==仅来宾</p>
+<p>计算机配置/windows设置/安全设置/本地策略/安全选项/账户:来宾账户状态==启用</p>
+<p>计算机配置/windows设置/安全设置/本地策略/安全选项/账户:使用空密码==禁用</p>
+<p><a href="https://haodiyw.com/i/147036.html">参考</a></p>
+<p>策略设置强制更新</p>
+<pre><code>gpupdate /force
+
+</code></pre>
+<p>还要重启打印服务,在管理员cmd下执行</p>
+<pre><code>net stop &quot;Print Spooler&quot;
+net start &quot;Print Spooler&quot;
+</code></pre>
+<p>重新关闭共享（控制面板\所有控制面板项\网络和共享中心\高级共享设置）再开启 </p>
+<p>[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print]</p>
+<p>分支在其下新建32位DWORD值RpcAuthnLevelPrivacyEnabled 赋值为0即可</p>
+<p>重启计算机</p>
+<p>用ip无法访问用主机名可以 建议关闭防火墙 </p>
+<h2 id="常用软件"><a class="header" href="#常用软件">常用软件</a></h2>
+<h4 id="杀毒软件"><a class="header" href="#杀毒软件">杀毒软件</a></h4>
+<p>推荐使用 火绒</p>
+<h4 id="浏览器"><a class="header" href="#浏览器">浏览器</a></h4>
+<p>win7 使用chrom 109版本</p>
+<p>win10 使用chrome 最新版</p>
+<h4 id="pdf-查看工具"><a class="header" href="#pdf-查看工具">pdf 查看工具</a></h4>
+<p>极速pdf</p>
+<h4 id="pdf虚拟打印"><a class="header" href="#pdf虚拟打印">pdf虚拟打印</a></h4>
+<p>wps 打印 to pdf</p>
+<p>金山打印 to pdf</p>
+<h4 id="办公电脑配置"><a class="header" href="#办公电脑配置">办公电脑配置</a></h4>
+<p>英特尔</p>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>intel 酷睿i3-12100 4核8线程</td><td>900</td></tr>
+<tr><td>散热器</td><td>intel原装散热器</td><td>0</td></tr>
+<tr><td>主板</td><td>华硕  TUF GAMING B460M-PRO</td><td>769</td></tr>
+<tr><td>内存</td><td>金士顿骇客8G 3200 DDR4</td><td>319</td></tr>
+<tr><td>显卡</td><td>集成显卡</td><td>0</td></tr>
+<tr><td>存储</td><td>金士顿A400 240G 固态硬盘</td><td>249</td></tr>
+<tr><td>机箱</td><td>鑫谷图灵N5</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷战斧500 PLUS</td><td>219</td></tr>
+<tr><td>合计</td><td>办公常用高效</td><td>2784</td></tr>
+</tbody></table>
+</div>
+<p>amd方案</p>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>AMD 锐龙5 5600G 6核12线程</td><td>900</td></tr>
+<tr><td>散热器</td><td>鑫谷（Segotep）S4 ARGB风冷</td><td>139</td></tr>
+<tr><td>主板</td><td>华硕（ASUS） TUF GAMING</td><td>799</td></tr>
+<tr><td>内存</td><td>金士顿骇客8G*2 3200 DDR4</td><td>319</td></tr>
+<tr><td>显卡</td><td>集成显卡</td><td>0</td></tr>
+<tr><td>存储</td><td>金士顿A400 240G 固态硬盘</td><td>249</td></tr>
+<tr><td>机箱</td><td>鑫谷图灵N5</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷战斧500 PLUS</td><td>219</td></tr>
+<tr><td>合计</td><td>高性能高稳定通用</td><td>3053</td></tr>
+</tbody></table>
+</div>
+<p>ok</p>
+<h3 id="数据库"><a class="header" href="#数据库">数据库</a></h3>
+<p>中间层错误重启45上的服务 SQL Server (MSSQLSERVER)  重启即可</p>
+<h2 id="服务器虚拟化"><a class="header" href="#服务器虚拟化">服务器虚拟化</a></h2>
+<p>删除微软的虚拟化power shell下执行</p>
+<pre><code>UnInstall-WindowsFeature -Name Hyper-V -Restart
+</code></pre>
+<h2 id="服务器内存"><a class="header" href="#服务器内存">服务器内存</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>服务器</th><th>内存型号</th><th>价格</th><th>备注</th></tr></thead><tbody>
+<tr><td>252</td><td><strong>三星M393A4G43AB3-CWE 32G DDR4 3200 RECC</strong></td><td>￥550</td><td><a href="https://memory.net/product/m393a4g43ab3-cwe-samsung-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x8-module/">参考</a></td></tr>
+<tr><td>107</td><td><strong>海力士HMAA8GR7AJR4N-XN, SK Hynix 64GB 2RX4</strong></td><td>￥1200</td><td><a href="https://memory.net/product/hmaa8gr7ajr4n-xn-sk-hynix-1x-64gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
+<tr><td>45</td><td><strong>海力士HMA84GR7DJR4N-XN - SK Hynix 1x 32GB DDR4-3200</strong></td><td>￥550</td><td><a href="https://memory.net/product/hma84gr7djr4n-xn-sk-hynix-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
+</tbody></table>
+</div>
+<h3 id="虚拟打印"><a class="header" href="#虚拟打印">虚拟打印</a></h3>
+<hr />
+<p>文件转pdf，pdf转换图片，全能虚拟打印机 ，pdf打印机 。支持win7 到 win11 购买后永久免费。不存在破解盗版问题。下单后自动化发货。</p>
+<p>==</p>
+<p>下面发的内容是你购买的订单号： 3194204727779019230 的全部内容哦~</p>
+<h2>虚拟打印机Doro PDF中文版h2.16
+蓝奏云地址https://wwd.lanzoul.com/idO520e6uz9a 密码:1234</h2>
+<h2 id="微云地址httpsshareweiyuncommuvsjcf0-密码123456"><a class="header" href="#微云地址httpsshareweiyuncommuvsjcf0-密码123456">微云地址https://share.weiyun.com/MuVSjcf0 密码：123456</a></h2>
+<h2 id="百度网盘地址httpspanbaiducoms19ojjjlyhm7mulqpejaxv_g-提取码1234"><a class="header" href="#百度网盘地址httpspanbaiducoms19ojjjlyhm7mulqpejaxv_g-提取码1234">百度网盘地址https://pan.baidu.com/s/19OJjjlyHm7mUlqPEJAxV_g 提取码：1234</a></h2>
+<p>以上地址内容是一样的，任选一个地址即可。地址有效期30天，请尽快下到电脑使用。
+不会下载？请看宝贝描述有介绍下载步骤哦。
+十字五星好评，在1年内找不到了免费发送1次服务！
+祝你每天都有好心情哦~</p>
+<p>==</p>
+<hr />
+<p>==
+亲，久等了，请使用摆渡网盤自行下载分享文件
+你的订单号是3193685929340019230</p>
+<p>.链.接：https://pan.baidu.com/s/1CktEwK2SntFD_TzGvwFW4A 
+.提.取.马：w840</p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="网络工具.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="网络/管理路由器.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="网络工具.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="网络/管理路由器.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

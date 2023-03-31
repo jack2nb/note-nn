@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>交换机2锐捷 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="../电脑工具.html"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li><li class="chapter-item expanded "><a href="../网络/管理路由器.html"><strong aria-hidden="true">1.3.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="../网络/管理主交换机.html"><strong aria-hidden="true">1.4.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="../网络/交换机2锐捷.html" class="active"><strong aria-hidden="true">1.5.</strong> 交换机2锐捷</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../管理内部.html"><strong aria-hidden="true">2.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="../管理外网.html"><strong aria-hidden="true">2.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="../网络/监控主控.html"><strong aria-hidden="true">2.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="../特殊设备.html"><strong aria-hidden="true">2.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><a href="../网络/mac列表.html"><strong aria-hidden="true">3.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="../网络/arp列表.html"><strong aria-hidden="true">4.</strong> arp列表</a></li><li class="chapter-item expanded "><a href="../网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="../管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><a href="../服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="../服务器/数据库mssql.html"><strong aria-hidden="true">8.</strong> 数据库mssql备份</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="锐捷交换机"><a class="header" href="#锐捷交换机">锐捷交换机</a></h2>
+<p>RuiJie nbs5552xg</p>
+<p>查看 <strong>二层转发表信息</strong> </p>
+<h4 id="远程管理-telnet"><a class="header" href="#远程管理-telnet">远程管理 telnet</a></h4>
+<p>(需要去web端设置密码) 不然会收到提示 password required, but none set</p>
+<pre><code class="language-cmd">configure terminal 
+line vty0 
+password xxx
+</code></pre>
+<p><a href="https://kerwin.gitbook.io/ruijie/jiao-huan-chan-pin/path2/2.-pei-zhi-kou-ling/2.2-pei-zhi-yuan-cheng-deng-lu-kou-ling">参考</a></p>
+<pre><code class="language-cmd">telnet 192.168.11.200
+
+</code></pre>
+<h4 id="查看接口状况"><a class="header" href="#查看接口状况">查看接口状况</a></h4>
+<pre><code class="language-cmd">show interfaces status
+</code></pre>
+<h4 id="查看启动文件"><a class="header" href="#查看启动文件">查看启动文件</a></h4>
+<pre><code class="language-cmd">shwo boot
+</code></pre>
+<h4 id="查ip和mac"><a class="header" href="#查ip和mac">查ip和mac</a></h4>
+<pre><code class="language-cmd">show arp 
+shwo mac-addr
+</code></pre>
+<h4 id="查看mac某个地址"><a class="header" href="#查看mac某个地址">查看mac某个地址</a></h4>
+<pre><code class="language-cmd">
+show arp | in 192.168.11.200      #//检索
+
+</code></pre>
+<h2 id="进入管理模式"><a class="header" href="#进入管理模式">进入管理模式</a></h2>
+<p>（需要先web端设置密码） ERROR: No passwords set.</p>
+<pre><code class="language-cmd">enable password 0 xxxx
+</code></pre>
+<h4 id="查看配置"><a class="header" href="#查看配置">查看配置</a></h4>
+<pre><code class="language-cmd">enable  
+
+show running-config
+</code></pre>
+<h3 id="开启链路发现"><a class="header" href="#开启链路发现">开启链路发现</a></h3>
+<p>这样就知道接在那个口</p>
+<pre><code>configure terminal
+lldp run
+end
+show lldp
+</code></pre>
+<pre><code>show lldp neighbors   interface  GigabitEthernet 0/35  #发现结果
+
+
+show lldp neighbors interface GigabitEthernet 0/1-0/48
+</code></pre>
+<h4 id="清除过期数据"><a class="header" href="#清除过期数据">清除过期数据</a></h4>
+<pre><code>clear lldp table all
+</code></pre>
+<h4 id="保存配置"><a class="header" href="#保存配置">保存配置</a></h4>
+<pre><code class="language-cmd">enable  
+
+write memory
+
+</code></pre>
+<p>离开管理模式</p>
+<pre><code class="language-cmd">disable
+</code></pre>
+<h4 id="查看路由表"><a class="header" href="#查看路由表">查看路由表</a></h4>
+<pre><code class="language-cmd">show vlan   #//vlan
+show ip route #//路由表
+</code></pre>
+<h4 id="交换机管理文件"><a class="header" href="#交换机管理文件">交换机管理(文件)</a></h4>
+<pre><code class="language-cmd">pwd
+dir flash:/
+file config.text
+
+rename flash:/fstab flash:/new-fstab
+
+
+
+
+copy oob_tftp://192.168.1.1/RGOS.bin flash:RGOS.bin
+</code></pre>
+<h5 id="ftp"><a class="header" href="#ftp">ftp</a></h5>
+<pre><code>show file systems
+
+
+
+configure terminal
+show ftp-server
+
+
+ftp-server topdir /
+ftp-server enable
+ftp-server username user password pass
+
+tftp-server enable
+</code></pre>
+<h2 id="进入配置模式"><a class="header" href="#进入配置模式">进入配置模式</a></h2>
+<pre><code class="language-CMD">configure terminal
+
+</code></pre>
+<h4 id="离开管理模式"><a class="header" href="#离开管理模式">离开管理模式</a></h4>
+<pre><code class="language-cmd">exit
+</code></pre>
+<h3 id="重置密码"><a class="header" href="#重置密码">重置密码</a></h3>
+<p>连接串口 ，启动输入ctrl+c 进入启动菜单</p>
+<pre><code class="language-cmd">Unlocking L2 Cache ...Done
+arm_clk=1000MHz, axi_clk=400MHz, apb_clk=100MHz, arm_periph_clk=500MHz
+SETMAC: Setmac operation was performed at 2015-12-20 20:23:56 (version: 11.0)
+Press Ctrl+C to enter Boot Menu
+Net:   eth-0
+Entering simple UI....
+
+====== BootLoader Menu(&quot;Ctrl+Z&quot; to upper level) ======
+    TOP menu items.
+************************************************
+    0. Tftp utilities.
+    1. XModem utilities.
+    2. Run main.
+    3. SetMac utilities.
+    4. Scattered utilities.
+    5. Set Module Serial
+************************************************
+Press a key to run the command:
+
+</code></pre>
+<h5 id="按ctrlq-进入启动器命令行"><a class="header" href="#按ctrlq-进入启动器命令行">按ctrl+q 进入启动器命令行</a></h5>
+<pre><code class="language-cmd">Press a key to run the command:
+bootloader# main_config_password_clear
+</code></pre>
+<p>更具提示输入 1</p>
+<pre><code class="language-cmd">
+Enter runlevel: 1
+~ # pwd
+/
+~ # ls
+bin         data        etc         linuxrc     rg_cfg      rootfs      tmp
+boot        data2       home        mnt         rgos        sbin        usr
+bootloader  dev         lib         proc        root        sys         var
+~ # uname -a
+Linux (none) 3.10.18-Broadcom Linux+ #1 SMP Thu Oct 29 22:59:28 CST 2015 armv7l GNU/Linux
+
+</code></pre>
+<h4 id="移除配置文件"><a class="header" href="#移除配置文件">移除配置文件</a></h4>
+<pre><code class="language-cmd">
+~ # cd data
+/data # mv config.text config.bak
+/data # sync
+/data # reboot
+
+</code></pre>
+<p>移动回来配置文件</p>
+<pre><code class="language-cmd">Ruijie&gt; enable
+Ruijie# copy flash:config.bak flash:config.text
+Ruijie# copy startup-config running-config
+
+
+</code></pre>
+<p><a href="https://www.ruijie.com.cn/fw/wd/88857/">参考</a></p>
+<h2 id="配置web管理-三层"><a class="header" href="#配置web管理-三层">配置web管理 三层</a></h2>
+<pre><code class="language-cmd">configure terminal
+hostname 5750p48 
+vlan 1
+interface vlan 1
+ip address 192.168.11.201 255.255.255.0
+show ip route
+exit
+
+
+</code></pre>
+<h4 id="telnet-登入密码"><a class="header" href="#telnet-登入密码">telnet 登入密码</a></h4>
+<pre><code class="language-cmd">line vty 0 4
+login
+password xxxxx
+exit 
+
+</code></pre>
+<pre><code>enable service web-server  
+
+</code></pre>
+<p>默认是admin/admin</p>
+<h5 id="默认路由-三层"><a class="header" href="#默认路由-三层">默认路由 (三层)</a></h5>
+<pre><code>
+
+ip route 0.0.0.0 0.0.0.0 VLAN 1 192.168.11.1
+
+
+
+ip route 0.0.0.0 0.0.0.0 192.168.1.0
+</code></pre>
+<p>二层</p>
+<pre><code>ip default-gateway 192.168.1.1  
+</code></pre>
+<h2 id="snmp配置"><a class="header" href="#snmp配置">snmp配置</a></h2>
+<pre><code>show snmp-server
+
+snmp-server
+
+snmp-server community wuser rw 
+snmp-server community ruser ro 
+
+no snmp-server enable traps
+
+</code></pre>
+<h4 id="字符终端宽度"><a class="header" href="#字符终端宽度">字符终端宽度</a></h4>
+<pre><code>terminal width 10
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../网络/管理主交换机.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../管理内部.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../网络/管理主交换机.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../管理内部.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

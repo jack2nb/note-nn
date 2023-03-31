@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>管理主交换机 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="../电脑工具.html"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li><li class="chapter-item expanded "><a href="../网络/管理路由器.html"><strong aria-hidden="true">1.3.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="../网络/管理主交换机.html" class="active"><strong aria-hidden="true">1.4.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="../网络/交换机2锐捷.html"><strong aria-hidden="true">1.5.</strong> 交换机2锐捷</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../管理内部.html"><strong aria-hidden="true">2.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="../管理外网.html"><strong aria-hidden="true">2.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="../网络/监控主控.html"><strong aria-hidden="true">2.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="../特殊设备.html"><strong aria-hidden="true">2.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><a href="../网络/mac列表.html"><strong aria-hidden="true">3.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="../网络/arp列表.html"><strong aria-hidden="true">4.</strong> arp列表</a></li><li class="chapter-item expanded "><a href="../网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="../管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><a href="../服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="../服务器/数据库mssql.html"><strong aria-hidden="true">8.</strong> 数据库mssql备份</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="管理交换机命令-100mb交换机"><a class="header" href="#管理交换机命令-100mb交换机">管理交换机命令 （100MB交换机)</a></h2>
+<p>Huawei 交换机的mac   80fb-06c9-6db9</p>
+<pre><code class="language-cmd">ping  192.168.6.1
+
+
+ping  -c 10000   192.168.0.45
+
+</code></pre>
+<h4 id="查ip和mac"><a class="header" href="#查ip和mac">查ip和mac</a></h4>
+<pre><code class="language-cmd">dis arp | in 5CDD-709D-FAFD
+
+dis arp | in 192.168.6.199
+
+dis arp | in 94d9-b36c-2a8f
+ 
+dis arp | in  f4b5-203b-1eec
+
+//----只查mac
+dis mac-add  f4b5-203b-1eec
+
+</code></pre>
+<p>等价dis arp all </p>
+<h4 id="查看mac地址"><a class="header" href="#查看mac地址">查看mac地址</a></h4>
+<pre><code class="language-cmd">dis mac-add  #//识别到的mac地址
+dis mac-add | in Eth0/0/16  #//检索
+
+</code></pre>
+<h4 id="ping-mac-在指定vlan"><a class="header" href="#ping-mac-在指定vlan">ping mac 在指定vlan</a></h4>
+<pre><code class="language-cmd">ping mac enable
+ping mac 0001-0300-0204 vlan 10
+</code></pre>
+<h4 id="查看路由表"><a class="header" href="#查看路由表">查看路由表</a></h4>
+<pre><code class="language-cmd">dis vlan   #//vlan
+dis ip routing-table  #//路由表
+</code></pre>
+<h4 id="交换机管理命令"><a class="header" href="#交换机管理命令">交换机管理(命令)</a></h4>
+<pre><code class="language-cmd">telnet 10.0.0.2
+sys  #进入管理 system-view
+dis vlan
+
+
+dis current-configuration  #//所以配置  dis cu
+
+</code></pre>
+<h4 id="配置文件导入导出"><a class="header" href="#配置文件导入导出">配置文件导入导出</a></h4>
+<pre><code class="language-cmd">ftp server enable	
+aaa	
+</code></pre>
+<p>远程登入下载</p>
+<h2 id="常用查看"><a class="header" href="#常用查看">常用查看</a></h2>
+<h5 id="启动自动使用配置"><a class="header" href="#启动自动使用配置">启动自动使用配置</a></h5>
+<pre><code class="language-cmd">dis startup   #//显示启动配置和下一次启动的配置
+
+startup saved-configuration vrpcfg.zip
+</code></pre>
+<h4 id="查看网口链接简要"><a class="header" href="#查看网口链接简要">查看网口/链接（简要）</a></h4>
+<pre><code class="language-cmd">dis int desc #//接口注解描述  进入端口 设置描述 desc Lin To OA
+
+dis int eth brief #//网口简要/概述 dis int br  是否插入网线
+dis int brief #//端口/vlan简要  
+dis ip int br  #//交换机ip简要 
+
+
+</code></pre>
+<h4 id="查看某个端口"><a class="header" href="#查看某个端口">查看某个端口</a></h4>
+<pre><code class="language-cmd">dis cu int eth 0/0/2  # dis cu int gi 0/0/2 # 同 dis this
+</code></pre>
+<h4 id="端口属于那个vlan"><a class="header" href="#端口属于那个vlan">端口属于那个vlan</a></h4>
+<pre><code class="language-cmd">display port vlan
+</code></pre>
+<h4 id="查看某个vlan"><a class="header" href="#查看某个vlan">查看某个vlan</a></h4>
+<pre><code class="language-cmd">dis vlan 
+
+dis vlan 100 verbose 
+</code></pre>
+<h4 id="查看某个虚拟网卡"><a class="header" href="#查看某个虚拟网卡">查看某个虚拟网卡</a></h4>
+<pre><code class="language-cmd">dis int vlanif  
+dis int Vlanif201
+</code></pre>
+<h4 id="查看mac属于那个vlan"><a class="header" href="#查看mac属于那个vlan">查看mac属于那个vlan</a></h4>
+<pre><code class="language-cmd">display mac-vlan mac-address all
+</code></pre>
+<h4 id="查看设备使用情况"><a class="header" href="#查看设备使用情况">查看设备/使用情况</a></h4>
+<pre><code class="language-cmd">dis version 
+dis cpu-usage
+dis memory-usage 
+
+
+dis clock
+dis alarm urgent #//查看告警
+ 
+dis device 
+</code></pre>
+<h3 id="开启链路发现"><a class="header" href="#开启链路发现">开启链路发现</a></h3>
+<pre><code>lldp enable
+</code></pre>
+<h3 id="发现其他设备"><a class="header" href="#发现其他设备">发现其他设备</a></h3>
+<pre><code>display lldp neighbor brief  #发现其他交换机等
+</code></pre>
+<h2 id="管理设置命令"><a class="header" href="#管理设置命令">管理设置命令</a></h2>
+<pre><code class="language-cmd">sys #先进入管理模式
+</code></pre>
+<h4 id="保存配置文件"><a class="header" href="#保存配置文件">保存配置文件</a></h4>
+<pre><code>quit
+save
+</code></pre>
+<h3 id="查看当前端口"><a class="header" href="#查看当前端口">查看当前端口</a></h3>
+<pre><code class="language-cmd">int Ethernet 0/0/1 
+dis this    #vlan配置在接口内
+</code></pre>
+<pre><code class="language-cmd">vlan 3  #//进入某个vlna
+
+int Ethernet  0/0/8 #//进入某端口
+ 
+</code></pre>
+<h3 id="批量-port-group"><a class="header" href="#批量-port-group">批量 port-group</a></h3>
+<pre><code class="language-cmd">
+port-group 2  #//没有自动创建
+group-member gi 0/0/5 to 0/0/10
+</code></pre>
+<h2 id="1创建vlan--用数字表示"><a class="header" href="#1创建vlan--用数字表示">1.创建vlan  用数字表示</a></h2>
+<pre><code>vlan batch 9 to 11 #//批量创建
+vlan 89  
+</code></pre>
+<h3 id="2vlanif-虚拟局域网接口"><a class="header" href="#2vlanif-虚拟局域网接口">2.vlanif (虚拟局域网接口)</a></h3>
+<p>无需添加到vlan</p>
+<pre><code class="language-cmd">
+[Quidway] interface vlanif 10
+[Quidway-Vlanif10] ip address 10.1.1.1 255.255.255.128
+[Quidway-Vlanif10] dhcp select global
+[Quidway-Vlanif10] quit
+</code></pre>
+<h3 id="修改端口模式-trunkaccesshybrid"><a class="header" href="#修改端口模式-trunkaccesshybrid">修改端口模式 trunk/access/hybrid</a></h3>
+<p>access普通可访问只属于一个vlan ， hybrid 可多个vlan可以交换机和电脑 ，trunk端口只允许缺省vlan的报文不打标签（不建议）</p>
+<pre><code class="language-cmd">port link-type ?
+port link-type  access
+</code></pre>
+<h4 id="加入到vlan"><a class="header" href="#加入到vlan">加入到vlan</a></h4>
+<h5 id="数据包打上vlan-id"><a class="header" href="#数据包打上vlan-id">数据包打上vlan id</a></h5>
+<pre><code>port hybrid pvid vlan 200   
+</code></pre>
+<h5 id="与那些vlan相通广播"><a class="header" href="#与那些vlan相通广播">与那些vlan相通广播</a></h5>
+<pre><code class="language-cmd">port hybrid untagged vlan 6 to 200
+</code></pre>
+<h4 id="移除vlan"><a class="header" href="#移除vlan">移除vlan</a></h4>
+<pre><code class="language-cmd">undo port hybrid pvid vlan
+</code></pre>
+<h4 id="移除加入的vlan"><a class="header" href="#移除加入的vlan">移除加入的vlan</a></h4>
+<pre><code class="language-cmd">undo port hybrid vlan   6 to 100
+</code></pre>
+<h3 id="基于mac划分vlan"><a class="header" href="#基于mac划分vlan">基于mac划分vlan</a></h3>
+<p>这样可以实现 同一端口服务于不同vlan</p>
+<pre><code>vlan 123
+  mac-vlan mac-address 001d-0f99-f5ad priority 0
+</code></pre>
+<h3 id="路由"><a class="header" href="#路由">路由</a></h3>
+<pre><code class="language-cmd"> ip route-static 0.0.0.0 0.0.0.0 10.0.0.1
+ ip route-static 192.168.2.0 255.255.255.0 192.168.24.10
+ ip route-static 192.168.4.0 255.255.255.0 192.168.24.10
+</code></pre>
+<h3 id="交换机dhcp"><a class="header" href="#交换机dhcp">交换机dhcp</a></h3>
+<pre><code class="language-cmd">[Quidway] ip pool 1
+[Quidway-ip-pool-1] network 192.68.99.0 mask 255.255.255.128
+[Quidway-ip-pool-1] dns-list 8.4.4.8
+[Quidway-ip-pool-1] gateway-list 192.68.99.245
+[Quidway-ip-pool-1] excluded-ip-address 192.68.99.1
+[Quidway-ip-pool-1] excluded-ip-address 192.68.99.10
+[Quidway-ip-pool-1] lease day 1
+[Quidway-ip-pool-1] quit
+</code></pre>
+<h2 id="删除undo"><a class="header" href="#删除undo">删除undo</a></h2>
+<h4 id="删除一个虚拟网卡三层"><a class="header" href="#删除一个虚拟网卡三层">删除一个虚拟网卡（三层）</a></h4>
+<pre><code class="language-cmd">undo interface vlanif 1234
+
+undo vlan 12345   
+
+
+</code></pre>
+<h3 id="snmp管理-建议v2c"><a class="header" href="#snmp管理-建议v2c">snmp管理 (建议v2c)</a></h3>
+<pre><code>display snmp-agent sys-info 
+
+snmp-agent mib-view included alliso iso   #配置开放的内容
+snmp-agent sys-info version v2c 
+snmp-agent community read ruser mib-view alliso  
+snmp-agent community write wuser mib-view alliso 
+
+
+#-------删除
+undo snmp-agent sys-info version all 
+undo snmp-agent community ruser
+undo snmp-agent community wuser
+undo snmp-agent mib-view alliso
+undo snmp-agent     #关闭服务
+</code></pre>
+<pre><code>#开启sn
+snmp-agent mib-view included iso iso
+#配置用户
+snmp-agent usm-user v3 nmser authentication-mode     #//-- md5 wsf2010a
+snmp-agent usm-user v3 nmser privacy-mode            #//-- aes128 wsf2010p
+#配置组
+snmp-agent group v3 nmsgroup privacy read-view iso notify-view iso  
+snmp-agent usm-user v3 nmser group groupnms
+
+</code></pre>
+<h5 id="删除部分snmp"><a class="header" href="#删除部分snmp">删除部分snmp</a></h5>
+<pre><code>undo snmp-agent usm-user v3 
+undo snmp-agent mib-view isoview01
+
+undo snmp-agent usm-user v3 nmser authentication-mode engineid 000007DB7F000001000022E6
+undo snmp-agent usm-user v3 nmser authentication-mode engineid 000007DB7F00000100004DF1
+
+
+</code></pre>
+<h3 id="开启web管理"><a class="header" href="#开启web管理">开启web管理</a></h3>
+<pre><code>http server load  S3700_28TP-V100R005C01SPC100.web.zip
+
+http server enable
+
+undo http server 
+
+display ssh server status
+
+</code></pre>
+<h5 id="创建web用户"><a class="header" href="#创建web用户">创建web用户</a></h5>
+<pre><code>aaa
+
+local-user wsf password simple wsf2010
+local-user wsf service-type http
+
+
+
+</code></pre>
+<h2 id="启用sshstelnet"><a class="header" href="#启用sshstelnet">启用ssh/stelnet</a></h2>
+<p>v1.x版本 非常的老</p>
+<pre><code>display ssh server status
+
+rsa local-key-pair create   #生成指定长度2048
+
+user-interface vty 0 4
+    authentication-mode aaa                 
+    protocol inbound all     #//指定VTY用户界面所支持的协议 
+
+
+ssh  server port  22
+stelnet server enable
+ssh server compatible-ssh1x enable    #兼容v1以前的版本
+ssh user admin authentication-type all 
+
+
+</code></pre>
+<h4 id="查看ssh状况"><a class="header" href="#查看ssh状况">查看ssh状况</a></h4>
+<pre><code>
+display ssh user-informati
+display ssh server session
+</code></pre>
+<h4 id="加入连接参数"><a class="header" href="#加入连接参数">加入连接参数</a></h4>
+<p>由于版本过老</p>
+<pre><code>ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -c 3des-cbc admin@192.168.11.1
+
+
+ 
+</code></pre>
+<h3 id="字符终端宽度"><a class="header" href="#字符终端宽度">字符终端宽度</a></h3>
+<pre><code>
+screen-width 200 
+
+screen-length 200 temporary #一次显示行数
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../网络/管理路由器.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../网络/交换机2锐捷.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../网络/管理路由器.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../网络/交换机2锐捷.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

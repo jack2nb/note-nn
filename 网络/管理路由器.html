@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>管理路由器 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="../电脑工具.html"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li><li class="chapter-item expanded "><a href="../网络/管理路由器.html" class="active"><strong aria-hidden="true">1.3.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="../网络/管理主交换机.html"><strong aria-hidden="true">1.4.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="../网络/交换机2锐捷.html"><strong aria-hidden="true">1.5.</strong> 交换机2锐捷</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../管理内部.html"><strong aria-hidden="true">2.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="../管理外网.html"><strong aria-hidden="true">2.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="../网络/监控主控.html"><strong aria-hidden="true">2.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="../特殊设备.html"><strong aria-hidden="true">2.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><a href="../网络/mac列表.html"><strong aria-hidden="true">3.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="../网络/arp列表.html"><strong aria-hidden="true">4.</strong> arp列表</a></li><li class="chapter-item expanded "><a href="../网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="../管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><a href="../服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="../服务器/数据库mssql.html"><strong aria-hidden="true">8.</strong> 数据库mssql备份</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="管理企业路由器"><a class="header" href="#管理企业路由器">管理企业路由器</a></h2>
+<p>web-&gt;安全管理-arp防御</p>
+<p>C类内部配置ip 192.168.5.1</p>
+<p>A类地址 10.0.0.1</p>
+<p>公网ip 112.16.172.14</p>
+<p>系统工具-》浏览统计</p>
+<p>记得保存配置（在web界面上）</p>
+<h3 id="端口映射"><a class="header" href="#端口映射">端口映射</a></h3>
+<p><img src="../imgs/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84.png" alt="" /></p>
+<h3 id="端口映射-1"><a class="header" href="#端口映射-1">端口映射</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>选择</th><th>序号</th><th>服务名称</th><th>接口</th><th>服务协议</th><th>外部端口</th><th>内部端口</th><th>内部服务器IP</th><th>状态</th></tr></thead><tbody>
+<tr><td></td><td>1</td><td>瑞友8800</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8890</td><td>8890</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>2</td><td>瑞友</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8005</td><td>8005</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>3</td><td>瑞友5872</td><td>wan1_eth1</td><td>TCP/UDP</td><td>5872</td><td>5872</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>4</td><td>考勤107</td><td>wan1_eth1</td><td>TCP/UDP</td><td>5699</td><td>1433</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>5</td><td>OA服务器web</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8081</td><td>8080</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>6</td><td>OA服务器分销1</td><td>wan1_eth1</td><td>TCP/UDP</td><td>6868</td><td>9898</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>7</td><td>OA服务器分销2</td><td>wan1_eth1</td><td>TCP/UDP</td><td>6869</td><td>9899</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>8</td><td>远程</td><td>wan1_eth1</td><td>TCP/UDP</td><td>3389</td><td>3389</td><td>192.168.0.107</td><td>已禁用</td></tr>
+<tr><td></td><td>9</td><td>web2</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8089</td><td>8089</td><td>192.168.0.107</td><td>已启用</td></tr>
+<tr><td></td><td>10</td><td>JK1</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7666</td><td>80</td><td>192.168.17.249</td><td>已启用</td></tr>
+<tr><td></td><td>11</td><td>jk002</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8000</td><td>80</td><td>192.168.17.150</td><td>已启用</td></tr>
+<tr><td></td><td>12</td><td>远程桌面</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8999</td><td>3389</td><td>192.168.0.252</td><td>已禁用</td></tr>
+<tr><td></td><td>13</td><td>瑞友5873</td><td>wan1_eth1</td><td>TCP/UDP</td><td>15872</td><td>15872</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>14</td><td>瑞友25872</td><td>wan1_eth1</td><td>TCP/UDP</td><td>25872</td><td>15872</td><td>192.168.0.99</td><td>已启用</td></tr>
+<tr><td></td><td>15</td><td>mstsc</td><td>wan1_eth1</td><td>TCP/UDP</td><td>13389</td><td>3389</td><td>192.168.0.121</td><td>已启用</td></tr>
+<tr><td></td><td>16</td><td>K3Cloud</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8091</td><td>8091</td><td>192.168.0.252</td><td>已启用</td></tr>
+<tr><td></td><td>17</td><td>7000</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7000</td><td>7000</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>18</td><td>7100</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7100</td><td>7100</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>19</td><td>7200</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7200</td><td>7200</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>20</td><td>webmir</td><td>wan1_eth1</td><td>TCP/UDP</td><td>8090</td><td>80</td><td>192.168.6.200</td><td>已启用</td></tr>
+<tr><td></td><td>21</td><td>45</td><td>wan1_eth1</td><td>TCP/UDP</td><td>5999</td><td>3389</td><td>192.168.0.45</td><td>已禁用</td></tr>
+<tr><td></td><td>22</td><td>99</td><td>wan1_eth1</td><td>TCP/UDP</td><td>7999</td><td>3389</td><td>192.168.0.99</td><td>已禁用</td></tr>
+</tbody></table>
+</div>
+<h5 id="arp列表"><a class="header" href="#arp列表">ARP列表</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>选择</th><th>序号</th><th>IP地址</th><th>MAC地址</th><th>接口</th><th>状态</th></tr></thead><tbody>
+<tr><td></td><td>1</td><td>10.0.0.2</td><td>80-FB-06-C9-6D-B9</td><td>eth0</td><td>已生效</td></tr>
+<tr><td></td><td>2</td><td>112.16.172.1</td><td>A0-F3-E4-98-20-D3</td><td>wan1_eth1</td><td>未绑定</td></tr>
+<tr><td></td><td>3</td><td>112.16.172.28</td><td>A0-F3-E4-98-20-D3</td><td>wan1_eth1</td><td>未绑定</td></tr>
+<tr><td></td><td>4</td><td>112.16.172.118</td><td>A0-F3-E4-98-20-D3</td><td>wan1_eth1</td><td>未绑定</td></tr>
+<tr><td></td><td>5</td><td>192.168.5.21</td><td>F4-6D-2F-19-83-F8</td><td>dmz_eth1</td><td>未绑定</td></tr>
+</tbody></table>
+</div>
+<h5 id="arp-绑定表"><a class="header" href="#arp-绑定表">arp 绑定表</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>IP地址</th><th>MAC地址</th><th>出接口</th><th>备注</th><th>状态</th></tr></thead><tbody>
+<tr><td>1</td><td>192.168.0.2</td><td>38-83-45-F3-A9-CD</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>2</td><td>192.168.0.7</td><td>00-1D-0F-99-F5-AD</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>3</td><td>192.168.0.12</td><td>E0-05-C5-54-A7-75</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>4</td><td>192.168.0.14</td><td>14-E6-E4-87-F5-E1</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>5</td><td>192.168.0.17</td><td>EC-88-8F-D6-AF-4F</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>6</td><td>192.168.0.18</td><td>00-23-CD-70-E5-0B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>7</td><td>192.168.0.22</td><td>00-30-18-AD-06-B9</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>8</td><td>192.168.0.26</td><td>90-94-E4-AD-3D-83</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>9</td><td>192.168.0.85</td><td>00-E0-4C-36-04-AD</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>10</td><td>192.168.0.39</td><td>00-30-67-1A-84-47</td><td>eth0</td><td>厉国勇</td><td>已启用</td></tr>
+<tr><td>11</td><td>192.168.0.92</td><td>54-04-A6-A0-24-16</td><td>eth0</td><td>彭敏芳</td><td>已启用</td></tr>
+<tr><td>12</td><td>192.168.0.121</td><td>00-24-8C-E8-AF-88</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>13</td><td>192.168.0.51</td><td>14-DA-E9-F0-07-E3</td><td>eth0</td><td>陈挺</td><td>已启用</td></tr>
+<tr><td>14</td><td>192.168.0.53</td><td>00-23-54-D6-45-18</td><td>eth0</td><td>采购部</td><td>已启用</td></tr>
+<tr><td>15</td><td>192.168.0.54</td><td>14-CF-92-E3-78-0B</td><td>eth0</td><td>陈红波</td><td>已启用</td></tr>
+<tr><td>16</td><td>192.168.0.57</td><td>BC-AE-C5-6F-ED-FB</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>17</td><td>192.168.0.61</td><td>BC-5F-F4-93-A6-6D</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>18</td><td>192.168.0.62</td><td>00-1F-C6-03-1F-1A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>19</td><td>192.168.0.63</td><td>00-22-15-C4-C2-39</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>20</td><td>192.168.0.65</td><td>00-E0-4D-7E-5F-62</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>21</td><td>192.168.0.67</td><td>90-E6-BA-DF-8E-96</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>22</td><td>192.168.0.68</td><td>E0-CB-4E-EA-4B-C8</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>23</td><td>192.168.0.69</td><td>90-2B-34-2A-5C-2D</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>24</td><td>192.168.0.70</td><td>20-CF-30-80-B5-09</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>25</td><td>192.168.0.232</td><td>E0-3F-49-A4-C6-CF</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>26</td><td>192.168.0.76</td><td>BC-AE-C5-AD-F5-DF</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>27</td><td>192.168.0.79</td><td>00-24-8C-BB-04-61</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>28</td><td>192.168.0.84</td><td>90-2B-34-9E-55-3D</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>29</td><td>192.168.0.86</td><td>48-5B-39-53-DF-6B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>30</td><td>192.168.0.89</td><td>00-30-18-AD-8B-B4</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>31</td><td>192.168.0.90</td><td>00-30-18-AC-F9-5C</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>32</td><td>192.168.0.93</td><td>00-30-18-AD-8B-B6</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>33</td><td>192.168.0.94</td><td>00-30-18-AC-F8-6A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>34</td><td>192.168.0.95</td><td>00-30-18-AC-F7-FA</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>35</td><td>192.168.0.96</td><td>74-D4-35-6C-8A-6B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>36</td><td>192.168.0.99</td><td>90-E6-BA-94-D3-93</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>37</td><td>192.168.0.102</td><td>00-1F-D0-C3-CE-83</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>38</td><td>192.168.0.104</td><td>00-24-1D-07-20-0C</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>39</td><td>192.168.0.105</td><td>00-24-1D-07-EF-ED</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>40</td><td>192.168.0.106</td><td>74-EA-3A-6B-D4-4A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>41</td><td>192.168.0.107</td><td>00-1A-64-B2-60-D0</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>42</td><td>192.168.0.110</td><td>00-22-4D-4B-9B-96</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>43</td><td>192.168.0.112</td><td>14-CF-92-E3-63-AE</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>44</td><td>192.168.0.113</td><td>BC-AE-C5-AD-0C-84</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>45</td><td>192.168.0.114</td><td>90-E6-BA-9A-A3-87</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>46</td><td>192.168.0.115</td><td>90-E6-BA-9A-A3-FA</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>47</td><td>192.168.0.116</td><td>00-E0-4C-36-24-32</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>48</td><td>192.168.0.120</td><td>14-DA-E9-43-F1-09</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>49</td><td>192.168.0.122</td><td>54-04-A6-A0-23-3F</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>50</td><td>192.168.0.123</td><td>00-26-18-C9-7A-5C</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>51</td><td>192.168.0.56</td><td>5C-63-BF-88-CE-7B</td><td>eth0</td><td>翁瑞挺</td><td>已启用</td></tr>
+<tr><td>52</td><td>192.168.0.126</td><td>90-2B-34-E2-EF-BF</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>53</td><td>192.168.0.128</td><td>C8-60-00-DE-3C-78</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>54</td><td>192.168.0.130</td><td>C8-3A-35-3C-FA-08</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>55</td><td>192.168.0.131</td><td>B8-AC-6F-5B-31-02</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>56</td><td>192.168.0.139</td><td>94-DE-80-4F-73-50</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>57</td><td>192.168.0.140</td><td>00-1F-16-29-D2-36</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>58</td><td>192.168.0.144</td><td>40-16-7E-23-51-CA</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>59</td><td>192.168.0.154</td><td>00-E0-4D-2D-10-E5</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>60</td><td>192.168.0.156</td><td>F4-6D-04-3D-DD-50</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>61</td><td>192.168.0.162</td><td>6C-F0-49-AF-0D-0E</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>62</td><td>192.168.0.163</td><td>00-19-21-35-91-38</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>63</td><td>192.168.0.164</td><td>00-E0-4D-49-72-72</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>64</td><td>192.168.0.169</td><td>00-1F-C6-03-1F-09</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>65</td><td>192.168.0.170</td><td>00-1E-8C-B1-62-BE</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>66</td><td>192.168.0.171</td><td>00-E0-4C-02-47-F5</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>67</td><td>192.168.0.172</td><td>BC-5F-F4-93-F6-1A</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>68</td><td>192.168.0.173</td><td>00-E0-4C-16-61-31</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>69</td><td>192.168.0.175</td><td>BC-5F-F4-93-F6-26</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>70</td><td>192.168.0.179</td><td>BC-5F-F4-93-F6-2B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>71</td><td>192.168.0.180</td><td>08-60-6E-C2-55-D3</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>72</td><td>192.168.0.181</td><td>08-60-6E-C2-57-5E</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>73</td><td>192.168.0.182</td><td>08-60-6E-C2-57-3B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>74</td><td>192.168.0.185</td><td>BC-5F-F4-95-11-27</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>75</td><td>192.168.0.192</td><td>94-DE-80-A7-9D-4B</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>76</td><td>192.168.0.193</td><td>00-E0-66-97-66-DC</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>77</td><td>192.168.0.194</td><td>74-D4-35-21-C6-25</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>78</td><td>192.168.0.251</td><td>00-12-12-10-51-E0</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>79</td><td>192.168.0.158</td><td>00-1F-C6-4E-B0-B0</td><td>eth0</td><td>历青</td><td>已启用</td></tr>
+<tr><td>80</td><td>192.168.0.41</td><td>AC-16-2D-0F-B8-0B</td><td>eth0</td><td>1楼测私房南</td><td>已启用</td></tr>
+<tr><td>81</td><td>192.168.0.32</td><td>5C-FF-35-04-8C-7F</td><td>eth0</td><td>吸塑车间笔记本</td><td>已启用</td></tr>
+<tr><td>82</td><td>192.168.0.31</td><td>00-E0-66-0B-54-FD</td><td>eth0</td><td>吸塑厂台机</td><td>已启用</td></tr>
+<tr><td>83</td><td>192.168.0.35</td><td>D4-C9-EF-80-57-2D</td><td>eth0</td><td>伊莱克斯</td><td>已启用</td></tr>
+<tr><td>84</td><td>192.168.0.34</td><td>00-26-22-B5-29-81</td><td>eth0</td><td>新飞oem</td><td>已启用</td></tr>
+<tr><td>85</td><td>192.168.0.33</td><td>A8-15-4D-D1-19-C1</td><td>eth0</td><td>原采购部出租路由</td><td>已启用</td></tr>
+<tr><td>86</td><td>192.168.0.36</td><td>14-CF-92-E3-78-8B</td><td>eth0</td><td>老板娘</td><td>已启用</td></tr>
+<tr><td>87</td><td>192.168.0.37</td><td>C8-2A-14-35-39-2E</td><td>eth0</td><td>包建宏</td><td>已启用</td></tr>
+<tr><td>88</td><td>192.168.0.52</td><td>00-1F-D0-C3-84-03</td><td>eth0</td><td>虞自力</td><td>已启用</td></tr>
+<tr><td>89</td><td>192.168.0.81</td><td>00-E0-4C-EE-80-3B</td><td>eth0</td><td>gy3</td><td>已启用</td></tr>
+<tr><td>90</td><td>192.168.0.97</td><td>00-1D-92-21-83-18</td><td>eth0</td><td>工艺</td><td>已启用</td></tr>
+<tr><td>91</td><td>192.168.0.98</td><td>00-E0-4D-1C-F9-65</td><td>eth0</td><td>设备科</td><td>已启用</td></tr>
+<tr><td>92</td><td>192.168.0.133</td><td>10-BF-48-7A-F0-01</td><td>eth0</td><td>finance1</td><td>已启用</td></tr>
+<tr><td>93</td><td>192.168.0.143</td><td>00-16-96-05-A6-6C</td><td>eth0</td><td>柴晓霞</td><td>已启用</td></tr>
+<tr><td>94</td><td>192.168.0.38</td><td>00-13-8F-EA-CE-DF</td><td>eth0</td><td>司机</td><td>已启用</td></tr>
+<tr><td>95</td><td>192.168.0.55</td><td>3C-97-0E-8D-36-A9</td><td>eth0</td><td>李红英</td><td>已启用</td></tr>
+<tr><td>96</td><td>192.168.0.124</td><td>D8-5D-4C-70-B6-4F</td><td>eth0</td><td>陈萍</td><td>已启用</td></tr>
+<tr><td>97</td><td>192.168.0.91</td><td>00-24-8C-E8-AF-82</td><td>eth0</td><td>陈备庆</td><td>已启用</td></tr>
+<tr><td>98</td><td>192.168.0.119</td><td>00-01-2E-37-7C-C5</td><td>eth0</td><td>陈双露</td><td>已启用</td></tr>
+<tr><td>99</td><td>192.168.0.77</td><td>00-30-18-AC-F8-F1</td><td>eth0</td><td>童旭文</td><td>已启用</td></tr>
+<tr><td>100</td><td>192.168.0.141</td><td>00-15-58-EA-05-51</td><td>eth0</td><td>叶戎亚</td><td>已启用</td></tr>
+<tr><td>101</td><td>192.168.0.40</td><td>28-2C-B2-CA-D5-ED</td><td>eth0</td><td>艾丽格</td><td>已启用</td></tr>
+<tr><td>102</td><td>192.168.0.4</td><td>00-14-78-63-E8-A5</td><td>eth0</td><td>4148</td><td>已启用</td></tr>
+<tr><td>103</td><td>192.168.0.117</td><td>F4-6D-04-93-DB-ED</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>104</td><td>192.168.0.101</td><td>00-1F-D0-C3-CE-A2</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>105</td><td>192.168.0.195</td><td>74-27-EA-E8-FE-F9</td><td>eth0</td><td>财务开票</td><td>已启用</td></tr>
+<tr><td>106</td><td>192.168.0.153</td><td>00-16-96-07-C0-EB</td><td>eth0</td><td>财务</td><td>已启用</td></tr>
+<tr><td>107</td><td>192.168.0.21</td><td>D8-42-AC-8B-F4-62</td><td>eth0</td><td>售后无线</td><td>已启用</td></tr>
+<tr><td>108</td><td>192.168.0.88</td><td>00-1D-7D-46-F5-04</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>109</td><td>192.168.0.129</td><td>D8-50-E6-51-63-D3</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>110</td><td>192.168.0.60</td><td>00-26-18-4A-8F-9F</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>111</td><td>192.168.0.196</td><td>00-E0-4C-7D-00-11</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>112</td><td>192.168.0.138</td><td>C0-3F-D5-07-32-84</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>113</td><td>192.168.0.161</td><td>44-33-4C-4F-69-04</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>114</td><td>192.168.0.236</td><td>D8-15-0D-E4-EF-C7</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>115</td><td>192.168.0.74</td><td>74-D4-35-6C-A0-3B</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>116</td><td>192.168.0.231</td><td>BC-AE-C5-13-BA-DD</td><td>eth0</td><td>oem</td><td>已启用</td></tr>
+<tr><td>117</td><td>192.168.0.3</td><td>E0-05-C5-C3-D7-4F</td><td>eth0</td><td>4148</td><td>已启用</td></tr>
+<tr><td>118</td><td>192.168.0.11</td><td>00-21-27-B0-B4-4B</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>119</td><td>192.168.0.45</td><td>40-F2-E9-D2-66-C8</td><td>eth0</td><td>k3</td><td>已启用</td></tr>
+<tr><td>120</td><td>192.168.0.100</td><td>00-E0-4C-EE-84-2D</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>121</td><td>192.168.0.241</td><td>8C-E7-48-0F-E0-12</td><td>eth0</td><td>241</td><td>已启用</td></tr>
+<tr><td>122</td><td>192.168.0.242</td><td>00-40-48-3A-C2-94</td><td>eth0</td><td>242</td><td>已启用</td></tr>
+<tr><td>123</td><td>192.168.0.243</td><td>00-40-48-37-EC-E8</td><td>eth0</td><td>243</td><td>已启用</td></tr>
+<tr><td>124</td><td>192.168.0.244</td><td>00-0C-41-4E-01-62</td><td>eth0</td><td>244</td><td>已启用</td></tr>
+<tr><td>125</td><td>192.168.0.245</td><td>8C-E7-48-6A-54-EE</td><td>eth0</td><td>245</td><td>已启用</td></tr>
+<tr><td>126</td><td>192.168.0.246</td><td>8C-E7-48-6A-52-90</td><td>eth0</td><td>246</td><td>已启用</td></tr>
+<tr><td>127</td><td>192.168.0.247</td><td>8C-E7-48-6A-54-05</td><td>eth0</td><td>247</td><td>已启用</td></tr>
+<tr><td>128</td><td>192.168.0.248</td><td>8C-E7-48-6A-54-FD</td><td>eth0</td><td>248</td><td>已启用</td></tr>
+<tr><td>129</td><td>192.168.0.249</td><td>00-40-48-3E-AF-2E</td><td>eth0</td><td>249</td><td>已启用</td></tr>
+<tr><td>130</td><td>192.168.0.252</td><td>8C-E7-48-6E-BF-80</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>131</td><td>192.168.0.64</td><td>00-1F-C6-4E-AF-6F</td><td>eth0</td><td>---</td><td>已启用</td></tr>
+<tr><td>132</td><td>192.168.0.10</td><td>EC-17-2F-9D-64-9B</td><td>eth0</td><td>5110</td><td>已启用</td></tr>
+<tr><td>133</td><td>192.168.5.20</td><td>D0-76-E7-ED-46-67</td><td>eth0</td><td>3LOU</td><td>已启用</td></tr>
+<tr><td>134</td><td>10.0.0.2</td><td>80-FB-06-C9-6D-B9</td><td>eth0</td><td>import</td><td>已启用</td></tr>
+<tr><td>135</td><td>192.168.5.20</td><td>D0-76-E7-ED-46-68</td><td>dmz_eth1</td><td>import</td><td>已启用</td></tr>
+</tbody></table>
+</div>
+<h3 id="访问策略-"><a class="header" href="#访问策略-">访问策略-</a></h3>
+<h4 id="url规则列表"><a class="header" href="#url规则列表">url规则列表</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>名称</th><th>受控地址</th><th>URL地址/关键字</th><th>过滤方式</th><th>设置</th></tr></thead><tbody>
+<tr><td>1</td><td>taobao</td><td>阿里旺旺阻止</td><td>taobao</td><td>关键字</td><td></td></tr>
+<tr><td>2</td><td>天猫</td><td>阿里旺旺阻止</td><td>tmall</td><td>关键字</td><td></td></tr>
+<tr><td>3</td><td>京东</td><td>阿里旺旺阻止</td><td>360buy</td><td>关键字</td><td></td></tr>
+<tr><td>4</td><td>当当</td><td>阿里旺旺阻止</td><td>dangdang</td><td>关键字</td><td></td></tr>
+<tr><td>5</td><td>拍拍</td><td>阿里旺旺阻止</td><td>paipai</td><td>关键字</td><td></td></tr>
+<tr><td>6</td><td>乐淘</td><td>阿里旺旺阻止</td><td>retao</td><td>关键字</td><td></td></tr>
+<tr><td>7</td><td>苏宁</td><td>阿里旺旺阻止</td><td>suning</td><td>关键字</td><td></td></tr>
+<tr><td>8</td><td>国美</td><td>阿里旺旺阻止</td><td>gome</td><td>关键字</td><td></td></tr>
+<tr><td>9</td><td>易迅</td><td>阿里旺旺阻止</td><td>51buy</td><td>关键字</td><td></td></tr>
+<tr><td>10</td><td>阿里巴巴</td><td>阿里旺旺阻止</td><td>alibaba</td><td>关键字</td><td></td></tr>
+<tr><td>11</td><td>财付通</td><td>阿里旺旺阻止</td><td>tenpay</td><td>关键字</td><td></td></tr>
+<tr><td>12</td><td>银联支付</td><td>阿里旺旺阻止</td><td>chinapay</td><td>关键字</td><td></td></tr>
+<tr><td>13</td><td>快钱</td><td>阿里旺旺阻止</td><td>99bill</td><td>关键字</td><td></td></tr>
+<tr><td>14</td><td>YOUKU</td><td>金融游戏视频音乐代理P2P</td><td>YOUKU</td><td>关键字</td><td></td></tr>
+<tr><td>15</td><td>iqiyi</td><td>金融游戏视频音乐代理P2P</td><td>iqiyi</td><td>关键字</td><td></td></tr>
+<tr><td>16</td><td>letv</td><td>金融游戏视频音乐代理P2P</td><td>letv</td><td>关键字</td><td></td></tr>
+<tr><td>17</td><td>game</td><td>金融游戏视频音乐代理P2P</td><td>game</td><td>关键字</td><td></td></tr>
+<tr><td>18</td><td>qq视频</td><td>金融游戏视频音乐代理P2P</td><td>v.qq.com</td><td>完整URL</td><td></td></tr>
+<tr><td>19</td><td>kankan</td><td>金融游戏视频音乐代理P2P</td><td>vod.kankan.com</td><td>完整URL</td><td></td></tr>
+<tr><td>20</td><td>暴风音影</td><td>金融游戏视频音乐代理P2P</td><td>baofeng</td><td>关键字</td><td></td></tr>
+<tr><td>21</td><td>风行网</td><td>金融游戏视频音乐代理P2P</td><td>funshion</td><td>关键字</td><td></td></tr>
+<tr><td>22</td><td>芒果TV</td><td>金融游戏视频音乐代理P2P</td><td>imgo</td><td>关键字</td><td></td></tr>
+<tr><td>23</td><td>芒果TV1</td><td>金融游戏视频音乐代理P2P</td><td>hunantv</td><td>关键字</td><td></td></tr>
+<tr><td>24</td><td>土豆</td><td>金融游戏视频音乐代理P2P</td><td>tudou.com</td><td>关键字</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="内网访问规则"><a class="header" href="#内网访问规则">内网访问规则</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>名称</th><th>策略类型</th><th>服务类型</th><th>生效区段</th><th>源地址范围</th><th>目的地址范围</th><th>生效时间</th><th>设置</th></tr></thead><tbody>
+<tr><td>1</td><td>1</td><td>允许</td><td>传奇</td><td>dmz</td><td>IPGROUP_ANY</td><td>IPGROUP_ANY</td><td>Any</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="mac过滤"><a class="header" href="#mac过滤">MAC过滤</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>序号</th><th>名称</th><th>MAC地址</th><th>设置</th></tr></thead><tbody>
+<tr><td>1</td><td>10号楼上-188</td><td>bc-5f-f4-93-f6-40</td><td></td></tr>
+<tr><td>2</td><td>11号楼上 187</td><td>bc-5f-f4-93-f7-5e</td><td></td></tr>
+<tr><td>3</td><td>11号楼下 186</td><td>bc-5f-f4-93-f6-2a</td><td></td></tr>
+<tr><td>4</td><td>1号楼下 167</td><td>bc-5f-f4-93-f6-12</td><td></td></tr>
+<tr><td>5</td><td>4号楼上 172</td><td>bc-5f-f4-93-f6-1a</td><td></td></tr>
+<tr><td>6</td><td>4号楼下-1 179</td><td>bc-5f-f4-93-f6-2b</td><td></td></tr>
+<tr><td>7</td><td>4号楼下2 159</td><td>00-e0-4d-0e-07-4f</td><td></td></tr>
+<tr><td>8</td><td>4号楼下3 160</td><td>00-e0-4d-0e-24-7e</td><td></td></tr>
+<tr><td>9</td><td>5号楼-1 166</td><td>00-27-19-93-7b-84</td><td></td></tr>
+<tr><td>10</td><td>5号楼-计件-1 183</td><td>48-5b-39-e9-f9-d4</td><td></td></tr>
+<tr><td>11</td><td>5号楼-计件-2 184</td><td>c8-60-00-de-3c-7b</td><td></td></tr>
+<tr><td>12</td><td>5号楼上一 152</td><td>bc-5f-f4-93-f6-33</td><td></td></tr>
+<tr><td>13</td><td>9号楼下 189</td><td>bc-5f-f4-93-f6-1e</td><td></td></tr>
+<tr><td>14</td><td>注塑车间168</td><td>00-1f-c6-4e-ad-43</td><td></td></tr>
+<tr><td>15</td><td>裘波萍 171</td><td>00-e0-4c-02-47-f5</td><td></td></tr>
+<tr><td>16</td><td>沈瑞国路由器</td><td>78-a1-06-6a-85-69</td><td></td></tr>
+<tr><td>17</td><td>1楼测试房</td><td>ac-16-2d-0f-b8-0b</td><td></td></tr>
+<tr><td>18</td><td>5号楼上100</td><td>00-e0-4c-ee-84-2d</td><td></td></tr>
+<tr><td>19</td><td>hj21-火机4号楼上-165</td><td>00-e0-4d-7e-5f-62</td><td></td></tr>
+<tr><td>20</td><td>hj22-火机四号楼上-175</td><td>bc-5f-f4-93-f6-26</td><td></td></tr>
+<tr><td>21</td><td>hj19-火机11号楼上-067</td><td>90-e6-ba-df-8e-96</td><td></td></tr>
+<tr><td>22</td><td>个人电脑</td><td>bc-85-56-de-2e-1d</td><td></td></tr>
+<tr><td>23</td><td>笔记本</td><td>00-40-d0-9d-f2-fb</td><td></td></tr>
+<tr><td>24</td><td>E0-3F-49-A4-C6-CF</td><td>e0-3f-49-a4-c6-cf</td><td></td></tr>
+<tr><td>25</td><td>45服务器</td><td>2c-ea-7f-eb-b1-18</td><td></td></tr>
+<tr><td>26</td><td>11</td><td>54-e1-ad-b4-10-ce</td><td></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../电脑工具.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../网络/管理主交换机.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../电脑工具.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../网络/管理主交换机.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
