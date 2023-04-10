@@ -140,21 +140,13 @@
 <h3 id="数据库"><a class="header" href="#数据库">数据库</a></h3>
 <h4 id="sql-server"><a class="header" href="#sql-server">sql server</a></h4>
 <p>192.168.0.45:1433</p>
-<div class="table-wrapper"><table><thead><tr><th>位置</th><th>ip地址</th><th>备注</th></tr></thead><tbody>
-<tr><td>门卫</td><td>192.168.1.1</td><td>有2台海康硬盘设备</td></tr>
-<tr><td>办公室/会议室</td><td>192.168.6.1</td><td>到机房华为8口小交换机</td></tr>
-<tr><td>苏小云</td><td>192.18.10.1</td><td>无线上级路由192.168.6.1</td></tr>
-</tbody></table>
-</div>
 <h3 id="共享盘"><a class="header" href="#共享盘">共享盘</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>描述</th><th>地址</th><th>管理人</th></tr></thead><tbody>
 <tr><td>销售生产文件</td><td>\192.168.0.45\打火机共享</td><td></td></tr>
-<tr><td>行政文件</td><td>\192.168.0.107\全备份</td><td></td></tr>
+<tr><td>备份文件</td><td>\192.168.0.107\全备份</td><td></td></tr>
 <tr><td></td><td></td><td></td></tr>
 </tbody></table>
 </div>
-<h3 id="远程管理监控--80端口可访问"><a class="header" href="#远程管理监控--80端口可访问">远程管理监控  80端口可访问</a></h3>
-<p>192.168.6.128   192.168.6.153   <code>老监控</code></p>
 <h4 id="045开放端口"><a class="header" href="#045开放端口">0.45开放端口</a></h4>
 <pre><code class="language-cmd">192.168.0.45
 
@@ -210,40 +202,6 @@ Discovered open port 4018/tcp on 192.168.0.45
 Discovered open port 4007/tcp on 192.168.0.45
 Discovered open port 5160/tcp on 192.168.0.45
 Discovered open port 7887/tcp on 192.168.0.45
-</code></pre>
-<h2 id="数据库查询"><a class="header" href="#数据库查询">数据库查询</a></h2>
-<p><a href="https://developer.aliyun.com/article/868429">参考</a></p>
-<p>SQL Server 2016 (RTM) - 13.0.1601.5 (X64)    版本</p>
-<pre><code class="language-sql">
--- Creates the login AbolrousHazem with password '340$Uuxwp7Mcxo7Khy'.  
-CREATE LOGIN dbjack   
-    WITH PASSWORD = 'pwd2jack';  
-GO  
-
--- Creates a database user for the login created above.  
-CREATE USER dbjack FOR LOGIN wsf2023;  
-GO
-
-</code></pre>
-<h4 id="查询版本"><a class="header" href="#查询版本">查询版本</a></h4>
-<pre><code class="language-sql">-- Select @@version
-
--- SELECT SERVERPROPERTY('productversion'), SERVERPROPERTY ('productlevel'),SERVERPROPERTY ('edition')
-
-SELECT 
-SERVERPROPERTY('servername')  AS  实例名,  
-SERVERPROPERTY('ProductVersion')  AS  实例版本,  
-SERVERPROPERTY('Edition')  AS  产品版本,  
-SERVERPROPERTY('ProductLevel')  AS  版本级别,  
-@@VERSION  AS  版本信息   
-</code></pre>
-<h4 id="查询当前连接"><a class="header" href="#查询当前连接">查询当前连接</a></h4>
-<pre><code class="language-sql">select loginame,count(0) ct from sys.sysprocesses
-group by loginame
-order by ct desc
-</code></pre>
-<h4 id="连接执行"><a class="header" href="#连接执行">连接执行</a></h4>
-<pre><code class="language-sql">Select * From sys.dm_exec_connections
 </code></pre>
 
                     </main>

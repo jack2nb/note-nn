@@ -189,7 +189,8 @@ net share print=&quot;print&quot;  /grant:everyone,FULL /users:5 /remark:&quot;�
 </code></pre>
 <h4 id="打印机访问"><a class="header" href="#打印机访问">打印机访问</a></h4>
 <p>本地账户的共享  - 仅来宾</p>
-<p>gpedit.msc 下设置：</p>
+<pre><code>gpedit.msc   # 组策略
+</code></pre>
 <p>计算机配置/windows设置/安全设置/本地策略/安全选项/网络访问:本地账户的共享==仅来宾</p>
 <p>计算机配置/windows设置/安全设置/本地策略/安全选项/账户:来宾账户状态==启用</p>
 <p>计算机配置/windows设置/安全设置/本地策略/安全选项/账户:使用空密码==禁用</p>
@@ -207,6 +208,10 @@ net start &quot;Print Spooler&quot;
 <p>分支在其下新建32位DWORD值RpcAuthnLevelPrivacyEnabled 赋值为0即可</p>
 <p>重启计算机</p>
 <p>用ip无法访问用主机名可以 建议关闭防火墙 </p>
+<pre><code>secpol.msc  #启动本地安全策略
+</code></pre>
+<p>安全设置\本地策略\用户权限分配\拒绝从网络访问这台计算机 ：删除guest</p>
+<p>安全设置\本地策略\用户权限分配\从网络访问此计算机：加入guest</p>
 <h2 id="常用软件"><a class="header" href="#常用软件">常用软件</a></h2>
 <h4 id="杀毒软件"><a class="header" href="#杀毒软件">杀毒软件</a></h4>
 <p>推荐使用 火绒</p>
