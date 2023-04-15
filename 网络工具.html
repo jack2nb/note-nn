@@ -203,7 +203,7 @@ sort live-port-ping.txt | uniq &gt; live-host.txt
 
 tracert -d  10.0.01
 </code></pre>
-<h4 id="网络wifi苏小云-19216810124"><a class="header" href="#网络wifi苏小云-19216810124">网络wifi（苏小云 ）192.168.10.1/24</a></h4>
+<h4 id="wifi网络拓扑发现"><a class="header" href="#wifi网络拓扑发现">wifi网络拓扑发现</a></h4>
 <p>本机ip  192.168.10.106</p>
 <pre><code class="language-cmd">tracert -d  112.16.172.14
 
@@ -213,6 +213,11 @@ tracert -d  10.0.01
   2    12 ms    11 ms    17 ms  192.168.6.1
   3     6 ms     7 ms     5 ms  112.16.172.14
 
+</code></pre>
+<h2 id="网络唤醒"><a class="header" href="#网络唤醒">网络唤醒</a></h2>
+<pre><code>wakeonlan  a8:5e:45:5a:5a:7c  #办公室设计电脑
+
+wakeonlan  e0:d5:5e:fa:1b:79  #备用测试电脑
 </code></pre>
 
                     </main>

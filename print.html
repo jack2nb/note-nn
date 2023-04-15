@@ -224,7 +224,7 @@ sort live-port-ping.txt | uniq &gt; live-host.txt
 
 tracert -d  10.0.01
 </code></pre>
-<h4 id="网络wifi苏小云-19216810124"><a class="header" href="#网络wifi苏小云-19216810124">网络wifi（苏小云 ）192.168.10.1/24</a></h4>
+<h4 id="wifi网络拓扑发现"><a class="header" href="#wifi网络拓扑发现">wifi网络拓扑发现</a></h4>
 <p>本机ip  192.168.10.106</p>
 <pre><code class="language-cmd">tracert -d  112.16.172.14
 
@@ -234,6 +234,11 @@ tracert -d  10.0.01
   2    12 ms    11 ms    17 ms  192.168.6.1
   3     6 ms     7 ms     5 ms  112.16.172.14
 
+</code></pre>
+<h2 id="网络唤醒"><a class="header" href="#网络唤醒">网络唤醒</a></h2>
+<pre><code>wakeonlan  a8:5e:45:5a:5a:7c  #办公室设计电脑
+
+wakeonlan  e0:d5:5e:fa:1b:79  #备用测试电脑
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="电脑工具"><a class="header" href="#电脑工具">电脑工具</a></h1>
 <h3 id="通过curl上报电脑信息shell脚本"><a class="header" href="#通过curl上报电脑信息shell脚本">通过curl上报电脑信息(shell脚本)</a></h3>
@@ -1093,6 +1098,7 @@ no snmp-server enable traps
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="华三交换机---poe"><a class="header" href="#华三交换机---poe">华三交换机   poe</a></h2>
 <p>S1850-28p-pwr</p>
+<p><a href="https://www.h3c.com/cn/BizPortal/QueryCli/cn_index.aspx">在线命令查看</a></p>
 <p>普通模式下</p>
 <p>重置配置</p>
 <pre><code class="language-cmd">reset saved-configuration
@@ -1111,10 +1117,21 @@ display ip interface vlan-interface brief
 <pre><code>display stp
 dis int gi 1/0/1   每个接口都有mac
 </code></pre>
-<p>设置ip</p>
+<h4 id="设置ip"><a class="header" href="#设置ip">设置ip</a></h4>
 <pre><code>interface vlan-interface 1
 ip address 192.168.11.202 255.255.255.0
 
+</code></pre>
+<h4 id="配置默认路由"><a class="header" href="#配置默认路由">配置默认路由</a></h4>
+<pre><code>ip route-static 0.0.0.0  0  192.168.11.1
+</code></pre>
+<h3 id="设置常用服务"><a class="header" href="#设置常用服务">设置常用服务</a></h3>
+<h4 id="发现协议lldp"><a class="header" href="#发现协议lldp">发现协议lldp</a></h4>
+<pre><code>lldp enable
+
+</code></pre>
+<h4 id="telnet-开启"><a class="header" href="#telnet-开启">telnet 开启</a></h4>
+<pre><code>telnet server enable
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="内部管理"><a class="header" href="#内部管理">内部管理</a></h1>
 <h3 id="金蝶k3"><a class="header" href="#金蝶k3">金蝶k3</a></h3>
@@ -2093,6 +2110,8 @@ Discovered open port 23/tcp on 192.168.6.128
 <p>需要填写重启服务器的理由</p>
 <p><img src="%E6%9C%8D%E5%8A%A1%E5%99%A8/../imgs/%E9%87%8D%E5%90%AF%E7%B3%BB%E7%BB%9F2.png" alt="" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="微软数据"><a class="header" href="#微软数据">微软数据</a></h1>
+<p><a href="http://pkgsfile.open.kingdee.com/DVD/V81E/K3Cloud_V8.1_DVD.zip">金蝶云下载</a></p>
+<p><a href="http://pkgsfile.open.kingdee.com/DVD/V81S/K3Cloud_V8.1_Standard_DVD.zip">金蝶云标准版下载</a></p>
 <h2 id="数据库查询"><a class="header" href="#数据库查询">数据库查询</a></h2>
 <p><a href="https://developer.aliyun.com/article/868429">参考</a></p>
 <p>SQL Server 2016 (RTM) - 13.0.1601.5 (X64)    版本</p>

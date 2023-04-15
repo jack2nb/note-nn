@@ -136,6 +136,7 @@
                     <main>
                         <h2 id="华三交换机---poe"><a class="header" href="#华三交换机---poe">华三交换机   poe</a></h2>
 <p>S1850-28p-pwr</p>
+<p><a href="https://www.h3c.com/cn/BizPortal/QueryCli/cn_index.aspx">在线命令查看</a></p>
 <p>普通模式下</p>
 <p>重置配置</p>
 <pre><code class="language-cmd">reset saved-configuration
@@ -154,10 +155,21 @@ display ip interface vlan-interface brief
 <pre><code>display stp
 dis int gi 1/0/1   每个接口都有mac
 </code></pre>
-<p>设置ip</p>
+<h4 id="设置ip"><a class="header" href="#设置ip">设置ip</a></h4>
 <pre><code>interface vlan-interface 1
 ip address 192.168.11.202 255.255.255.0
 
+</code></pre>
+<h4 id="配置默认路由"><a class="header" href="#配置默认路由">配置默认路由</a></h4>
+<pre><code>ip route-static 0.0.0.0  0  192.168.11.1
+</code></pre>
+<h3 id="设置常用服务"><a class="header" href="#设置常用服务">设置常用服务</a></h3>
+<h4 id="发现协议lldp"><a class="header" href="#发现协议lldp">发现协议lldp</a></h4>
+<pre><code>lldp enable
+
+</code></pre>
+<h4 id="telnet-开启"><a class="header" href="#telnet-开启">telnet 开启</a></h4>
+<pre><code>telnet server enable
 </code></pre>
 
                     </main>
