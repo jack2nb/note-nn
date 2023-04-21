@@ -350,8 +350,6 @@ net start &quot;Print Spooler&quot;
 <h4 id="pdf虚拟打印"><a class="header" href="#pdf虚拟打印">pdf虚拟打印</a></h4>
 <p>wps 打印 to pdf</p>
 <p>金山打印 to pdf</p>
-<h3 id="数据库"><a class="header" href="#数据库">数据库</a></h3>
-<p>中间层错误重启45上的服务 SQL Server (MSSQLSERVER)  重启即可</p>
 <h2 id="服务器虚拟化"><a class="header" href="#服务器虚拟化">服务器虚拟化</a></h2>
 <p>删除微软的虚拟化power shell下执行</p>
 <pre><code>UnInstall-WindowsFeature -Name Hyper-V -Restart
@@ -1118,8 +1116,9 @@ no snmp-server enable traps
 <pre><code>terminal width 10
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="华三交换机---poe"><a class="header" href="#华三交换机---poe">华三交换机   poe</a></h2>
-<p>S1850-28p-pwr</p>
+<p>S1850-28p-pwr  （只读管理建议使用web）</p>
 <p><a href="https://www.h3c.com/cn/BizPortal/QueryCli/cn_index.aspx">在线命令查看</a></p>
+<p><img src="%E7%BD%91%E7%BB%9C/./imgs/poe%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BA%BF%E7%BC%86%E6%A3%80%E6%9F%A5.png" alt="" /></p>
 <h3 id="查看版本和运行时间"><a class="header" href="#查看版本和运行时间">查看版本和运行时间</a></h3>
 <pre><code>display version
 </code></pre>
@@ -1151,8 +1150,10 @@ ip address 192.168.11.202 255.255.255.0
 </code></pre>
 <h3 id="设置常用服务"><a class="header" href="#设置常用服务">设置常用服务</a></h3>
 <h4 id="发现协议lldp"><a class="header" href="#发现协议lldp">发现协议lldp</a></h4>
-<pre><code>lldp enable
+<pre><code class="language-cmd">lldp enable
 
+
+display lldp neighbor-information   #显示附近的设备
 </code></pre>
 <h4 id="telnet-开启"><a class="header" href="#telnet-开启">telnet 开启</a></h4>
 <pre><code>telnet server enable
@@ -1160,12 +1161,19 @@ ip address 192.168.11.202 255.255.255.0
 <h4 id="查看接口状况-1"><a class="header" href="#查看接口状况-1">查看接口状况</a></h4>
 <pre><code>display interface brief
 </code></pre>
+<h3 id="统计信息"><a class="header" href="#统计信息">统计信息</a></h3>
+<pre><code>display interface brief
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="内部管理"><a class="header" href="#内部管理">内部管理</a></h1>
+<h3 id="访问网站管理"><a class="header" href="#访问网站管理">访问网站管理</a></h3>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE%E7%AE%A1%E7%90%86.png" alt="" /></p>
 <h3 id="金蝶k3"><a class="header" href="#金蝶k3">金蝶k3</a></h3>
-<p>连接端 192.168.0.45:4002</p>
-<h3 id="数据库-1"><a class="header" href="#数据库-1">数据库</a></h3>
-<h4 id="sql-server"><a class="header" href="#sql-server">sql server</a></h4>
+<p>连接端 192.168.0.45:4002 配置</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E9%87%91%E8%9D%B6k3%E9%85%8D%E7%BD%AE.png" alt="" /></p>
+<h3 id="数据库"><a class="header" href="#数据库">数据库</a></h3>
+<h4 id="sql-server-备份计划设置"><a class="header" href="#sql-server-备份计划设置">sql server 备份计划设置</a></h4>
 <p>192.168.0.45:1433</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E8%AE%A1%E5%88%92.png" alt="" /></p>
 <h3 id="共享盘"><a class="header" href="#共享盘">共享盘</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>描述</th><th>地址</th><th>管理人</th></tr></thead><tbody>
 <tr><td>销售生产文件</td><td>\192.168.0.45\打火机共享</td><td></td></tr>
@@ -1173,7 +1181,10 @@ ip address 192.168.11.202 255.255.255.0
 <tr><td></td><td></td><td></td></tr>
 </tbody></table>
 </div>
+<h3 id="访问转发代理"><a class="header" href="#访问转发代理">访问转发代理</a></h3>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E8%BD%AC%E5%8F%91%E7%AE%A1%E7%90%86.png" alt="" /></p>
 <h4 id="045开放端口"><a class="header" href="#045开放端口">0.45开放端口</a></h4>
+<p>开的远程RPC端口</p>
 <pre><code class="language-cmd">192.168.0.45
 
 Discovered open port 4002/tcp on 192.168.0.45
@@ -1235,10 +1246,19 @@ Discovered open port 7887/tcp on 192.168.0.45
 <tr><td>公司公网ip</td><td>112.16.172.14 （中国移动）</td><td>OA部署在着ip上面 （OA内网部署）</td></tr>
 <tr><td>公司网站</td><td><a href="https://www.ouqiyj.com/">网站</a>  <a href="www.ouqilighter.com">英文站</a></td><td>属于香港43.224.155.16/英文站104.21.56.218</td></tr>
 <tr><td>OA</td><td><a href="http://ouqioa.nb-hengyou.com:8081/ouqi/">oa登入</a> / <a href="http://ouqioa.nb-hengyou.com:8081/ouqi/admin/">oa管理后台</a></td><td>用了别人的域名<code>恒有</code> 但是指向公司的ip</td></tr>
+<tr><td>虚拟化桌面</td><td>http://oa.ouqiyj.com:8005/</td><td>驻外办公室</td></tr>
 </tbody></table>
 </div>
-<h3 id="微信第三方应用跳转oauth"><a class="header" href="#微信第三方应用跳转oauth">微信第三方应用跳转(OAuth)</a></h3>
-<p>工作台 跳转到欧奇烟具   ouqioa.nb-hengyou.com/112.16.172.14  ,提示redirect_uri需使用应用可信域名</p>
+<h3 id="oa网页版"><a class="header" href="#oa网页版">OA网页版</a></h3>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/OA%E6%B5%8F%E8%A7%88%E5%99%A8.png" alt="" /></p>
+<h4 id="虚拟化桌面"><a class="header" href="#虚拟化桌面">虚拟化桌面</a></h4>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%A1%8C%E9%9D%A20.png" alt="" /></p>
+<h3 id="公司备案信息"><a class="header" href="#公司备案信息">公司备案信息</a></h3>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E5%A4%87%E6%A1%88%E4%BF%A1%E6%81%AF.png" alt="" /></p>
+<h3 id="微信验证"><a class="header" href="#微信验证">微信验证</a></h3>
+<p>第三方应用跳转(OAuth)工作台 跳转到欧奇烟具</p>
+<p>ouqioa.nb-hengyou.com/112.16.172.14</p>
+<p>提示redirect_uri需使用应用可信域名 </p>
 <p>https://open.work.weixin.qq.com/wwopen/uriconfirm?err_type=domain_err&amp;uri=http%3A%2F%2Fouqioa.nb-hengyou.com%3A8081%2Fouqi%2Fportal%2Fphone%2Fmain.jsp%3Fapplication%3D11e8-b82b-b7056a2c-b266-7907d3bcd381%26action%3Dnull%26returnUrl%3D&amp;retry_time=1676351344233&amp;retry_count=1</p>
 <p>跳转到</p>
 <p>http://ouqioa.nb-hengyou.com:8081/ouqi/portal/phone/main.jsp?application=11e8-b82b-b7056a2c-b266-7907d3bcd381&amp;action=null&amp;returnUrl=</p>
@@ -1294,8 +1314,6 @@ Discovered open port 8000/tcp on 112.16.172.14
 Discovered open port 8091/tcp on 112.16.172.14
 
 </code></pre>
-<h3 id="oa-理想访问地址"><a class="header" href="#oa-理想访问地址">OA 理想访问地址</a></h3>
-<p>http://ouqioa.ouqiyj.com:8081/ouqi/</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="摄像头"><a class="header" href="#摄像头">摄像头</a></h1>
 <h2 id="海康威视主机"><a class="header" href="#海康威视主机">海康威视(主机)</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>名称</th><th>地址</th><th>管理账号</th><th>位置</th><th>备注</th></tr></thead><tbody>
@@ -1350,7 +1368,17 @@ Discovered open port 23/tcp on 192.168.6.128
 <tr><td>打印复印一体机</td><td>192.168.20.200</td><td>二楼办公室</td><td>http://192.168.20.200/wcd/abbr.xml<br />扫描文件存放 \\192.168.0.121\home</td></tr>
 <tr><td>食堂刷卡机</td><td>192.168.17.203</td><td>食堂</td><td>ZKEpos消费管理系统</td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h2 id="网调整"><a class="header" href="#网调整">网调整</a></h2>
+</div>
+<h3 id="一体机设置"><a class="header" href="#一体机设置">一体机设置</a></h3>
+<p>使用扫描功能需要配置图片上传服务地址比如FTP或smb</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E4%B8%80%E4%BD%93%E6%9C%BA.png" alt="" /></p>
+<h3 id="考勤机"><a class="header" href="#考勤机">考勤机</a></h3>
+<p>考勤机只记录一部分人员信息，每个考勤设备记录数有限</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E8%80%83%E5%8B%A4%E6%9C%BA.png" alt="" /></p>
+<h3 id="刷卡机"><a class="header" href="#刷卡机">刷卡机</a></h3>
+<p>每一台设备数据都有需要同步后才能正常使用</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/%E5%88%B7%E5%8D%A1%E6%9C%BA.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="网调整"><a class="header" href="#网调整">网调整</a></h2>
 <h3 id="ip地址使用规划"><a class="header" href="#ip地址使用规划">IP地址使用规划</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>开始ip</th><th>结束ip</th><th>用途</th><th>备注</th></tr></thead><tbody>
 <tr><td>192.168.0.0</td><td>192.168.10.0</td><td>保留</td><td>0段已用于服务器区域</td></tr>

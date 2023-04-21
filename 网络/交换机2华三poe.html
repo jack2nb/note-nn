@@ -135,8 +135,9 @@
                 <div id="content" class="content">
                     <main>
                         <h2 id="华三交换机---poe"><a class="header" href="#华三交换机---poe">华三交换机   poe</a></h2>
-<p>S1850-28p-pwr</p>
+<p>S1850-28p-pwr  （只读管理建议使用web）</p>
 <p><a href="https://www.h3c.com/cn/BizPortal/QueryCli/cn_index.aspx">在线命令查看</a></p>
+<p><img src="./imgs/poe%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BA%BF%E7%BC%86%E6%A3%80%E6%9F%A5.png" alt="" /></p>
 <h3 id="查看版本和运行时间"><a class="header" href="#查看版本和运行时间">查看版本和运行时间</a></h3>
 <pre><code>display version
 </code></pre>
@@ -168,13 +169,18 @@ ip address 192.168.11.202 255.255.255.0
 </code></pre>
 <h3 id="设置常用服务"><a class="header" href="#设置常用服务">设置常用服务</a></h3>
 <h4 id="发现协议lldp"><a class="header" href="#发现协议lldp">发现协议lldp</a></h4>
-<pre><code>lldp enable
+<pre><code class="language-cmd">lldp enable
 
+
+display lldp neighbor-information   #显示附近的设备
 </code></pre>
 <h4 id="telnet-开启"><a class="header" href="#telnet-开启">telnet 开启</a></h4>
 <pre><code>telnet server enable
 </code></pre>
 <h4 id="查看接口状况"><a class="header" href="#查看接口状况">查看接口状况</a></h4>
+<pre><code>display interface brief
+</code></pre>
+<h3 id="统计信息"><a class="header" href="#统计信息">统计信息</a></h3>
 <pre><code>display interface brief
 </code></pre>
 
