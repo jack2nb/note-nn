@@ -136,14 +136,18 @@
                     <main>
                         <h1 id="网络工具"><a class="header" href="#网络工具">网络工具</a></h1>
 <h2 id="网络拓扑"><a class="header" href="#网络拓扑">网络拓扑</a></h2>
-<h3 id="网络扫描zenmap"><a class="header" href="#网络扫描zenmap">网络扫描zenmap</a></h3>
+<p><a href="./%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C.htm">查看扫描报告</a></p>
+<h3 id="网络扫描nmap"><a class="header" href="#网络扫描nmap">网络扫描nmap</a></h3>
 <p>(没有mac地址)（xml用ie打开或用xsltproc转换成html）</p>
 <pre><code class="language-cmd">nmap -T5 -O  -F 192.168.254.1/24 --host-timeout 5000 
 
 
 nmap -T5 -P0  -Pn -sV -n -v   -p 80,3389,445 --host-timeout 5000 
 
-nmap -T5 -A -p135,139,445 --script nbstat 192.168.34.*  #网上邻居开放情况
+nmap -T5 -A -p135,139,445 --script nbstat 192.168.*.*  #网上邻居开放情况
+
+
+nmap  -A -T5 -n -v   -p 80,3389,139,445 --script nbstat 192.168.*.*  --host-timeout 5000  -oX  x-namp.xml  
 </code></pre>
 <h4 id="导出html扫描结果"><a class="header" href="#导出html扫描结果">导出html扫描结果</a></h4>
 <pre><code class="language-cmd"> 

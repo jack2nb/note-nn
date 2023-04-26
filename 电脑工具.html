@@ -135,6 +135,32 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="电脑工具"><a class="header" href="#电脑工具">电脑工具</a></h1>
+<h3 id="电脑性能评估"><a class="header" href="#电脑性能评估">电脑性能评估</a></h3>
+<p>cmd中执行命令</p>
+<pre><code>winsat formal
+
+&gt; 视频内存吞吐量                                      2099.10 MB/s
+&gt; Dshow 视频编码时间                                 0.00000 s
+&gt; Dshow 视频解码时间                                 0.00000 s
+&gt; 媒体基础解码时间                                     0.00000 s
+&gt; Disk  Sequential 64.0 Read                   395.65 MB/s          8.0
+&gt; Disk  Random 16.0 Read                       122.41 MB/s          7.3
+&gt; 总运行时间 00:01:15.09
+</code></pre>
+<p>powershell中查看</p>
+<pre><code>Get-CimInstance Win32_WinSat
+
+CPUScore              : 9.1
+D3DScore              : 9.9
+DiskScore             : 7.65
+GraphicsScore         : 3.9
+MemoryScore           : 9.1
+TimeTaken             : MostRecentAssessment
+WinSATAssessmentState : 1
+WinSPRLevel           : 3.9
+PSComputerName        :
+
+</code></pre>
 <h3 id="通过curl上报电脑信息shell脚本"><a class="header" href="#通过curl上报电脑信息shell脚本">通过curl上报电脑信息(shell脚本)</a></h3>
 <pre><code class="language-cmd">
 net config workstation | find &quot;计算机全名&quot;  | curl -X POST http://httpbin.org/post  -d @-

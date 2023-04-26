@@ -138,7 +138,6 @@
                         <h1 id="工作简介内部"><a class="header" href="#工作简介内部">工作简介（内部）</a></h1>
 <h2 id="整理网络结构"><a class="header" href="#整理网络结构">整理网络结构</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>接入</th><th>网段</th><th>设备位置</th><th>备注</th></tr></thead><tbody>
-<tr><td>苏小云（wifi）</td><td>192.168.10.1/24</td><td>一楼综合办公室</td><td>一楼办公室可用 （TL-WDR5620）</td></tr>
 <tr><td>left2lou</td><td>192.168.1.1/24</td><td>二楼机房、规划办公室</td><td>2楼会议室可用 （TL-WDR5620）<br />无线上级路由192.168.6.1</td></tr>
 <tr><td>sale_true</td><td>192.168.15.140</td><td>财务室</td><td>财务室可用</td></tr>
 </tbody></table>
@@ -178,14 +177,18 @@
       <source id="webm" src="https://files.i1314.top/manim-ce.mp4" type="video/webm">
 <ideos><div style="break-before: page; page-break-before: always;"></div><h1 id="网络工具"><a class="header" href="#网络工具">网络工具</a></h1>
 <h2 id="网络拓扑"><a class="header" href="#网络拓扑">网络拓扑</a></h2>
-<h3 id="网络扫描zenmap"><a class="header" href="#网络扫描zenmap">网络扫描zenmap</a></h3>
+<p><a href="./%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C.htm">查看扫描报告</a></p>
+<h3 id="网络扫描nmap"><a class="header" href="#网络扫描nmap">网络扫描nmap</a></h3>
 <p>(没有mac地址)（xml用ie打开或用xsltproc转换成html）</p>
 <pre><code class="language-cmd">nmap -T5 -O  -F 192.168.254.1/24 --host-timeout 5000 
 
 
 nmap -T5 -P0  -Pn -sV -n -v   -p 80,3389,445 --host-timeout 5000 
 
-nmap -T5 -A -p135,139,445 --script nbstat 192.168.34.*  #网上邻居开放情况
+nmap -T5 -A -p135,139,445 --script nbstat 192.168.*.*  #网上邻居开放情况
+
+
+nmap  -A -T5 -n -v   -p 80,3389,139,445 --script nbstat 192.168.*.*  --host-timeout 5000  -oX  x-namp.xml  
 </code></pre>
 <h4 id="导出html扫描结果"><a class="header" href="#导出html扫描结果">导出html扫描结果</a></h4>
 <pre><code class="language-cmd"> 
@@ -262,6 +265,32 @@ tracert -d  10.0.01
 wakeonlan  e0:d5:5e:fa:1b:79  #备用测试电脑
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="电脑工具"><a class="header" href="#电脑工具">电脑工具</a></h1>
+<h3 id="电脑性能评估"><a class="header" href="#电脑性能评估">电脑性能评估</a></h3>
+<p>cmd中执行命令</p>
+<pre><code>winsat formal
+
+&gt; 视频内存吞吐量                                      2099.10 MB/s
+&gt; Dshow 视频编码时间                                 0.00000 s
+&gt; Dshow 视频解码时间                                 0.00000 s
+&gt; 媒体基础解码时间                                     0.00000 s
+&gt; Disk  Sequential 64.0 Read                   395.65 MB/s          8.0
+&gt; Disk  Random 16.0 Read                       122.41 MB/s          7.3
+&gt; 总运行时间 00:01:15.09
+</code></pre>
+<p>powershell中查看</p>
+<pre><code>Get-CimInstance Win32_WinSat
+
+CPUScore              : 9.1
+D3DScore              : 9.9
+DiskScore             : 7.65
+GraphicsScore         : 3.9
+MemoryScore           : 9.1
+TimeTaken             : MostRecentAssessment
+WinSATAssessmentState : 1
+WinSPRLevel           : 3.9
+PSComputerName        :
+
+</code></pre>
 <h3 id="通过curl上报电脑信息shell脚本"><a class="header" href="#通过curl上报电脑信息shell脚本">通过curl上报电脑信息(shell脚本)</a></h3>
 <pre><code class="language-cmd">
 net config workstation | find &quot;计算机全名&quot;  | curl -X POST http://httpbin.org/post  -d @-
@@ -1394,9 +1423,9 @@ Discovered open port 23/tcp on 192.168.6.128
 <div class="table-wrapper"><table><thead><tr><th>用途</th><th>调整前</th><th>调整后</th><th>备注</th></tr></thead><tbody>
 <tr><td>1楼大办公室</td><td>192.168.6.0</td><td>192.168.21.0</td><td>统一划入办公区端</td></tr>
 <tr><td>部分监控（门卫）</td><td>192.168.6.0</td><td>办公使用</td><td>11段用于网络设备，12-19用于测试，20-29办公大楼，30-39工厂车间 其他空余</td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td>财务</td><td>192.168.15.0</td><td>192.168.25.0</td><td>统一划入办公区端</td></tr>
+<tr><td>内外销售</td><td>192.168.20.0</td><td>192.168.26.0</td><td>统一划入办公区端</td></tr>
+<tr><td>独立电商</td><td>192.168.34.0</td><td>192.168.41.0</td><td>划入驻外办公区</td></tr>
 <tr><td></td><td></td><td></td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td></tr>
 </tbody></table>
@@ -1412,7 +1441,14 @@ Discovered open port 23/tcp on 192.168.6.128
 <tr><td></td><td></td><td></td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="mac地址清单"><a class="header" href="#mac地址清单">mac地址清单</a></h1>
+</div>
+<h2 id="虚拟化服务器管理"><a class="header" href="#虚拟化服务器管理">虚拟化服务器管理</a></h2>
+<p>可以通过web界面查看虚拟化运行状态</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/kvm%E7%AE%A1%E7%90%862.png" alt="" /></p>
+<h2 id="物理服务器管理"><a class="header" href="#物理服务器管理">物理服务器管理</a></h2>
+<p>通过web管理物理服务器资源使用情况</p>
+<p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/kvm%E7%AE%A1%E7%90%86.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mac地址清单"><a class="header" href="#mac地址清单">mac地址清单</a></h1>
 <div class="table-wrapper"><table><thead><tr><th>MAC</th><th>Address</th><th>CEVLAN</th><th>Port</th></tr></thead><tbody>
 <tr><td>00e0-4c37-ace4</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
 <tr><td>00e0-4cff-2c14</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
@@ -2299,23 +2335,66 @@ with Differential
 <tr><td>45</td><td><strong>海力士HMA84GR7DJR4N-XN - SK Hynix 1x 32GB DDR4-3200</strong></td><td>￥550</td><td><a href="https://memory.net/product/hma84gr7djr4n-xn-sk-hynix-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h2 id="6026型号装配分解"><a class="header" href="#6026型号装配分解">6026型号装配分解</a></h2>
-<p>工作安排</p>
-<h3 id="1配件"><a class="header" href="#1配件">1配件</a></h3>
-<p>介绍工具</p>
-<h3 id="2工具"><a class="header" href="#2工具">2工具</a></h3>
-<p>工具介绍</p>
-<h2 id="3步骤"><a class="header" href="#3步骤">3.步骤</a></h2>
-<h3 id="配件1"><a class="header" href="#配件1">配件1</a></h3>
-<p>注意事项</p>
-<h3 id="配件2"><a class="header" href="#配件2">配件2</a></h3>
-<p>注意事项</p>
-<p>特写</p>
-<h3 id="组合"><a class="header" href="#组合">组合</a></h3>
+<hr />
+<video id="video" controls=""  >
+      <source id="webm" src="./6026装配带字幕.mp4" type="video/webm">
+</video>
+<hr />
+<h2 id="1介绍"><a class="header" href="#1介绍">1.介绍</a></h2>
+<p>六零二六型号装配工具介绍</p>
+<h3 id="工具"><a class="header" href="#工具">工具</a></h3>
+<p>工具介绍  专用火焰调整套筒  斜口钳   电动螺丝刀</p>
+<h3 id="配件"><a class="header" href="#配件">配件</a></h3>
+<p>零配件介绍</p>
+<p>首先介绍 六零二六型的主体部件-气腔、这是一根连接皮管、翘板、气化炉、垫片、定位圈用于火焰阀门、前盖、后盖，2乘以4.5大螺丝  、1.5乘以4.5小螺丝、按手、电子点火器</p>
+<h2 id="2安装步骤"><a class="header" href="#2安装步骤">2.安装步骤</a></h2>
+<p>现在开始装配</p>
+<h3 id="装配部件1-定位圈"><a class="header" href="#装配部件1-定位圈">装配部件1 (定位圈)</a></h3>
+<p>先将定位圈安装到气腔并压到底部 ，到底部后将卡住出气阀门</p>
+<h3 id="装配部件2-垫片"><a class="header" href="#装配部件2-垫片">装配部件2 （垫片）</a></h3>
+<p>接下来放入垫片，注意：这里需要将垫片摇平</p>
+<h3 id="装配部件3-翘板"><a class="header" href="#装配部件3-翘板">装配部件3 (翘板)</a></h3>
+<p>再安装翘板，注意：翘板光滑的一面朝上</p>
+<h3 id="装配部件4-电子"><a class="header" href="#装配部件4-电子">装配部件4 （电子）</a></h3>
+<p>再装入电子点火器</p>
+<h3 id="装配部件5-气化炉"><a class="header" href="#装配部件5-气化炉">装配部件5 （气化炉）</a></h3>
+<p>然后拿起气化炉和皮管，将皮管连接到气化炉并插入到位</p>
+<h3 id="装配部件5-皮管"><a class="header" href="#装配部件5-皮管">装配部件5 （皮管）</a></h3>
+<p>现在把电子点火器的线穿过气化炉中间的孔洞</p>
+<h4 id="步骤"><a class="header" href="#步骤">步骤</a></h4>
+<p>再把皮管的另一头连接到气腔的出气口，注意：也需要压到位</p>
+<h3 id="装配部件7-按手"><a class="header" href="#装配部件7-按手">装配部件7 (按手)</a></h3>
+<p>接下来安装“按手”，将按手装在电子点火器上方</p>
+<h3 id="装配部件8-后盖"><a class="header" href="#装配部件8-后盖">装配部件8 (后盖)</a></h3>
+<p>再安装带有链条的后盖，</p>
+<h4 id="步骤1"><a class="header" href="#步骤1">步骤1</a></h4>
+<p>接下来调整气化炉位置，确保电子线朝向气腔。对准压入凹槽内</p>
+<h4 id="步骤2"><a class="header" href="#步骤2">步骤2</a></h4>
+<p>弯折电子线并保留1个毫米，减去多余的电子线</p>
+<h4 id="装配部件9-前盖"><a class="header" href="#装配部件9-前盖">装配部件9 (前盖)</a></h4>
+<p>再安装前盖，盖上压紧</p>
+<h3 id="装配部件10-安装大号螺丝"><a class="header" href="#装配部件10-安装大号螺丝">装配部件10 (安装大号螺丝)</a></h3>
+<p>现在安装2乘以4.5大号螺丝 ,用于固定气化炉</p>
+<p>用电动螺丝刀紧固</p>
+<h3 id="装配部件11-安装小号螺丝"><a class="header" href="#装配部件11-安装小号螺丝">装配部件11 (安装小号螺丝)</a></h3>
+<p>现在安装1乘以4.5小号螺丝 ,用于固定气腔</p>
+<p>用电动螺丝刀紧固</p>
+<h4 id="步骤-背面的螺丝安装"><a class="header" href="#步骤-背面的螺丝安装">步骤-背面的螺丝安装</a></h4>
+<p>翻转打火机，背面同样先安装大号螺丝 ,用于固定气化炉</p>
+<p>这里机身需要安装两颗1乘以4.5小号螺丝</p>
+<h2 id="3调整火焰"><a class="header" href="#3调整火焰">3.调整火焰</a></h2>
+<p>安装步骤到这里已完成，现在开始调整火焰大小</p>
+<h3 id="步骤1-1"><a class="header" href="#步骤1-1">步骤1</a></h3>
+<p>用火焰调整套筒调整火大小</p>
+<p>测试当前火焰大小</p>
+<h3 id="步骤2-1"><a class="header" href="#步骤2-1">步骤2</a></h3>
+<p>从后面插入套筒，可以左右旋转来控制火焰大小</p>
+<p>将火焰蓝色部分调整到1.7厘米左右即可</p>
 <h3 id="测试"><a class="header" href="#测试">测试</a></h3>
-<p>注意事项</p>
-<h2 id="完整安装没必要"><a class="header" href="#完整安装没必要">完整安装（没必要）</a></h2>
-<h3 id="简要流程"><a class="header" href="#简要流程">简要流程</a></h3>
-<h2 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h2>
+<p>并做3次打火测试</p>
+<p>感谢观看，希望对您有所帮助</p>
+<p>祝你在欧琦工作愉快 再见</p>
+<h2 id="4常见问题"><a class="header" href="#4常见问题">4.常见问题</a></h2>
 <h3 id="问题1"><a class="header" href="#问题1">问题1</a></h3>
 <p>原因</p>
 <p>处理</p>
