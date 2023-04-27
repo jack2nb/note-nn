@@ -137,17 +137,19 @@
                         <h2 id="服务器规划"><a class="header" href="#服务器规划">服务器规划</a></h2>
 <h3 id="硬件虚拟化规划"><a class="header" href="#硬件虚拟化规划">硬件虚拟化规划</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>名称</th><th>ip</th><th>位置</th><th>备注</th></tr></thead><tbody>
+<tr><td>vm</td><td>192.168.0.121</td><td>机房2机柜 台式机</td><td>linux kvm系统 云桌面</td></tr>
+<tr><td>vm2</td><td>192.168.0.122</td><td>机房2机柜 台式机</td><td>linux kvm系统 测试和云桌面</td></tr>
+<tr><td>Edge-R440</td><td>192.168.0.123</td><td>机房2机柜 1U</td><td>用于 OA</td></tr>
+<tr><td>R740xd</td><td>192.168.0.124</td><td>机房2机柜 4U</td><td>用于 金蝶云</td></tr>
 <tr><td></td><td></td><td></td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td>win-99</td><td>192.168.0.99</td><td>kvm 192.168.0.121内</td><td>驻外办公远程k3</td></tr>
+<tr><td>win-98</td><td>192.168.0.98</td><td>kvm 192.168.0.122内</td><td>驻外办公远程k3</td></tr>
+<tr><td>win-97</td><td>192.168.0.97</td><td>kvm 192.168.0.121内</td><td>驻外办公远程k3</td></tr>
 </tbody></table>
 </div>
 <h2 id="虚拟化服务器管理"><a class="header" href="#虚拟化服务器管理">虚拟化服务器管理</a></h2>
+<p>虚拟化 管理入口 https://192.168.0.124:9090/</p>
 <p>可以通过web界面查看虚拟化运行状态</p>
 <p><img src="./%E6%9C%8D%E5%8A%A1%E5%99%A8/imgs/kvm%E7%AE%A1%E7%90%862.png" alt="" /></p>
 <h2 id="物理服务器管理"><a class="header" href="#物理服务器管理">物理服务器管理</a></h2>
