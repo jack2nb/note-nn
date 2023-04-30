@@ -292,6 +292,16 @@ WinSPRLevel           : 3.9
 PSComputerName        :
 
 </code></pre>
+<h3 id="专杀工具"><a class="header" href="#专杀工具">专杀工具</a></h3>
+<pre><code>
+专杀
+https://down7.huorong.cn/hrkill-1.0.0.83.exe
+
+勒索病毒解密
+https://www.huorong.cn/download/tools/wannaren_decryptor/HRDecryptor.exe
+
+
+</code></pre>
 <h3 id="通过curl上报电脑信息shell脚本"><a class="header" href="#通过curl上报电脑信息shell脚本">通过curl上报电脑信息(shell脚本)</a></h3>
 <pre><code class="language-cmd">
 net config workstation | find &quot;计算机全名&quot;  | curl -X POST http://httpbin.org/post  -d @-
@@ -1152,6 +1162,9 @@ no snmp-server enable traps
 <h3 id="查看版本和运行时间"><a class="header" href="#查看版本和运行时间">查看版本和运行时间</a></h3>
 <pre><code>display version
 </code></pre>
+<h3 id="改名"><a class="header" href="#改名">改名</a></h3>
+<pre><code>sysname  lou5
+</code></pre>
 <p>普通模式下</p>
 <p>重置配置</p>
 <pre><code class="language-cmd">reset saved-configuration
@@ -1191,9 +1204,15 @@ display lldp neighbor-information   #显示附近的设备
 <h4 id="查看接口状况-1"><a class="header" href="#查看接口状况-1">查看接口状况</a></h4>
 <pre><code>display interface brief
 </code></pre>
+<h3 id="修改接口备注"><a class="header" href="#修改接口备注">修改接口备注</a></h3>
+<pre><code>
+interface GigabitEthernet1/0/24
+description string 
+</code></pre>
 <h3 id="统计信息"><a class="header" href="#统计信息">统计信息</a></h3>
 <pre><code>display interface brief
 </code></pre>
+<h3 id=""><a class="header" href="#"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mac地址清单"><a class="header" href="#mac地址清单">mac地址清单</a></h1>
 <div class="table-wrapper"><table><thead><tr><th>MAC</th><th>Address</th><th>CEVLAN</th><th>Port</th></tr></thead><tbody>
 <tr><td>00e0-4c37-ace4</td><td>34</td><td>Eth0/0/11</td><td>dynamic</td></tr>
@@ -1775,6 +1794,17 @@ Discovered open port 8091/tcp on 112.16.172.14
 <p>主菜单-&gt;配置-&gt;图像-&gt;OSD设置 修改通道名称</p>
 <h4 id="取消萤石云绑定"><a class="header" href="#取消萤石云绑定">取消萤石云绑定</a></h4>
 <p>需要连接显示器 主菜单-》配置-》网络配置-》账号状态-》解绑</p>
+<h2 id="截取视频"><a class="header" href="#截取视频">截取视频</a></h2>
+<p>如果没有对应的解码器需要重新编解码</p>
+<pre><code>ffmpeg -y -i C:\Users\Administrator\Web\DownloadFiles\2023-04-29\00010003228000000.mp4   -ss 00:50:00 -to 00:55:50 test_cut.mp4  
+</code></pre>
+<h4 id="不转码直接截取"><a class="header" href="#不转码直接截取">不转码直接截取</a></h4>
+<pre><code>-c:v copy -c:a copy  #//音视频都拷贝
+
+-c:v copy -c:a aac  #//音频重新编码
+</code></pre>
+<pre><code>ffmpeg -y -i C:\Users\Administrator\Web\DownloadFiles\2023-04-29\00010003228000000.mp4  -c:v copy -c:a aac  -ss 00:50:00 -to 00:55:50 test_cut2.mp4  
+</code></pre>
 <h4 id="web远程管理-老监控"><a class="header" href="#web远程管理-老监控">web远程管理 老监控</a></h4>
 <pre><code class="language-cmd">192.168.6.128  (同ip地址2台)
 
