@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>6026装配 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="../电脑工具.html"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 网络管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络/管理路由器.html"><strong aria-hidden="true">2.1.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="../网络/管理主交换机.html"><strong aria-hidden="true">2.2.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="../网络/交换机2锐捷.html"><strong aria-hidden="true">2.3.</strong> 交换机2锐捷</a></li><li class="chapter-item expanded "><a href="../网络/交换机2华三poe.html"><strong aria-hidden="true">2.4.</strong> 交换机h3c-POE</a></li><li class="chapter-item expanded "><a href="../网络/mac列表.html"><strong aria-hidden="true">2.5.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="../网络/arp列表.html"><strong aria-hidden="true">2.6.</strong> arp列表</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../管理内部.html"><strong aria-hidden="true">3.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="../管理外网.html"><strong aria-hidden="true">3.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="../网络/监控主控.html"><strong aria-hidden="true">3.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="../特殊设备.html"><strong aria-hidden="true">3.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 调整规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../调整规划-网络.html"><strong aria-hidden="true">4.1.</strong> 调整规划-网络</a></li><li class="chapter-item expanded "><a href="../调整规划-服务器.html"><strong aria-hidden="true">4.2.</strong> 调整规划-服务器</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化设备.html"><strong aria-hidden="true">4.3.</strong> 虚拟化设备</a></li></ol></li><li class="chapter-item expanded "><a href="../网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="../管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 其他管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../其他管理/向日葵.html"><strong aria-hidden="true">7.1.</strong> 向日葵</a></li><li class="chapter-item expanded "><a href="../服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.2.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="../其他管理/电脑配置.html"><strong aria-hidden="true">7.3.</strong> 电脑配置</a></li><li class="chapter-item expanded "><a href="../其他管理/企业微信清理缓存.html"><strong aria-hidden="true">7.4.</strong> 企业微信清理缓存</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 数据库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/数据库mssql.html"><strong aria-hidden="true">8.1.</strong> 数据库mssql备份</a></li><li class="chapter-item expanded "><a href="../服务器/ms数据库维护.html"><strong aria-hidden="true">8.2.</strong> ms数据库维护</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 工装视频</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../视频/6026装配.html" class="active"><strong aria-hidden="true">9.1.</strong> 6026装配</a></li><li class="chapter-item expanded "><a href="../视频/601-b装配.html"><strong aria-hidden="true">9.2.</strong> 601-b装配</a></li><li class="chapter-item expanded "><a href="../视频/601-f装配.html"><strong aria-hidden="true">9.3.</strong> 601-f装配</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="6026型号装配分解"><a class="header" href="#6026型号装配分解">6026型号装配分解</a></h2>
+<p>宁波欧琦烟具有限公司 （产品装配教材）</p>
+<hr />
+<video id="video" controls=""  >
+      <source id="webm" src="./6026-v2.mp4" type="video/webm">
+</video>
+<hr />
+<h2 id="1介绍"><a class="header" href="#1介绍">1.介绍</a></h2>
+<p>六零二六型号装配工具介绍</p>
+<h3 id="工具"><a class="header" href="#工具">工具</a></h3>
+<p>工具介绍  专用火焰调整套筒  斜口钳   电动螺丝刀</p>
+<h3 id="配件"><a class="header" href="#配件">配件</a></h3>
+<p>零配件介绍</p>
+<p>首先介绍 六零二六型的主体部件-气腔、这是一根连接皮管、翘板、气化炉、垫片、定位圈用于火焰阀门、前盖、后盖，2乘以4.5大螺丝  、1.5乘以4.5小螺丝、按手、电子点火器</p>
+<h2 id="2安装步骤"><a class="header" href="#2安装步骤">2.安装步骤</a></h2>
+<p>现在开始装配</p>
+<h3 id="装配部件1-定位圈"><a class="header" href="#装配部件1-定位圈">装配部件1 (定位圈)</a></h3>
+<p>先将定位圈安装到气腔并压到底部 ，到底部后将卡住出气阀门</p>
+<h3 id="装配部件2-垫片"><a class="header" href="#装配部件2-垫片">装配部件2 （垫片）</a></h3>
+<p>接下来放入垫片，注意：这里需要将垫片摇平</p>
+<h3 id="装配部件3-翘板"><a class="header" href="#装配部件3-翘板">装配部件3 (翘板)</a></h3>
+<p>再安装翘板，注意：翘板光滑的一面朝上</p>
+<h3 id="装配部件4-电子"><a class="header" href="#装配部件4-电子">装配部件4 （电子）</a></h3>
+<p>再装入电子点火器</p>
+<h3 id="装配部件5-气化炉"><a class="header" href="#装配部件5-气化炉">装配部件5 （气化炉）</a></h3>
+<p>然后拿起气化炉和皮管，将皮管连接到气化炉并插入到位</p>
+<h3 id="装配部件5-皮管"><a class="header" href="#装配部件5-皮管">装配部件5 （皮管）</a></h3>
+<p>现在把电子点火器的线穿过气化炉中间的孔洞</p>
+<h4 id="步骤"><a class="header" href="#步骤">步骤</a></h4>
+<p>再把皮管的另一头连接到气腔的出气口，注意：也需要压到位</p>
+<h3 id="装配部件7-按手"><a class="header" href="#装配部件7-按手">装配部件7 (按手)</a></h3>
+<p>接下来安装“按手”，将按手装在电子点火器上方</p>
+<h3 id="装配部件8-后盖"><a class="header" href="#装配部件8-后盖">装配部件8 (后盖)</a></h3>
+<p>再安装带有链条的后盖，</p>
+<h4 id="步骤1"><a class="header" href="#步骤1">步骤1</a></h4>
+<p>接下来调整气化炉位置，确保电子线朝向气腔。对准压入凹槽内</p>
+<h4 id="步骤2"><a class="header" href="#步骤2">步骤2</a></h4>
+<p>弯折电子线并保留1个毫米，减去多余的电子线</p>
+<h4 id="装配部件9-前盖"><a class="header" href="#装配部件9-前盖">装配部件9 (前盖)</a></h4>
+<p>再安装前盖，盖上压紧</p>
+<h3 id="装配部件10-安装大号螺丝"><a class="header" href="#装配部件10-安装大号螺丝">装配部件10 (安装大号螺丝)</a></h3>
+<p>现在安装2乘以4.5大号螺丝 ,用于固定气化炉</p>
+<p>用电动螺丝刀紧固</p>
+<h3 id="装配部件11-安装小号螺丝"><a class="header" href="#装配部件11-安装小号螺丝">装配部件11 (安装小号螺丝)</a></h3>
+<p>现在安装1乘以4.5小号螺丝 ,用于固定气腔</p>
+<p>用电动螺丝刀紧固</p>
+<h4 id="步骤-背面的螺丝安装"><a class="header" href="#步骤-背面的螺丝安装">步骤-背面的螺丝安装</a></h4>
+<p>翻转打火机，背面同样先安装大号螺丝 ,用于固定气化炉</p>
+<p>这里机身需要安装两颗1乘以4.5小号螺丝</p>
+<h2 id="3调整火焰"><a class="header" href="#3调整火焰">3.调整火焰</a></h2>
+<p>安装步骤到这里已完成，现在开始调整火焰大小</p>
+<h3 id="步骤1-1"><a class="header" href="#步骤1-1">步骤1</a></h3>
+<p>用火焰调整套筒调整火大小</p>
+<p>测试当前火焰大小</p>
+<h3 id="步骤2-1"><a class="header" href="#步骤2-1">步骤2</a></h3>
+<p>从后面插入套筒，可以左右旋转来控制火焰大小</p>
+<p>将火焰蓝色部分调整到1.7厘米左右即可</p>
+<h3 id="测试"><a class="header" href="#测试">测试</a></h3>
+<p>并做3次打火测试</p>
+<p>感谢观看，希望对您有所帮助</p>
+<p>祝你在欧琦工作愉快 再见</p>
+<h2 id="4常见问题"><a class="header" href="#4常见问题">4.常见问题</a></h2>
+<h3 id="问题1"><a class="header" href="#问题1">问题1</a></h3>
+<p>原因</p>
+<p>处理</p>
+<h3 id="问题2"><a class="header" href="#问题2">问题2</a></h3>
+<p>原因</p>
+<p>处理</p>
+<h3 id="问题3"><a class="header" href="#问题3">问题3</a></h3>
+<p>原因</p>
+<p>处理</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../服务器/ms数据库维护.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../视频/601-b装配.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../服务器/ms数据库维护.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../视频/601-b装配.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>电脑配置 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络工具.html"><strong aria-hidden="true">1.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="../电脑工具.html"><strong aria-hidden="true">1.2.</strong> 电脑工具</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 网络管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络/管理路由器.html"><strong aria-hidden="true">2.1.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="../网络/管理主交换机.html"><strong aria-hidden="true">2.2.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="../网络/交换机2锐捷.html"><strong aria-hidden="true">2.3.</strong> 交换机2锐捷</a></li><li class="chapter-item expanded "><a href="../网络/交换机2华三poe.html"><strong aria-hidden="true">2.4.</strong> 交换机h3c-POE</a></li><li class="chapter-item expanded "><a href="../网络/mac列表.html"><strong aria-hidden="true">2.5.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="../网络/arp列表.html"><strong aria-hidden="true">2.6.</strong> arp列表</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../管理内部.html"><strong aria-hidden="true">3.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="../管理外网.html"><strong aria-hidden="true">3.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="../网络/监控主控.html"><strong aria-hidden="true">3.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="../特殊设备.html"><strong aria-hidden="true">3.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 调整规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../调整规划-网络.html"><strong aria-hidden="true">4.1.</strong> 调整规划-网络</a></li><li class="chapter-item expanded "><a href="../调整规划-服务器.html"><strong aria-hidden="true">4.2.</strong> 调整规划-服务器</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化设备.html"><strong aria-hidden="true">4.3.</strong> 虚拟化设备</a></li></ol></li><li class="chapter-item expanded "><a href="../网络/监控设备列表.html"><strong aria-hidden="true">5.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="../管理内部2电脑清单.html"><strong aria-hidden="true">6.</strong> 电脑清单</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 其他管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../其他管理/向日葵.html"><strong aria-hidden="true">7.1.</strong> 向日葵</a></li><li class="chapter-item expanded "><a href="../服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.2.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="../其他管理/电脑配置.html" class="active"><strong aria-hidden="true">7.3.</strong> 电脑配置</a></li><li class="chapter-item expanded "><a href="../其他管理/企业微信清理缓存.html"><strong aria-hidden="true">7.4.</strong> 企业微信清理缓存</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 数据库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/数据库mssql.html"><strong aria-hidden="true">8.1.</strong> 数据库mssql备份</a></li><li class="chapter-item expanded "><a href="../服务器/ms数据库维护.html"><strong aria-hidden="true">8.2.</strong> ms数据库维护</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 工装视频</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../视频/6026装配.html"><strong aria-hidden="true">9.1.</strong> 6026装配</a></li><li class="chapter-item expanded "><a href="../视频/601-b装配.html"><strong aria-hidden="true">9.2.</strong> 601-b装配</a></li><li class="chapter-item expanded "><a href="../视频/601-f装配.html"><strong aria-hidden="true">9.3.</strong> 601-f装配</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="电脑配置"><a class="header" href="#电脑配置">电脑配置</a></h1>
+<p>cpu性能参考 https://www.bybusa.com/cpu-rank</p>
+<h3 id="设计部门电脑"><a class="header" href="#设计部门电脑">设计部门电脑</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>英特尔  I7-11700k（8核16线程）</td><td>2500</td></tr>
+<tr><td>散热器</td><td>利民FC140</td><td>359</td></tr>
+<tr><td>主板</td><td>华硕  Z590-A GAMING</td><td>1199</td></tr>
+<tr><td>内存</td><td>金士顿骇客 32*2  64GDDR4</td><td>1319</td></tr>
+<tr><td>显卡</td><td>七彩虹  RTX 3060  OC 12G</td><td>2900</td></tr>
+<tr><td>存储</td><td>三星980 PRO 1TB</td><td>700</td></tr>
+<tr><td>数据盘</td><td>西数 蓝盘4T</td><td>530</td></tr>
+<tr><td>机箱</td><td>爱国者 yogo m2</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷 Gn850</td><td>519</td></tr>
+<tr><td>合计</td><td>高效高性能</td><td>10205</td></tr>
+</tbody></table>
+</div>
+<h4 id="办公电脑配置"><a class="header" href="#办公电脑配置">办公电脑配置</a></h4>
+<p>英特尔</p>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>intel 酷睿i3-12100 4核8线程</td><td>900</td></tr>
+<tr><td>散热器</td><td>intel原装散热器</td><td>0</td></tr>
+<tr><td>主板</td><td>华硕  TUF GAMING B460M-PRO</td><td>769</td></tr>
+<tr><td>内存</td><td>金士顿骇客8G 3200 DDR4</td><td>319</td></tr>
+<tr><td>显卡</td><td>集成显卡</td><td>0</td></tr>
+<tr><td>存储</td><td>金士顿A400 240G 固态硬盘</td><td>249</td></tr>
+<tr><td>机箱</td><td>鑫谷图灵N5</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷战斧500 PLUS</td><td>219</td></tr>
+<tr><td>合计</td><td>办公常用高效</td><td>2784</td></tr>
+</tbody></table>
+</div>
+<p>amd方案</p>
+<div class="table-wrapper"><table><thead><tr><th>配件</th><th>品牌型号</th><th>价格参考</th></tr></thead><tbody>
+<tr><td>CPU</td><td>AMD 锐龙5 5600G 6核12线程</td><td>900</td></tr>
+<tr><td>散热器</td><td>鑫谷（Segotep）S4 ARGB风冷</td><td>139</td></tr>
+<tr><td>主板</td><td>华硕（ASUS） TUF GAMING</td><td>799</td></tr>
+<tr><td>内存</td><td>金士顿骇客8G*2 3200 DDR4</td><td>319</td></tr>
+<tr><td>显卡</td><td>集成显卡</td><td>0</td></tr>
+<tr><td>存储</td><td>金士顿A400 240G 固态硬盘</td><td>249</td></tr>
+<tr><td>机箱</td><td>鑫谷图灵N5</td><td>179</td></tr>
+<tr><td>电源</td><td>鑫谷战斧500 PLUS</td><td>219</td></tr>
+<tr><td>合计</td><td>高性能高稳定通用</td><td>3053</td></tr>
+</tbody></table>
+</div>
+<h3 id="服务器内存"><a class="header" href="#服务器内存">服务器内存</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>服务器</th><th>内存型号</th><th>价格</th><th>备注</th></tr></thead><tbody>
+<tr><td>252</td><td><strong>三星M393A4G43AB3-CWE 32G DDR4 3200 RECC</strong></td><td>￥550</td><td><a href="https://memory.net/product/m393a4g43ab3-cwe-samsung-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x8-module/">参考</a></td></tr>
+<tr><td>107</td><td><strong>海力士HMAA8GR7AJR4N-XN, SK Hynix 64GB 2RX4</strong></td><td>￥1200</td><td><a href="https://memory.net/product/hmaa8gr7ajr4n-xn-sk-hynix-1x-64gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
+<tr><td>45</td><td><strong>海力士HMA84GR7DJR4N-XN - SK Hynix 1x 32GB DDR4-3200</strong></td><td>￥550</td><td><a href="https://memory.net/product/hma84gr7djr4n-xn-sk-hynix-1x-32gb-ddr4-3200-rdimm-pc4-25600r-dual-rank-x4-module/">参考</a></td></tr>
+</tbody></table>
+</div>
+<h3 id="服务器硬盘配置"><a class="header" href="#服务器硬盘配置">服务器硬盘配置</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>服务器</th><th>硬盘型号</th><th>单价</th><th>数量</th><th>价格</th><th>备注</th></tr></thead><tbody>
+<tr><td>dell R740xd</td><td>4T容量 MG04SCSA40</td><td>￥298</td><td>8</td><td>￥2384</td><td>2年保修 <br /><a href="https://m.tb.cn/h.UFvhduK?tk=Jr7ldNbpiai">参考</a></td></tr>
+<tr><td>dell R740xd</td><td>R740xd 硬盘托架</td><td>￥30</td><td>8</td><td>￥240</td><td></td></tr>
+<tr><td></td><td>合计</td><td>￥328</td><td></td><td>￥2624</td><td>新购4T*8<br />利旧4T*2 <br />共计40T空间</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../服务器/k3问题正在调用中间层层处理.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../其他管理/企业微信清理缓存.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../服务器/k3问题正在调用中间层层处理.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../其他管理/企业微信清理缓存.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
