@@ -2321,8 +2321,8 @@ https://www.huorong.cn/download/tools/wannaren_decryptor/HRDecryptor.exe
 net config workstation | find &quot;计算机全名&quot;  | curl -X POST http://httpbin.org/post  -d @-
 
 </code></pre>
-<h4 id="win10开启f8启动选项"><a class="header" href="#win10开启f8启动选项">win10开启f8启动选项</a></h4>
-<pre><code>bcdedit /set  {default}  bootmenupolicy standard 
+<h3 id="win10开启f8启动选项"><a class="header" href="#win10开启f8启动选项">win10开启f8启动选项</a></h3>
+<pre><code>bcdedit /set  {default}  bootmenupolicy legacy 
 </code></pre>
 <h3 id="win10安装snmp"><a class="header" href="#win10安装snmp">win10安装snmp</a></h3>
 <pre><code>管理员打开 PowerShell 
@@ -2353,6 +2353,11 @@ DISM /Online /Cleanup-image /RestoreHealth （将与官方系统源文件不同�
 <p>重装win10 默认app</p>
 <pre><code>
 Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register        &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}
+</code></pre>
+<h4 id="超级工具dism"><a class="header" href="#超级工具dism">超级工具(Dism++)</a></h4>
+<p>Dism++ 可以在非系统中管理服务  ，  常用工具-&gt;启动项管理</p>
+<h3 id="系统下载站全"><a class="header" href="#系统下载站全">系统下载站（全）</a></h3>
+<pre><code>https://msdn.itellyou.cn/
 </code></pre>
 <h2 id="命令行共享文件"><a class="header" href="#命令行共享文件">命令行共享文件</a></h2>
 <h3 id="查看本地共享"><a class="header" href="#查看本地共享">查看本地共享</a></h3>
