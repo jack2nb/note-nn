@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>软路由 - 工作文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍说明</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 网络管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络/管理路由器.html"><strong aria-hidden="true">1.1.</strong> 管理路由器</a></li><li class="chapter-item expanded "><a href="../网络/软路由.html" class="active"><strong aria-hidden="true">1.2.</strong> 软路由</a></li><li class="chapter-item expanded "><a href="../网络/管理主交换机.html"><strong aria-hidden="true">1.3.</strong> 管理主交换机</a></li><li class="chapter-item expanded "><a href="../网络/交换机2锐捷.html"><strong aria-hidden="true">1.4.</strong> 交换机2锐捷</a></li><li class="chapter-item expanded "><a href="../网络/交换机2华三poe.html"><strong aria-hidden="true">1.5.</strong> 交换机h3c-POE</a></li><li class="chapter-item expanded "><a href="../网络/mac列表.html"><strong aria-hidden="true">1.6.</strong> mac列表</a></li><li class="chapter-item expanded "><a href="../网络/arp列表.html"><strong aria-hidden="true">1.7.</strong> arp列表</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 常用管理登入</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../管理内部.html"><strong aria-hidden="true">2.1.</strong> 内部管理</a></li><li class="chapter-item expanded "><a href="../管理外网.html"><strong aria-hidden="true">2.2.</strong> 外网管理</a></li><li class="chapter-item expanded "><a href="../网络/监控主控.html"><strong aria-hidden="true">2.3.</strong> 监控主控</a></li><li class="chapter-item expanded "><a href="../特殊设备.html"><strong aria-hidden="true">2.4.</strong> 特殊设备</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 调整规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../调整规划-网络.html"><strong aria-hidden="true">3.1.</strong> 调整规划-网络</a></li><li class="chapter-item expanded "><a href="../调整规划-服务器.html"><strong aria-hidden="true">3.2.</strong> 调整规划-服务器</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化设备.html"><strong aria-hidden="true">3.3.</strong> 虚拟化设备</a></li></ol></li><li class="chapter-item expanded "><a href="../网络/监控设备列表.html"><strong aria-hidden="true">4.</strong> 监控列表</a></li><li class="chapter-item expanded "><a href="../管理内部2电脑清单.html"><strong aria-hidden="true">5.</strong> 电脑清单</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 常用工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络工具.html"><strong aria-hidden="true">6.1.</strong> 网络工具</a></li><li class="chapter-item expanded "><a href="../电脑工具.html"><strong aria-hidden="true">6.2.</strong> 电脑工具</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 其他管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../其他管理/向日葵.html"><strong aria-hidden="true">7.1.</strong> 向日葵</a></li><li class="chapter-item expanded "><a href="../其他管理/安全生产app.html"><strong aria-hidden="true">7.2.</strong> 安全生产</a></li><li class="chapter-item expanded "><a href="../服务器/k3问题正在调用中间层层处理.html"><strong aria-hidden="true">7.3.</strong> K3问题重启服务</a></li><li class="chapter-item expanded "><a href="../其他管理/电脑配置.html"><strong aria-hidden="true">7.4.</strong> 电脑配置</a></li><li class="chapter-item expanded "><a href="../其他管理/企业微信清理缓存.html"><strong aria-hidden="true">7.5.</strong> 企业微信清理缓存</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 数据库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/ms数据库数据维护.html"><strong aria-hidden="true">8.1.</strong> 数据库mssql数据分析</a></li><li class="chapter-item expanded "><a href="../服务器/ms数据库维护.html"><strong aria-hidden="true">8.2.</strong> 数据库mssql备份恢复</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 工装视频</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../视频/6026装配.html"><strong aria-hidden="true">9.1.</strong> 6026装配</a></li><li class="chapter-item expanded "><a href="../视频/601-b装配.html"><strong aria-hidden="true">9.2.</strong> 601-b装配</a></li><li class="chapter-item expanded "><a href="../视频/601-f装配.html"><strong aria-hidden="true">9.3.</strong> 601-f装配</a></li><li class="chapter-item expanded "><a href="../视频/603装配.html"><strong aria-hidden="true">9.4.</strong> 603装配</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">工作文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="软路由"><a class="header" href="#软路由">软路由</a></h2>
+<p>软路由wrt接管大部分无线接入直接通往防火墙</p>
+<p><img src="./imgs/wrt01.png" alt="" /></p>
+<h3 id="接口"><a class="header" href="#接口">接口</a></h3>
+<p>设备管理二层，接口管理三层  ，三层重点在于防火墙，二层重点在与vlan。wan口不具备任何路由功能（防火墙规则为丢弃）</p>
+<h4 id="uci查看配置"><a class="header" href="#uci查看配置">uci查看配置</a></h4>
+<pre><code>uci show network
+</code></pre>
+<h4 id="物理设备规划"><a class="header" href="#物理设备规划">物理设备规划</a></h4>
+<p>虚拟化桥接实际是无效（需要kvm中重复分配），至少双网口4网口配置</p>
+<p>pcie名:网口号:虚拟编号</p>
+<p>24:       01      :    01-99</p>
+<p>24:       02      :    01-99</p>
+<p>34:       01      :    01-99</p>
+<p>34:       02      :    01-99</p>
+<p>[</p>
+<p>00:01:02:24:01:01, 00:01-02:24:02:01</p>
+<p>00:01:02:34:02:01 , 00:01:02:34:02:01</p>
+<p>]</p>
+<p>网段:IP百万:IP十位</p>
+<p>mac[00:01:02:11:00:99]</p>
+<h4 id="eth使用"><a class="header" href="#eth使用">eth使用</a></h4>
+<p>通过设置修改启用eth网口</p>
+<h4 id="虚拟接口规划"><a class="header" href="#虚拟接口规划">虚拟接口规划</a></h4>
+<p>所以接口都是虚拟化的要对应各种设备</p>
+<p>配置设备后一般都需要指定防护墙区域，方便管理通信(无法连到端口,就是被防火墙挡住了)</p>
+<h3 id="路由表"><a class="header" href="#路由表">路由表</a></h3>
+<p>路由表 是一个数字从0-65535， 表+规则完成不同情况走不同的路由</p>
+<p>状体-&gt;路由--》IPv4 邻居：可以看到arp表</p>
+<h4 id="静态-ipv4-路由"><a class="header" href="#静态-ipv4-路由">静态 IPv4 路由</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>接口</th><th>目标</th><th>网关</th><th>跃点数</th><th>表</th></tr></thead><tbody>
+<tr><td>lan2</td><td>0.0.0.0/0</td><td>192.168.2.1</td><td>0</td><td>44</td></tr>
+</tbody></table>
+</div>
+<h4 id="ipv4规则"><a class="header" href="#ipv4规则">ipv4规则</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>优先级</th><th>传入接口</th><th>源地址</th><th>传出接口</th><th>目标地址</th><th>表</th></tr></thead><tbody>
+<tr><td>自动</td><td>br-lan</td><td>192.168.99.0/24</td><td>未指定</td><td>任意</td><td>44</td></tr>
+<tr><td>自动</td><td>未指定</td><td>192.168.99.199/32</td><td>未指定</td><td>任意</td><td>44</td></tr>
+</tbody></table>
+</div>
+<p>注意：当源地址为网段需要指定传入接口</p>
+<h4 id="验证路由"><a class="header" href="#验证路由">验证路由</a></h4>
+<pre><code>tracert -d  112.16.172.14
+</code></pre>
+<p>结果</p>
+<p>走电信路线</p>
+<pre><code>tracert -d  112.16.172.14
+
+通过最多 30 个跃点跟踪到 112.16.172.14 的路由
+
+  1     1 ms     1 ms     1 ms  192.168.20.12
+  2     3 ms     1 ms     1 ms  192.168.2.1
+  3     4 ms     3 ms     3 ms  192.168.1.1
+  4     5 ms     4 ms     4 ms  125.115.232.1
+  5    44 ms    16 ms     9 ms  115.233.65.145
+</code></pre>
+<p>走移动路线</p>
+<pre><code>tracert -d  112.16.172.14
+
+通过最多 30 个跃点跟踪到 112.16.172.14 的路由
+
+  1     3 ms     3 ms     3 ms  192.168.11.1
+  2    &lt;1 毫秒   &lt;1 毫秒   &lt;1 毫秒 112.16.172.14
+</code></pre>
+<h2 id="交换机设置"><a class="header" href="#交换机设置">交换机设置</a></h2>
+<p>access/trunk/Hybrid</p>
+<p>Hybrid 最灵活</p>
+<p>access 最稳定</p>
+<p>接口-》设备-》配置</p>
+<p><img src="./imgs/wrt02.png" alt="" /></p>
+<h3 id="vlan和ip对应"><a class="header" href="#vlan和ip对应">vlan和ip对应</a></h3>
+<p>vlan20配置192.168.11.0/24  无法通行  (前提：通一个vlan后对应ip)</p>
+<h3 id="启用vlan"><a class="header" href="#启用vlan">启用vlan</a></h3>
+<p>设备-》配置-》网桥vlan过滤：启用</p>
+<p>vlan id 11 创建了blan.11接口一个，保存但是不应用。</p>
+<h3 id="vlan类型"><a class="header" href="#vlan类型">VLAN类型</a></h3>
+<p>(已打标签)T 类型  trunk   //T类型+主vlan  就能通 </p>
+<p>(未打标签)U类型  Hybrid   //</p>
+<p><img src="./imgs/wrt02.2.png" alt="" /></p>
+<h4 id="主vlan"><a class="header" href="#主vlan">主vlan</a></h4>
+<p>端口的默认vlan  一般不使用，发送的数据默认打上这个vlanid</p>
+<h4 id="修改mac地址-kvm貌似无法实现"><a class="header" href="#修改mac地址-kvm貌似无法实现">修改mac地址 （kvm貌似无法实现）</a></h4>
+<p>blan.11 的mac地址可以自己定义 </p>
+<h3 id="使用vlan"><a class="header" href="#使用vlan">使用vlan</a></h3>
+<p>接口-》添加新接口 -》软件VLAN: blan.11</p>
+<p><img src="./imgs/wrt03.png" alt="" /></p>
+<pre><code>blan.11
+</code></pre>
+<h5 id="交换机端口-配置"><a class="header" href="#交换机端口-配置">交换机端口 配置</a></h5>
+<pre><code>interface Ethernet0/0/3
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 111
+</code></pre>
+<h3 id="基于vlan的路由"><a class="header" href="#基于vlan的路由">基于vlan的路由</a></h3>
+<p>规则</p>
+<p><img src="./imgs/wrt04.png" alt="" /></p>
+<p>路由表</p>
+<p><img src="./imgs/wrt05.png" alt="" /></p>
+<h2 id="梳理冗余配置"><a class="header" href="#梳理冗余配置">梳理冗余配置</a></h2>
+<p>mac 状态为Incomplete很有可能属于不符合vlan的ip段</p>
+<h4 id="无法访问的排除"><a class="header" href="#无法访问的排除">无法访问的排除</a></h4>
+<p>配置 26vlan的ip 插在到 34vlan的接口上 没有做mac-vlan  ,导致交换机也无法访问。mac列表一定要找到对应的ip</p>
+<pre><code>192.168.6.153 
+192.168.6.128
+
+192.168.14.14
+
+</code></pre>
+<h2 id="上网认证portal认证"><a class="header" href="#上网认证portal认证">上网认证(Portal认证)</a></h2>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../网络/管理路由器.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../网络/管理主交换机.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../网络/管理路由器.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../网络/管理主交换机.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
